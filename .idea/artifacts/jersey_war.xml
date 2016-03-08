@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jersey:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="jersey.war">
+      <element id="artifact" artifact-name="jersey:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="sqljdbc4" />
+          <element id="library" level="project" name="org.hibernate:hibernate-ehcache:5.0.7.Final" />
+          <element id="library" level="project" name="org.hibernate:hibernate-core:5.0.7.Final" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
