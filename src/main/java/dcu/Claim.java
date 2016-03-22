@@ -1,10 +1,21 @@
 package dcu;
 
+import javax.persistence.*;
+
 /**
  * Created by Sean on 08/03/2016.
  */
+
+@Entity
+@Table(name = "Claim")
 public class Claim {
+
+    @Id
+    @Column(name = "claimId", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int claimId;
+
+    @Column(name = "claimReference")
     private String claimReference;
 
     public int getClaimId() {

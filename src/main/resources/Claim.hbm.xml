@@ -6,10 +6,10 @@
 
     <class name="dcu.Claim" table="Claim" schema="dbo" catalog="SSSMSDemo">
         <id name="claimId">
-            <column name="claimId" sql-type="int"/>
+            <column name="claimId" sql-type="java.lang.Integer"/>
         </id>
         <property name="claimReference">
-            <column name="claimReference" sql-type="sysname" not-null="true"/>
+            <column name="claimReference" sql-type="java.lang.String" not-null="true"/>
         </property>
     </class>
 

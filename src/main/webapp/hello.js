@@ -4,7 +4,7 @@
 angular.module('myApp', []).controller('personCtrl', function($scope, $http) {
     $scope.firstName = "John",
         $scope.lastName = "Doe",
-        $http.get('http://localhost:8081/rest/claims/getAll').
+        $http.get('http://localhost:8081/rest/claims/getOne').
         success(function(data) {
             $scope.claim = data;
         });

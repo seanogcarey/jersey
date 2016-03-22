@@ -14,13 +14,14 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         System.out.println("Hello World");
 
-        /*
+
         ClaimsController claimsController = new ClaimsController();
 
-        List<Claim> list = claimsController.getClaims();
+        String claims = claimsController.getClaims();
         //ist<Claim> claimList = claimTest.getAllClaims();
-        System.out.println("Claim List: " + list);
-        */
+        System.out.println("Claim List: " + claims);
+
+        /*
         Claim claim = new Claim();
         claim.setClaimId(4);
         claim.setClaimReference("jersey ref");
@@ -34,6 +35,7 @@ public class Main {
         String json = gson.toJson(claim);
 
         System.out.println(json);
+        */
 
     }
 }
