@@ -18,24 +18,7 @@ public class Main {
         ClaimsController claimsController = new ClaimsController();
 
         String claims = claimsController.getClaims();
-        //ist<Claim> claimList = claimTest.getAllClaims();
         System.out.println("Claim List: " + claims);
-
-        /*
-        Claim claim = new Claim();
-        claim.setClaimId(4);
-        claim.setClaimReference("jersey ref");
-
-        List<Claim> claimList = new ArrayList<>();
-        claimList.add(claim);
-
-
-        Gson gson = new Gson();
-
-        String json = gson.toJson(claim);
-
-        System.out.println(json);
-        */
 
     }
 }

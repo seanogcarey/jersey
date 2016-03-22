@@ -31,6 +31,7 @@
           <element id="library" level="project" name="org.hibernate:hibernate-ehcache:5.0.7.Final" />
           <element id="library" level="project" name="org.hibernate:hibernate-core:5.0.7.Final" />
           <element id="library" level="project" name="sqljdbc4" />
+          <element id="library" level="project" name="java-json" />
         </element>
       </element>
       <element id="directory" name="META-INF">

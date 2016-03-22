@@ -4,21 +4,11 @@ package dcu;
  * Created by Sean on 08/03/2016.
  */
 import com.google.gson.Gson;
-import com.sun.deploy.net.HttpResponse;
-import dcu.Claim;
-import dcu.SessionFactoryHelper;
 import javassist.NotFoundException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.persistence.Entity;
-import javax.ws.rs.core.Response;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,8 +23,8 @@ public class ClaimDAOImpl implements ClaimDAO {
 
     //private static final String SELECT_CLAIM = "select t.claimId as claim from [SSMS-demo].dbo.Claim t";
 
-    private static final String SELECT_CLAIM2 = "select e from Claim e";
-    private static final String SELECT_CLAIM3 = "select e from Claim e where claimId=2";
+    private static final String GET_ALL_CLAIMS = "select e from Claim e";
+    private static final String GET_CLAIM = "select e from Claim e where claimId=2";
 
     private SessionFactory sf =null ;
 
@@ -59,25 +49,22 @@ public class ClaimDAOImpl implements ClaimDAO {
         System.out.println();
 
 
-        List<Claim> claimsList= sf.getCurrentSession().getNamedQuery("getAllClaimsInfo").list();
-        List<Claim> products  = (List<Claim>) session.createQuery(SELECT_CLAIM2).list();
+        //List<Claim> claimsList= sf.getCurrentSession().getNamedQuery("getAllClaimsInfo").list();
+        List<Claim> claimsList  = (List<Claim>) session.createQuery(GET_ALL_CLAIMS).list();
 
-        Gson gson2 = new Gson();
-        String json2 = gson2.toJson(products);
 
-        System.out.println("Products in Json:" + json2);
         session.getTransaction().commit();
 
         System.out.println("Claims got from query");
 
-        return products;
+        return claimsList;
 
 
     }
 
     public Claim getClaimByRef(final String claimReference){
 
-        return (Claim) sf.getCurrentSession().getNamedQuery(SELECT_CLAIM2)
+        return (Claim) sf.getCurrentSession().getNamedQuery(GET_ALL_CLAIMS)
                 .setString(CLAIM_REF, claimReference).uniqueResult();
     }
 
@@ -97,18 +84,13 @@ public class ClaimDAOImpl implements ClaimDAO {
         System.out.println("Got Session Factory, getting claim");
         System.out.println();
 
-        List<Claim> products  = (List<Claim>) session.createQuery(SELECT_CLAIM3).list();
+        List<Claim> claimList  = (List<Claim>) session.createQuery(GET_CLAIM).list();
 
-
-        Gson gson2 = new Gson();
-        String json2 = gson2.toJson(products);
-
-        System.out.println("Products in Json:" + json2);
         session.getTransaction().commit();
 
-        System.out.println("Claims got from query");
+        System.out.println("Claim got from query");
 
-        return products;
+        return claimList;
 
 
     }

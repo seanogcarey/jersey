@@ -10,7 +10,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 
@@ -23,36 +28,79 @@ public class ClaimsController {
 
 
     @GET
-    @Path("/getAll")
+    @Path("/getAllClaims")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getClaims()throws IOException, NotFoundException {
+    public String getClaims()throws IOException, NotFoundException, JSONException {
 
-        List<Claim> claimList = claimDAOImpl.getAllClaims();
+        List<Claim> claimsList = claimDAOImpl.getAllClaims();
 
-        if (claimList == null) {
+        if (claimsList == null) {
             throw new NotFoundException("claim does not exist");
         }
-        Gson gson = new Gson();
-        String json = gson.toJson(claimList);
 
-        return json;
+        //test data:
+
+        /*
+        Claim claim1 = new Claim();
+        claim1.setClaimId(4);
+        claim1.setClaimReference("Test 4");
+        Claim claim2 = new Claim();
+        claim2.setClaimId(5);
+        claim2.setClaimReference("Test 5");
+
+        ArrayList<Claim> mylist = new ArrayList<Claim> ();
+        mylist.add(claim1);
+        mylist.add(claim2);
+
+        JSONObject obj = new JSONObject();
+        obj.put("claim", mylist);
+        String json3 = new Gson().toJson(obj);
+        System.out.println("HERE " + json3);
+
+
+        JSONObject obj2 = new JSONObject();
+        obj2.put("claim", claim1);
+        String json4= new Gson().toJson(obj2);
+        System.out.println("Claim on its own " + json4);
+
+        String json2 = new Gson().toJson(mylist);
+        System.out.println("THE CLAIMS ARRAY : " + json2);
+        */
+
+
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("claim",claimsList);
+
+        Gson gson = new Gson();
+        String claims = gson.toJson(jsonObj);
+
+        return claims;
 
     }
 
     @GET
-    @Path("/getOne")
+    @Path("/getClaim")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getClaim()throws IOException, NotFoundException, JsonMappingException{
-        List<Claim> claim = claimDAOImpl.getOneClaim();
+    public String getClaim()throws IOException, NotFoundException,JSONException{
+        List<Claim> claimList = claimDAOImpl.getOneClaim();
 
-        if (claim == null) {
+        if (claimList == null) {
             throw new NotFoundException("claim does not exist");
         }
 
+        /*
         ObjectMapper mapper = new ObjectMapper();
         String jsonInString = mapper.writeValueAsString(claim);
+        */
 
-        return jsonInString;
+
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("claim",claimList);
+
+        Gson gson = new Gson();
+        String claim = gson.toJson(jsonObj);
+
+        return claim;
 
     }
 

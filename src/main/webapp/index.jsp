@@ -5,10 +5,10 @@
 </head>
 <body>
     <h2>Jersey RESTful Web Application!</h2>
-    <p><a href="rest/myresource">Jersey resource</a>
-    <p><a href="rest/UserService/users">Users Resource</a> </p>
-    <p><a href="rest/claims/getAll">Claims Resource</a> </p>
-    <p><a href="rest/claims/getOne">One Claim</a> </p>
+    <p><a href="jersey/myresource">Jersey resource</a>
+    <p><a href="jersey/UserService/users">Users Resource</a> </p>
+    <p><a href="jersey/claims/getAllClaims">Claims Resource</a> </p>
+    <p><a href="jersey/claims/getClaim">One Claim</a> </p>
 
     <h2>Angular stuff!</h2>
     <div ng-app="myApp" ng-controller="personCtrl">
@@ -18,11 +18,13 @@
         <br>
         Full Name: {{firstName + " " + lastName}}
 
-
-        <p>The ID is {{claim.claimId}}</p>
-        <p>The reference is {{claim.claimReference}}</p>
+        <div ng-repeat="a in claims.map.claim.myArrayList">
+        <p>The ID is {{a.map.claimId}}
+        </p>
+        <p>The reference is {{a.map.claimReference}}</p>
+        </div>
     </div>
+
 </body>
 </html>
-<script src="personController.js"></script>
 <script src="hello.js"></script>

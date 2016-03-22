@@ -4,9 +4,9 @@
 angular.module('myApp', []).controller('personCtrl', function($scope, $http) {
     $scope.firstName = "John",
         $scope.lastName = "Doe",
-        $http.get('http://localhost:8081/rest/claims/getOne').
+        $http.get('http://localhost:8081/jersey/claims/getClaim').
         success(function(data) {
-            $scope.claim = data;
+            $scope.claims = data;
         });
     $scope.fullName = function() {
         return $scope.firstName + " " + $scope.lastName;

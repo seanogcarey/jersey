@@ -1,10 +1,16 @@
 package dcu;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+
 import javax.persistence.*;
 
 /**
  * Created by Sean on 08/03/2016.
  */
+//@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
+//@JsonRootName(value = "CLAIM")
 
 @Entity
 @Table(name = "Claim")
