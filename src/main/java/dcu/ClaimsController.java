@@ -5,9 +5,7 @@ import javassist.NotFoundException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -78,12 +76,13 @@ public class ClaimsController {
 
     }
 
-    @GET
-    @Path("/getClaim")
+    @POST
+    @Path("/getClaim/{claimId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getClaim()throws IOException, NotFoundException,JSONException{
-        List<Claim> claimList = claimDAOImpl.getOneClaim();
+    public String getClaim(@PathParam("claimId") final int claimId) throws IOException, NotFoundException,JSONException{
+        List<Claim> claimList = claimDAOImpl.getOneClaim(claimId);
 
+        System.out.println("I Have the claimReferenc" + claimId);
         if (claimList == null) {
             throw new NotFoundException("claim does not exist");
         }
@@ -104,5 +103,19 @@ public class ClaimsController {
 
     }
 
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/createClaim/{claimReference}")
+     public String createClaim(@PathParam("claimReference") final String claimReference) throws IOException, NotFoundException,JSONException{
+
+        claimDAOImpl.createClaim(claimReference);
+        System.out.println("Creating Claim!!");
+        /*
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonInString = mapper.writeValueAsString(claim);
+        */
+        return "createClaim";
+
+    }
 
 }

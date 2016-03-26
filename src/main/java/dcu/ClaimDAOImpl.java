@@ -5,6 +5,8 @@ package dcu;
  */
 import com.google.gson.Gson;
 import javassist.NotFoundException;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -48,7 +50,6 @@ public class ClaimDAOImpl implements ClaimDAO {
         System.out.println("Got Session Factory, getting claims");
         System.out.println();
 
-
         //List<Claim> claimsList= sf.getCurrentSession().getNamedQuery("getAllClaimsInfo").list();
         List<Claim> claimsList  = (List<Claim>) session.createQuery(GET_ALL_CLAIMS).list();
 
@@ -68,7 +69,7 @@ public class ClaimDAOImpl implements ClaimDAO {
                 .setString(CLAIM_REF, claimReference).uniqueResult();
     }
 
-    public List<Claim> getOneClaim(){
+    public List<Claim> getOneClaim(final int claimId){
 
         System.out.println("Attempting to get claim");
 
@@ -84,7 +85,12 @@ public class ClaimDAOImpl implements ClaimDAO {
         System.out.println("Got Session Factory, getting claim");
         System.out.println();
 
-        List<Claim> claimList  = (List<Claim>) session.createQuery(GET_CLAIM).list();
+        //List<Claim> claimList  = (List<Claim>) session.createQuery(GET_CLAIM).list();
+
+        Query query = session.createQuery("select  e from Claim e where claimId = :id ");
+        query.setParameter("id", claimId);
+        List<Claim> claimList  = query.list();
+
 
         session.getTransaction().commit();
 
@@ -95,6 +101,64 @@ public class ClaimDAOImpl implements ClaimDAO {
 
     }
 
+    public void createClaim(final String claimReference){
+
+        System.out.println("Attempting to create claim");
+
+
+        //begin transaction
+        Session session = SessionFactoryHelper.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+        System.out.println("transaction begun");
+
+        sf = SessionFactoryHelper.getSessionFactory();
+        System.out.println("Got Session Factory");
+        System.out.println();
+
+        //String claimReference = "test";
+
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Claim OFF insert into dbo.Claim (claimReference) values(:claimReference)" );
+        query.setParameter("claimReference", claimReference);
+        query.executeUpdate();
+
+
+        //session.ccreateStatement().executeUpdate("SET IDENTITY_INSERT Hotel ON");
+/*
+        Claim newClaim = new Claim();
+        //newClaim.setClaimId(5)
+        newClaim.setClaimReference("Hello world from server");
+        System.out.println("before save : ClaimID = "+newClaim.getClaimId() + " Claim reference: " + newClaim.getClaimReference() );
+        //newClaim.setClaimReference("newClaim Worked!");
+        //int id = session.save(newClaim);
+        //session.save(newClaim);
+
+
+        Query query = session.createQuery("update Claim set claimReference= :claimReference");
+        query.setParameter("claimReference", "Update Worked! ");
+        int result = query.executeUpdate();
+        System.out.println("Employee Update Status="+result);
+
+        Query query = session.createQuery("insert into Stock(stock_code, stock_name)" +
+               "select stock_code, stock_name from backup_stock");
+
+        Query query2 = session.createQuery("insert into Claim(claimReference)" +
+                "values(sql ref)");
+
+        INSERT INTO Claim (claimReference)
+        VALUES ('sql ref');
+
+
+        int rowsCopied = query2.executeUpdate();
+ */
+
+
+        session.getTransaction().commit();
+
+        System.out.println("Claim created");
+
+    }
 
 
 }

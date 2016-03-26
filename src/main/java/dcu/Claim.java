@@ -2,6 +2,7 @@ package dcu;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.persistence.*;
@@ -18,7 +19,8 @@ public class Claim {
 
     @Id
     @Column(name = "claimId", unique = true, nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
     private int claimId;
 
     @Column(name = "claimReference")
