@@ -1,9 +1,10 @@
-package dcu;
+package dcu.DAO;
 
 /**
  * Created by Sean on 08/03/2016.
  */
-import com.google.gson.Gson;
+import dcu.datamodel.Claim;
+import dcu.SessionFactoryHelper;
 import javassist.NotFoundException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;

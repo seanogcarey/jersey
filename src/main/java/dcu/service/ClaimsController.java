@@ -1,17 +1,15 @@
-package dcu;
+package dcu.service;
 
 import com.google.gson.Gson;
+import dcu.DAO.ClaimDAOImpl;
+import dcu.datamodel.Claim;
 import javassist.NotFoundException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -76,13 +74,13 @@ public class ClaimsController {
 
     }
 
-    @POST
+    @GET
     @Path("/getClaim/{claimId}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getClaim(@PathParam("claimId") final int claimId) throws IOException, NotFoundException,JSONException{
         List<Claim> claimList = claimDAOImpl.getOneClaim(claimId);
 
-        System.out.println("I Have the claimReferenc" + claimId);
+        System.out.println("I Have the claimID " + claimId);
         if (claimList == null) {
             throw new NotFoundException("claim does not exist");
         }
@@ -109,11 +107,6 @@ public class ClaimsController {
      public String createClaim(@PathParam("claimReference") final String claimReference) throws IOException, NotFoundException,JSONException{
 
         claimDAOImpl.createClaim(claimReference);
-        System.out.println("Creating Claim!!");
-        /*
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonInString = mapper.writeValueAsString(claim);
-        */
         return "createClaim";
 
     }

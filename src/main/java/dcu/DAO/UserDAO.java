@@ -1,8 +1,10 @@
-package dcu;
+package dcu.DAO;
 
 /**
  * Created by Sean on 08/03/2016.
  */
+import dcu.datamodel.User;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

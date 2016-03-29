@@ -22,11 +22,6 @@ public class SessionFactoryHelper {
             // Pojo (Plain Old Java Object).
             //
 
-            //File f = new File("C:\\Users\\seano\\Documents\\DCU work\\CASE4\\Project\\SpringWorkspace\\common\\src\\main\\resources\\hibernate.cfg.xml");
-            //sessionFactory = new Configuration().configure(f).buildSessionFactory();
-//C:\Users\seano\Documents\DCU work\CASE4\Project\SpringWorkspace\common\src\main\resources
-
-
             Configuration configuration = new Configuration();
             System.out.println("going to hibernate config file");
             sessionFactory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();
@@ -41,7 +36,7 @@ public class SessionFactoryHelper {
             throw new ExceptionInInitializerError(e);
         }
     }
-// C:/Users/seano/Documents/DCU work/CASE4/Project/SpringWorkspace/common/src/main/java/dcu/common/resource
+
     /**
      * A static method for other application to get SessionFactory object
      * initialized in this helper class.

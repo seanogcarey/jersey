@@ -1,5 +1,6 @@
-package dcu;
+package dcu.DAO;
 
+import dcu.datamodel.Claim;
 import javassist.NotFoundException;
 
 import java.io.IOException;

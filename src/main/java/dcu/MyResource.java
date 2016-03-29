@@ -4,12 +4,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import dcu.Claim;
-import javassist.NotFoundException;
-
-
-import java.io.IOException;
-import java.util.List;
 
 /**
  * Root resource (exposed at "myresource" path)

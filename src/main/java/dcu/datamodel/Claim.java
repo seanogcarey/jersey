@@ -1,7 +1,5 @@
-package dcu;
+package dcu.datamodel;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.hibernate.annotations.GenericGenerator;
 
 

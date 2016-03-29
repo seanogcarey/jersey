@@ -33,7 +33,7 @@
         <mapping resource="Claim.hbm.xml"/>
 
         <!-- DB schema will be updated if needed
-        <class-cache class="dcu.Claim" usage="read-only"></class-cache>
+        <class-cache class="dcu.datamodel.Claim" usage="read-only"></class-cache>
 
         -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

@@ -2,15 +2,15 @@
 <head>
     <title>Manager App</title>
     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
-</head>
+    <link rel="icon" href="jersey/football-icon.png" type="image/x-icon" />
 <body>
-    <h2>Jersey RESTful Web Application!</h2>
+    <h2>Manager RESTful Web Application!</h2>
     <p><a href="jersey/myresource">Jersey resource</a>
     <p><a href="jersey/UserService/users">Users Resource</a> </p>
     <p><a href="jersey/claims/getAllClaims">Claims Resource</a> </p>
-    <p><a href="jersey/claims/getClaim">One Claim</a> </p>
+    <p><a href="jersey/claims/getClaim/1">One Claim</a> </p>
 
-    <h2>Angular stuff!</h2>
+    <h2>Angular Example:</h2>
     <div ng-app="myApp" ng-controller="personCtrl">
 
         First Name: <input type="text" ng-model="firstName"><br>
