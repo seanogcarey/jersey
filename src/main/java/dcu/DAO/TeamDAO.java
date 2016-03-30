@@ -12,6 +12,7 @@ import java.util.List;
 public interface TeamDAO {
 
     public List<Team> getAllTeams() throws IOException, NotFoundException;
-    public Team getTeamById(final int teamId);
+    public List<Team> getTeamById(final int teamId);
+    public List<Team> getTeamByClubId(final int clubId);
     public void createTeam(final String teamName,final int clubId);
 }

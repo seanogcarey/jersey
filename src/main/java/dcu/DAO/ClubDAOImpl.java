@@ -4,6 +4,7 @@ import dcu.SessionFactoryHelper;
 import dcu.datamodel.Claim;
 import dcu.datamodel.Club;
 import javassist.NotFoundException;
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -44,9 +45,32 @@ public class ClubDAOImpl implements ClubDAO {
 
         return clubsList;
     }
-    public Claim getClubById(final int clubId){
+    public List<Club> getClubById(final int clubId){
 
-        return null;
+
+        //begin transaction
+        Session session = SessionFactoryHelper.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+        System.out.println("transaction begun");
+
+        sf = SessionFactoryHelper.getSessionFactory();
+        System.out.println("Got Session Factory, getting club");
+        System.out.println();
+
+        //List<Claim> claimList  = (List<Claim>) session.createQuery(GET_CLAIM).list();
+
+        Query query = session.createQuery("select  e from Club e where clubId = :clubId ");
+        query.setParameter("clubId", clubId);
+        List<Club> clubList  = query.list();
+
+
+        session.getTransaction().commit();
+
+        System.out.println("Club got from query");
+
+        return clubList;
     }
 
     public void createClub(final String clubName){

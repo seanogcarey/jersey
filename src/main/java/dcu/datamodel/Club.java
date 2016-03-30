@@ -31,7 +31,7 @@ public class Club {
     private String sport;
 
     @Column(name = "clubContactNumber")
-    private Integer clubContactNumber;
+    private Long clubContactNumber;
 
     public int getClubId() {
         return clubId;
@@ -73,11 +73,11 @@ public class Club {
         this.sport = sport;
     }
 
-    public Integer getClubContactNumber() {
+    public Long getClubContactNumber() {
         return clubContactNumber;
     }
 
-    public void setClubContactNumber(Integer clubContactNumber) {
+    public void setClubContactNumber(Long clubContactNumber) {
         this.clubContactNumber = clubContactNumber;
     }
 

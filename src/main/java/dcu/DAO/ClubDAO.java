@@ -17,7 +17,7 @@ public interface ClubDAO {
 
 
     public List<Club> getAllClubs() throws IOException, NotFoundException;
-    public Claim getClubById(final int clubId);
+    public List<Club> getClubById(final int clubId);
     public void createClub(final String clubName);
 
 }

@@ -5,6 +5,7 @@ import dcu.datamodel.Claim;
 import dcu.datamodel.Club;
 import dcu.datamodel.Team;
 import javassist.NotFoundException;
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,41 +19,79 @@ import java.util.List;
 public class TeamDAOImpl implements TeamDAO {
 
     private SessionFactory sf =null ;
+    private static final String GET_ALL_TEAMS = "select e from Team e";
 
     public List<Team> getAllTeams() throws IOException, NotFoundException{
 
-        return null;
-    }
-    public Team getTeamById(final int teamId){
-        return null;
-    }
-    public void createTeam(final String teamName,final int clubId){
+        Session session = SessionFactoryHelper.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
 
-        System.out.println("Attempting to create team");
+        sf = SessionFactoryHelper.getSessionFactory();
+        List<Team> teamList  = (List<Team>) session.createQuery(GET_ALL_TEAMS).list();
+
+        session.getTransaction().commit();
+
+        return teamList;
+    }
+    public List<Team> getTeamById(final int teamId){
+
         //begin transaction
         Session session = SessionFactoryHelper.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        System.out.println("transaction begun");
+        sf = SessionFactoryHelper.getSessionFactory();
+
+        Query query = session.createQuery("select  e from Team e where teamId = :teamId ");
+        query.setParameter("teamId", teamId);
+        List<Team> teamList  = query.list();
+
+
+        session.getTransaction().commit();
+
+
+        return teamList;
+    }
+
+    public List<Team> getTeamByClubId(final int clubId){
+
+        //begin transaction
+        Session session = SessionFactoryHelper.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
 
         sf = SessionFactoryHelper.getSessionFactory();
-        System.out.println("Got Session Factory");
-        System.out.println();
+
+        Query query = session.createQuery("select  e from Team e where clubId = :clubId ");
+        query.setParameter("clubId", clubId);
+        List<Team> teamClubList  = query.list();
+
+
+        session.getTransaction().commit();
+
+
+        return teamClubList;
+    }
+
+    public void createTeam(final String teamName,final int clubId){
+
+        System.out.println("Attempting to create team");
+
+        //begin transaction
+        Session session = SessionFactoryHelper.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = SessionFactoryHelper.getSessionFactory();
 
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Team OFF insert into dbo.team (teamName,clubId) values(:teamName,:clubId)" );
         query.setParameter("teamName", teamName);
         query.setParameter("clubId", clubId);
         query.executeUpdate();
 
-
-        //session.save(newClub);
-
-
-
         session.getTransaction().commit();
-
-        System.out.println("Club created");
 
     }
 

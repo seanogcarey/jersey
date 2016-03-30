@@ -15,7 +15,6 @@ import org.json.JSONObject;
 
 
 
-
 @Path("claims")
 public class ClaimsController {
 
@@ -31,7 +30,7 @@ public class ClaimsController {
         List<Claim> claimsList = claimDAOImpl.getAllClaims();
 
         if (claimsList == null) {
-            throw new NotFoundException("claim does not exist");
+            throw new NotFoundException("claims do not exist");
         }
 
         //test data:

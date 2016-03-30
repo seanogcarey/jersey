@@ -1,9 +1,7 @@
 import com.google.gson.Gson;
-import dcu.DAO.ClaimDAOImpl;
-import dcu.DAO.ClubDAOImpl;
-import dcu.DAO.TeamDAOImpl;
-import dcu.datamodel.Claim;
+import dcu.DAO.*;
 import dcu.datamodel.Club;
+import dcu.datamodel.Team;
 import dcu.service.ClaimsController;
 import org.json.JSONObject;
 
@@ -16,28 +14,35 @@ public class Main {
 
 
     public static void main(final String[] args) throws Exception {
-        System.out.println("Hello World");
+        System.out.println("Running Main - test our data");
 
-        ClaimDAOImpl creatingClaim = new ClaimDAOImpl();
-        String claimRef;
-        claimRef = "hello from server";
-        //creatingClaim.createClaim(claimRef);
+        //ClaimDAOImpl creatingClaim = new ClaimDAOImpl();
+        //creatingClaim.createClaim("hello from server");
 
-        ClubDAOImpl creatingClub = new ClubDAOImpl();
-        creatingClub.createClub("Longford GAA");
+        //ClubDAOImpl creatingClub = new ClubDAOImpl();
+        //creatingClub.createClub("Longford GAA");
+
+        //ManagerDAOImpl creatingManager = new ManagerDAOImpl();
+        //creatingManager.createManager("Jane","Kelly",9);
+
+        //PlayerDAOImpl creatingPlayer = new PlayerDAOImpl();
+        //creatingPlayer.createPlayer("Mary","O'Brien",9);
 
         //TeamDAOImpl creatingTeam = new TeamDAOImpl();
-        //creatingTeam.createTeam("Longford ladies",2);
+        //creatingTeam.createTeam("Longford U21",6);
 
-        ClubDAOImpl clubDAOImpl = new ClubDAOImpl();
-        List<Club> clubsList = clubDAOImpl.getAllClubs();
+        //FitnessTestDAOImpl creatingFitnessTest = new FitnessTestDAOImpl();
+        //creatingFitnessTest.createFitnessTest(1,3);
+
+        TeamDAOImpl teamDAOImpl = new TeamDAOImpl();
+        List<Team> teamList = teamDAOImpl.getAllTeams();
 
         JSONObject jsonObj = new JSONObject();
-        jsonObj.put("claim",clubsList);
+        jsonObj.put("claim",teamList);
         Gson gson = new Gson();
-        String clubs = gson.toJson(jsonObj);
+        String teams = gson.toJson(jsonObj);
 
-        System.out.println("The clubs in JSON:" + clubs );
+        System.out.println("The teams in JSON:" + teams );
 
 
 

@@ -21,7 +21,7 @@
             <column name="sport" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="clubContactNumber">
-            <column name="clubContactNumber" sql-type="int" not-null="true"/>
+            <column name="clubContactNumber" sql-type="java.lang.Long" not-null="true"/>
         </property>
         <!--not sure if correct
         <set name="clubId"  fetch="join" lazy="false" cascade="delete" inverse="true">
