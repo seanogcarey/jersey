@@ -5,6 +5,7 @@ package dcu.DAO;
  */
 import dcu.datamodel.Claim;
 import dcu.SessionFactoryHelper;
+import dcu.datamodel.Club;
 import javassist.NotFoundException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;

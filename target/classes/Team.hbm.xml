@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="dcu.datamodel.Team" table="Team" schema="dbo" catalog="SSSMSDemo">
+        <id name="teamId">
+            <column name="teamId" sql-type="int"/>
+        </id>
+        <property name="teamName">
+            <column name="teamName" sql-type="java.lang.String" not-null="true"/>
+        </property>
+        <many-to-one name="clubId" class="dcu.datamodel.Club" fetch="join" lazy="false">
+            <column name="clubId" sql-type="int" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

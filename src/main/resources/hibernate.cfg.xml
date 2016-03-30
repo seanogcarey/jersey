@@ -31,6 +31,8 @@
 
 
         <mapping resource="Claim.hbm.xml"/>
+        <mapping resource="Club.hbm.xml"/>
+        <mapping resource="Team.hbm.xml"/>
 
         <!-- DB schema will be updated if needed
         <class-cache class="dcu.datamodel.Claim" usage="read-only"></class-cache>
