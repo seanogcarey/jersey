@@ -20,11 +20,13 @@
         <property name="email">
             <column name="email" sql-type="java.lang.String" not-null="true"/>
         </property>
-        <many-to-one name="teamId" class="dcu.datamodel.Team" fetch="join" lazy="false">
-            <column name="teamId" sql-type="int"/>
-        </many-to-one>
-        <property name="logInId">
-            <column name="logInID" sql-type="java.lang.String"/>
+        <property name="teamId">
+            <column name="teamId" sql-type="java.lang.String"/>
         </property>
+        <!--
+        <property name="logInId">
+            <column name="logInID" sql-type="java.lang.String" not-null="true"/>
+        </property>
+        -->
     </class>
 </hibernate-mapping>

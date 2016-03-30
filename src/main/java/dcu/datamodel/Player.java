@@ -25,8 +25,8 @@ public class Player {
     private String email;
     @Column(name = "teamId")
     private int teamId;
-    @Column(name = "logInId")
-    private int logInId;
+    //@Column(name = "logInId")
+    //private int logInId;
 
     public int getPlayerId() {
         return playerId;
@@ -76,6 +76,8 @@ public class Player {
         this.teamId = teamId;
     }
 
+    /*
+
     public int getLogInId() {
         return logInId;
     }
@@ -83,6 +85,7 @@ public class Player {
     public void setLogInId(int logInId) {
         this.logInId = logInId;
     }
+    */
 
     @Override
     public boolean equals(Object o) {
@@ -93,7 +96,7 @@ public class Player {
 
         if (playerId != player.playerId) return false;
         if (teamId != player.teamId) return false;
-        if (logInId != player.logInId) return false;
+        // (logInId != player.logInId) return false;
         if (firstName != null ? !firstName.equals(player.firstName) : player.firstName != null) return false;
         if (lastName != null ? !lastName.equals(player.lastName) : player.lastName != null) return false;
         if (phoneNumber != null ? !phoneNumber.equals(player.phoneNumber) : player.phoneNumber != null) return false;
@@ -110,7 +113,7 @@ public class Player {
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + teamId;
-        result = 31 * result + logInId;
+        //result = 31 * result + logInId;
         return result;
     }
 }

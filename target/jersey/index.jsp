@@ -15,10 +15,9 @@
 </head>
 <body>
     <h2>Manager RESTful Web Application!</h2>
-    <p><a href="jersey/myresource">Jersey resource</a>
-    <p><a href="jersey/UserService/users">Users Resource</a> </p>
-    <p><a href="jersey/claims/getAllClaims">Claims Resource</a> </p>
-    <p><a href="jersey/claims/getClaim/1">One Claim</a> </p>
+    <p><a href="jersey/managers/getAllManagers">Managers</a> </p>
+    <p><a href="jersey/players/getAllPlayers">Players</a> </p>
+    <p><a href="jersey/players/getPlayer/1">Single Player View</a></p>
 
     <h2>Angular Example:</h2>
     <div ng-app="myApp" ng-controller="personCtrl">

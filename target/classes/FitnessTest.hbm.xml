@@ -17,9 +17,8 @@
         <property name="pushUps">
             <column name="pushUps" sql-type="int" not-null="true"/>
         </property>
-        <many-to-one name="playerId" class="dcu.datamodel.Player" fetch="join" lazy="false">
+        <property name="playerId">
             <column name="playerId" sql-type="int"/>
-        </many-to-one>
-
+        </property>
     </class>
 </hibernate-mapping>

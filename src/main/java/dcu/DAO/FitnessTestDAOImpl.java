@@ -51,7 +51,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
         return fitnessTestList ;
     }
-    public List<FitnessTest> getFintessTestByTeamId(final int playerId){
+    public List<FitnessTest> getFintessTestByPlayerId(final int playerId){
 
         //begin transaction
         Session session = SessionFactoryHelper.getSessionFactory()

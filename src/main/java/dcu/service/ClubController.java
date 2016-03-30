@@ -71,6 +71,7 @@ public class ClubController {
     public String createClub(@PathParam("clubName") final String clubName) throws IOException, NotFoundException,JSONException{
 
         clubDAOImpl.createClub(clubName);
+        //todo St John's GAA club-> ' gives weird result
         return "createClub";
 
     }

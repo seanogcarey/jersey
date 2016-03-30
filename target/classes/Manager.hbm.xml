@@ -17,14 +17,16 @@
         <property name="phoneNumber">
             <column name="phoneNumber" sql-type="java.lang.Long" not-null="true"/>
         </property>
-        <many-to-one name="teamId" class="dcu.datamodel.Team" fetch="join" lazy="false">
-            <column name="teamId" sql-type="int"/>
-        </many-to-one>
+        <property name="teamId">
+            <column name="teamId" sql-type="int" not-null="true"/>
+        </property>
         <property name="email">
             <column name="email" sql-type="java.lang.String" not-null="true"/>
         </property>
+        <!--
         <property name="logInId">
-            <column name="logInId" sql-type="int"/>
+            <column name="logInId" sql-type="int" not-null="true"/>
         </property>
+        -->
     </class>
 </hibernate-mapping>

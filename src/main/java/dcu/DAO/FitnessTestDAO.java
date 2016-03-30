@@ -14,6 +14,6 @@ public interface FitnessTestDAO {
 
     public List<FitnessTest> getAllFitnessTests() throws IOException, NotFoundException;
     public List<FitnessTest> getFintessTestById(final int fitnessId);
-    public List<FitnessTest> getFintessTestByTeamId(final int playerId);
+    public List<FitnessTest> getFintessTestByPlayerId(final int playerId);
     public void createFitnessTest(final int playerId, final int bodyFat);
 }

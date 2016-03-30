@@ -25,8 +25,8 @@ public class Manager {
     private Integer teamId;
     @Column(name ="email")
     private String email;
-    @Column(name ="logInId")
-    private int logInId;
+    //@Column(name ="logInId")
+    //private int logInId;
 
     public int getManagerId() {
         return managerId;
@@ -76,6 +76,7 @@ public class Manager {
         this.email = email;
     }
 
+    /*
     public int getLogInId() {
         return logInId;
     }
@@ -84,6 +85,7 @@ public class Manager {
         this.logInId = logInId;
     }
 
+*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,7 +94,7 @@ public class Manager {
         Manager manager = (Manager) o;
 
         if (managerId != manager.managerId) return false;
-        if (logInId != manager.logInId) return false;
+        //if (logInId != manager.logInId) return false;
         if (firstName != null ? !firstName.equals(manager.firstName) : manager.firstName != null) return false;
         if (lastName != null ? !lastName.equals(manager.lastName) : manager.lastName != null) return false;
         if (phoneNumber != null ? !phoneNumber.equals(manager.phoneNumber) : manager.phoneNumber != null) return false;
@@ -110,7 +112,7 @@ public class Manager {
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (teamId != null ? teamId.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + logInId;
+        //result = 31 * result + logInId;
         return result;
     }
 }
