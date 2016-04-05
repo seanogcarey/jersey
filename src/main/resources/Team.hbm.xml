@@ -11,8 +11,8 @@
         <property name="teamName">
             <column name="teamName" sql-type="java.lang.String" not-null="true"/>
         </property>
-        <property name="clubId">
-            <column name="clubId" sql-type="int"/>
-        </property>
+        <many-to-one name="club" class="dcu.datamodel.Club" >
+            <column name="clubId" />
+        </many-to-one>
     </class>
 </hibernate-mapping>

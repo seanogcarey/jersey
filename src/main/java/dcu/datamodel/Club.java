@@ -2,10 +2,9 @@ package dcu.datamodel;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Sean on 29/03/2016.
@@ -32,6 +31,37 @@ public class Club {
 
     @Column(name = "clubContactNumber")
     private Long clubContactNumber;
+
+    private Set<Team> teams;
+    
+    public Club(){
+    }
+    public Club(int clubId,String clubName,String email,String address,String sport, Long clubContactNumber){
+
+        this.clubId = clubId;
+        this.clubName = clubName;
+        this.email = email;
+        this.address = address;
+        this.sport = sport;
+        this.clubContactNumber = clubContactNumber;
+    }
+
+    public Club(int clubId,String clubName,String email,String address,
+                String sport, Long clubContactNumber,
+                Set<Team> teams){
+
+        this.clubId = clubId;
+        this.clubName = clubName;
+        this.email = email;
+        this.address = address;
+        this.sport = sport;
+        this.clubContactNumber = clubContactNumber;
+        this.teams = teams;
+    }
+
+    public Set<Team> getTeams(){return teams;}
+
+    public void setTeams(Set<Team> teams){ this.teams = teams;}
 
     public int getClubId() {
         return clubId;

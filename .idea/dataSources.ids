@@ -65529,4 +65529,7 @@ name</columns>
       </argument>
     </database-model>
   </data-source>
+  <data-source name="SQL Server (Microsoft) - SSSMSDemo@192.168.0.15" uuid="98eb900b-b401-44c0-906f-5f4f1d7ef343">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

@@ -7,6 +7,7 @@
     <class name="dcu.datamodel.Club" table="Club" schema="dbo" catalog="SSSMSDemo">
         <id name="clubId">
             <column name="clubId" sql-type="int"/>
+            <generator class="native"/>
         </id>
         <property name="clubName">
             <column name="clubName" sql-type="java.lang.String" not-null="true"/>
@@ -23,6 +24,13 @@
         <property name="clubContactNumber">
             <column name="clubContactNumber" sql-type="java.lang.Long" not-null="true"/>
         </property>
+
+        <set name="teams" table="team"  lazy="true" inverse="true">
+            <key>
+                <column name="clubId" />
+            </key>
+            <one-to-many class="dcu.datamodel.Team" />
+        </set>
         <!--not sure if correct
         <set name="clubId"  fetch="join" lazy="false" cascade="delete" inverse="true">
             <key>

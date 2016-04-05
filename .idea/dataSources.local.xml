@@ -7,5 +7,10 @@
       <schema-pattern>SSSMSDemo.*</schema-pattern>
       <default-schemas>SSSMSDemo.*</default-schemas>
     </data-source>
+    <data-source name="SQL Server (Microsoft) - SSSMSDemo@192.168.0.15" uuid="98eb900b-b401-44c0-906f-5f4f1d7ef343">
+      <secret-storage>memory</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>seanogcarey</user-name>
+    </data-source>
   </component>
 </project>

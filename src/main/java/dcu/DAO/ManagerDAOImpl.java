@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class ManagerDAOImpl implements ManagerDAO{
 
-    private SessionFactory sf =null ;
+    //private SessionFactory sf =null ;
     private static final String GET_ALL_MANAGERS = "select e from Manager e";
 
     public List<Manager> getAllManagers() throws IOException, NotFoundException{
@@ -27,7 +27,7 @@ public class ManagerDAOImpl implements ManagerDAO{
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        //sf = SessionFactoryHelper.getSessionFactory();
         List<Manager> managerList  = (List<Manager>) session.createQuery(GET_ALL_MANAGERS).list();
 
         session.getTransaction().commit();
@@ -41,7 +41,7 @@ public class ManagerDAOImpl implements ManagerDAO{
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        //sf = SessionFactoryHelper.getSessionFactory();
 
         Query query = session.createQuery("select  e from Manager e where managerId = :managerId ");
         query.setParameter("managerId", managerId);
@@ -61,7 +61,7 @@ public class ManagerDAOImpl implements ManagerDAO{
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        //sf = SessionFactoryHelper.getSessionFactory();
 
         Query query = session.createQuery("select  e from Manager e where teamId = :teamId ");
         query.setParameter("teamId", teamId);
@@ -84,7 +84,7 @@ public class ManagerDAOImpl implements ManagerDAO{
         session.beginTransaction();
 
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        //sf = SessionFactoryHelper.getSessionFactory();
 
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Manager OFF insert into dbo.Manager (firstName,lastName,teamId) values(:firstName,:lastName,:teamId)" );
         query.setParameter("firstName", firstName);

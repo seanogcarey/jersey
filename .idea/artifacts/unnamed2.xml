@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="unnamed2">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed2</output-path>
+    <root id="archive" name="unnamed.war">
+      <element id="artifact" artifact-name="jersey:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="java-json" />
+          <element id="library" level="project" name="sqljdbc4" />
+          <element id="library" level="project" name="org.hibernate:hibernate-core:5.0.7.Final" />
+          <element id="library" level="project" name="com.google.code.gson:gson:2.6.2" />
+          <element id="library" level="project" name="org.hibernate:hibernate-ehcache:5.0.7.Final" />
+          <element id="library" level="project" name="org.codehaus.jackson:jackson-core-asl:1.9.11" />
+          <element id="library" level="project" name="jersey-container-servlet-core-2.22.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

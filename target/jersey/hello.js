@@ -5,6 +5,7 @@ angular.module('myApp', []).controller('personCtrl', function($scope, $http) {
     $scope.firstName = "John",
         $scope.lastName = "Doe",
         $http.get('http://localhost:8081/jersey/claims/getAllClaims').
+        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
         success(function(data) {
             $scope.claims = data;
         });

@@ -48,7 +48,7 @@ public class ClaimDAOImpl implements ClaimDAO {
 
         System.out.println("transaction begun");
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        SessionFactory sf = SessionFactoryHelper.getSessionFactory();
         System.out.println("Got Session Factory, getting claims");
         System.out.println();
 
@@ -67,6 +67,7 @@ public class ClaimDAOImpl implements ClaimDAO {
 
     public Claim getClaimByRef(final String claimReference){
 
+        SessionFactory sf = null;
         return (Claim) sf.getCurrentSession().getNamedQuery(GET_ALL_CLAIMS)
                 .setString(CLAIM_REF, claimReference).uniqueResult();
     }
@@ -83,7 +84,7 @@ public class ClaimDAOImpl implements ClaimDAO {
 
         System.out.println("transaction begun");
 
-        sf = SessionFactoryHelper.getSessionFactory();
+       SessionFactory sf = SessionFactoryHelper.getSessionFactory();
         System.out.println("Got Session Factory, getting claim");
         System.out.println();
 
@@ -115,7 +116,7 @@ public class ClaimDAOImpl implements ClaimDAO {
 
         System.out.println("transaction begun");
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        SessionFactory sf = SessionFactoryHelper.getSessionFactory();
         System.out.println("Got Session Factory");
         System.out.println();
 

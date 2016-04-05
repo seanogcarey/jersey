@@ -1,9 +1,6 @@
 package dcu.datamodel;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Sean on 29/03/2016.
@@ -20,6 +17,22 @@ public class Team {
 
     @Column(name = "clubId")
     private Integer clubId;
+
+    private Club club;
+
+    public Team(){
+
+    }
+    public Team(int teamId,int clubId,Club club){
+
+        this.teamId = teamId;
+        this.clubId = clubId;
+        this.club = club;
+    }
+
+    public Club getClub(){return club;};
+
+    public void setClub(Club club) {this.club = club;}
 
     public int getTeamId() {
         return teamId;

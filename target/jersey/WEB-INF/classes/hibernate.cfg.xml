@@ -4,6 +4,8 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <property name="dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
+        <!--<property name="myeclipse.connection.profile">M SQL 2014</property>-->
 
         <property name="hibernate.connection.username">
             seanogcarey
@@ -12,9 +14,16 @@
             christyring1916
         </property>
 
+        <!-- When running locally
+
         <property name="connection.url">
             jdbc:sqlserver://localhost;databaseName=SSSMSDemo;servername=DESKTOP-2REM4RC\MSSQLSERVER2
+        </property>-->
+        <property name="connection.url">
+            jdbc:sqlserver://;databaseName=SSSMSDemo;servername=136.206.198.38\MSSQLSERVER2;port=49170
         </property>
+
+        <!-- WHEN RUNNING REMOTELY 192.168.0.15  136.206.198.38  -->
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 
 
@@ -27,6 +36,7 @@
             org.hibernate.cache.ehcache.EhCacheRegionFactory
         </property>
         <property name="hibernate.cache.use_query_cache">false</property>
+
 
 
 

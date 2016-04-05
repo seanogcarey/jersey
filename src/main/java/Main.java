@@ -46,7 +46,7 @@ public class Main {
 
 
 
-
+/*
 
         ClaimsController claimsController = new ClaimsController();
 
@@ -54,6 +54,6 @@ public class Main {
         System.out.println("Claim List: " + claims);
         String oneClaim = claimsController.getClaim(1);
         System.out.println("One claim: " + oneClaim);
-
+*/
     }
 }

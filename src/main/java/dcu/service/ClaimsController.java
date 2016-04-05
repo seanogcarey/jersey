@@ -5,14 +5,15 @@ import dcu.DAO.ClaimDAOImpl;
 import dcu.datamodel.Claim;
 import javassist.NotFoundException;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+
 import java.io.IOException;
 import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 
 @Path("claims")
