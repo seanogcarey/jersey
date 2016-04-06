@@ -18,21 +18,21 @@ public class Team {
     @Column(name = "clubId")
     private Integer clubId;
 
-    private Club club;
+    //private Club club;
 
     public Team(){
 
     }
-    public Team(int teamId,int clubId,Club club){
+    public Team(int teamId,int clubId){
 
         this.teamId = teamId;
         this.clubId = clubId;
-        this.club = club;
+        //this.club = club;
     }
 
-    public Club getClub(){return club;};
+    //public Club getClub(){return club;};
 
-    public void setClub(Club club) {this.club = club;}
+    //public void setClub(Club club) {this.club = club;}
 
     public int getTeamId() {
         return teamId;

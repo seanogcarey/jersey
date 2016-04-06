@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="dcu.datamodel.Session" table="Session" schema="dbo" catalog="SSSMSDemo">
+        <id name="sessionId">
+            <column name="sessionId" sql-type="int"/>
+        </id>
+        <property name="sessionType">
+            <column name="sessionType" sql-type="sysname" not-null="true"/>
+        </property>
+        <property name="sessionDate">
+            <column name="sessionDate" sql-type="date" not-null="true"/>
+        </property>
+        <property name="weekId">
+            <column name="weekId" sql-type="int"/>
+        </property>
+    </class>
+</hibernate-mapping>

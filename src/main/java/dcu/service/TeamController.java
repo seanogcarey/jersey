@@ -1,7 +1,9 @@
 package dcu.service;
 
 import com.google.gson.Gson;
+import dcu.DAO.PlayerDAOImpl;
 import dcu.DAO.TeamDAOImpl;
+import dcu.datamodel.Player;
 import dcu.datamodel.Team;
 import javassist.NotFoundException;
 
@@ -20,6 +22,7 @@ public class TeamController {
 
 
     TeamDAOImpl teamDAOImpl = new TeamDAOImpl() ;
+    PlayerDAOImpl playerDAOImpl = new PlayerDAOImpl();
 
 
     @GET
@@ -53,9 +56,11 @@ public class TeamController {
             throw new NotFoundException("team does not exist");
         }
 
+        List<Player> playerList = playerDAOImpl.getPlayerByTeamId(teamId);
 
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("team",teamList);
+        jsonObj.put("player",playerList);
 
         Gson gson = new Gson();
         String team = gson.toJson(jsonObj);

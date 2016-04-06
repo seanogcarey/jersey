@@ -1,5 +1,6 @@
 package dcu.service;
 
+import antlr.StringUtils;
 import com.google.gson.Gson;
 import dcu.DAO.ManagerDAOImpl;
 import dcu.DAO.PlayerDAOImpl;
@@ -23,6 +24,7 @@ public class PlayerController {
 
 
     PlayerDAOImpl playerDAOImpl = new PlayerDAOImpl() ;
+    int count = 0;
 
 
     @GET
@@ -56,13 +58,31 @@ public class PlayerController {
             throw new NotFoundException("player does not exist");
         }
 
-
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("player",playerList);
 
         Gson gson = new Gson();
         String player = gson.toJson(jsonObj);
 
+        System.out.println("Player is : " + player);
+//----------------------------------------------------------------------
+        String str = "Mick is fat Mick Boob";
+        String findStr = "Mick";
+        int lastIndex = 0;
+        count = 0;
+
+        while(lastIndex != -1){
+
+            lastIndex = player.indexOf(findStr,lastIndex);
+
+            if(lastIndex != -1){
+                count ++;
+                lastIndex += findStr.length();
+            }
+        }
+        System.out.println("hello occurs" + count + " time");
+        Integer.toString(count);
+ //-----------------------------------------------------------------
         return player;
     }
 

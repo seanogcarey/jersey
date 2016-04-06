@@ -18,6 +18,11 @@
     <p><a href="jersey/managers/getAllManagers">Managers</a> </p>
     <p><a href="jersey/players/getAllPlayers">Players</a> </p>
     <p><a href="jersey/players/getPlayer/1">Single Player View</a></p>
+    <p><a href="views/ClubView.jsp">Club View</a></p>
+    <p><a href="views/TeamView.jsp">Team View</a></p>
+    <p><a href="views/ManagerView.jsp">Manager View</a></p>
+    <p><a href="views/sample.jsp">Sample View</a> </p>
+
 
     <h2>Angular Example:</h2>
     <div ng-app="myApp" ng-controller="personCtrl">
@@ -27,6 +32,7 @@
         <br>
         Full Name: {{firstName + " " + lastName}}
 
+        <p>{{claims.map.claim.myArrayList}}</p>
         <div ng-repeat="a in claims.map.claim.myArrayList">
             <p><a href="jersey/claims/getClaim/{{a.map.claimId}}">Claim Link</a> </p>
             <p>The ID is {{a.map.claimId}}

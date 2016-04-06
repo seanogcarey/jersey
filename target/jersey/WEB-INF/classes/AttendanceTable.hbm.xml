@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="dcu.datamodel.AttendanceTable" table="AttendanceTable" schema="dbo" catalog="SSSMSDemo">
+        <id name="attendanceId">
+            <column name="attendanceId" sql-type="int"/>
+        </id>
+        <property name="playerId">
+            <column name="playerId" sql-type="int"/>
+        </property>
+        <property name="reasonOfAbsence">
+            <column name="reasonOfAbsence" sql-type="sysname" not-null="true"/>
+        </property>
+        <property name="present">
+            <column name="present" sql-type="sysname" not-null="true"/>
+        </property>
+        <property name="sessionId">
+            <column name="sessionId" sql-type="int"/>
+        </property>
+        <property name="weekId">
+            <column name="weekId" sql-type="int"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="dcu.datamodel.AttendanceWeekView" table="AttendanceWeekView" schema="dbo" catalog="SSSMSDemo">
+        <id name="attendanceWeekViewId">
+            <column name="attendanceWeekViewId" sql-type="int"/>
+        </id>
+        <property name="playerId">
+            <column name="playerId" sql-type="int"/>
+        </property>
+        <property name="weekId">
+            <column name="weekId" sql-type="int"/>
+        </property>
+        <property name="numOfSessions">
+            <column name="NumOfSessions" sql-type="int" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

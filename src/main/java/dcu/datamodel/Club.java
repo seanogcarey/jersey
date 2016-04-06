@@ -32,7 +32,7 @@ public class Club {
     @Column(name = "clubContactNumber")
     private Long clubContactNumber;
 
-    private Set<Team> teams;
+    //private Set<Team> teams;
     
     public Club(){
     }
@@ -45,7 +45,7 @@ public class Club {
         this.sport = sport;
         this.clubContactNumber = clubContactNumber;
     }
-
+/*
     public Club(int clubId,String clubName,String email,String address,
                 String sport, Long clubContactNumber,
                 Set<Team> teams){
@@ -56,12 +56,13 @@ public class Club {
         this.address = address;
         this.sport = sport;
         this.clubContactNumber = clubContactNumber;
-        this.teams = teams;
+        //this.teams = teams;
     }
+    */
 
-    public Set<Team> getTeams(){return teams;}
+   // public Set<Team> getTeams(){return teams;}
 
-    public void setTeams(Set<Team> teams){ this.teams = teams;}
+    //public void setTeams(Set<Team> teams){ this.teams = teams;}
 
     public int getClubId() {
         return clubId;

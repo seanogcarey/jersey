@@ -16,14 +16,18 @@
 
         <!-- When running locally
 
+        -->
+
         <property name="connection.url">
             jdbc:sqlserver://localhost;databaseName=SSSMSDemo;servername=DESKTOP-2REM4RC\MSSQLSERVER2
-        </property>-->
-        <property name="connection.url">
+        </property>
+        <!-- WHEN RUNNING REMOTELY 192.168.0.15  136.206.198.38
+
+          <property name="connection.url">
             jdbc:sqlserver://;databaseName=SSSMSDemo;servername=136.206.198.38\MSSQLSERVER2;port=49170
         </property>
 
-        <!-- WHEN RUNNING REMOTELY 192.168.0.15  136.206.198.38  -->
+          -->
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 
 
@@ -46,6 +50,11 @@
         <mapping resource="Manager.hbm.xml"/>
         <mapping resource="Player.hbm.xml"/>
         <mapping resource="FitnessTest.hbm.xml"/>
+        <mapping resource="Week.hbm.xml" />
+        <mapping resource="Session.hbm.xml"/>
+        <mapping resource="AttendanceTable.hbm.xml"/>
+        <mapping resource="ExtraSession.hbm.xml"/>
+        <mapping resource="AttendanceWeekView.hbm.xml"/>
 
         <!-- DB schema will be updated if needed
         <class-cache class="dcu.datamodel.Claim" usage="read-only"></class-cache>

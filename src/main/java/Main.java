@@ -32,7 +32,33 @@ public class Main {
         //creatingTeam.createTeam("Longford U21",6);
 
         //FitnessTestDAOImpl creatingFitnessTest = new FitnessTestDAOImpl();
-        //creatingFitnessTest.createFitnessTest(1,3);
+        //creatingFitnessTest.createFitnessTest(1,3)
+        String str = "Mick is fat Mick Boob";
+        String findStr = "Mick";
+        String findStr2 = "Boob";
+        int lastIndex = 0;
+        int count = 0;
+
+        while(lastIndex != -1){
+
+            lastIndex = str.indexOf(findStr,lastIndex);
+
+            if(lastIndex != -1){
+                count ++;
+                lastIndex += findStr.length();
+            }
+        }
+        int lastIndex2 = 0;
+        while(lastIndex2 != -1){
+
+            lastIndex2 = str.indexOf(findStr2,lastIndex2);
+
+            if(lastIndex2 != -1){
+                count ++;
+                lastIndex2 += findStr2.length();
+            }
+        }
+        System.out.println("words occurs " + count + " times");
 
         TeamDAOImpl teamDAOImpl = new TeamDAOImpl();
         List<Team> teamList = teamDAOImpl.getAllTeams();

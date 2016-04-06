@@ -2,7 +2,10 @@ package dcu.service;
 
 import com.google.gson.Gson;
 import dcu.DAO.ClubDAOImpl;
+import dcu.DAO.TeamDAOImpl;
 import dcu.datamodel.Club;
+import dcu.datamodel.Manager;
+import dcu.datamodel.Team;
 import javassist.NotFoundException;
 
 import javax.ws.rs.*;
@@ -20,6 +23,7 @@ public class ClubController {
 
 
     ClubDAOImpl clubDAOImpl = new ClubDAOImpl() ;
+    TeamDAOImpl teamDAOImpl = new TeamDAOImpl();
 
 
     @GET
@@ -54,9 +58,11 @@ public class ClubController {
             throw new NotFoundException("club does not exist");
         }
 
+        List<Team> teamList = teamDAOImpl.getTeamByClubId(clubId);
 
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("club",clubList);
+        jsonObj.put("team",teamList);
 
         Gson gson = new Gson();
         String club = gson.toJson(jsonObj);
