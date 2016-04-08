@@ -1,8 +1,6 @@
 package dcu.DAO;
 
-import dcu.SessionFactoryHelper;
-import dcu.datamodel.Claim;
-import dcu.datamodel.Club;
+import dcu.service.HibernateUtil;
 import dcu.datamodel.Team;
 import javassist.NotFoundException;
 import org.hibernate.Query;
@@ -23,11 +21,11 @@ public class TeamDAOImpl implements TeamDAO {
 
     public List<Team> getAllTeams() throws IOException, NotFoundException{
 
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
         List<Team> teamList  = (List<Team>) session.createQuery(GET_ALL_TEAMS).list();
 
         session.getTransaction().commit();
@@ -37,11 +35,11 @@ public class TeamDAOImpl implements TeamDAO {
     public List<Team> getTeamById(final int teamId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select  e from Team e where teamId = :teamId ");
         query.setParameter("teamId", teamId);
@@ -57,11 +55,11 @@ public class TeamDAOImpl implements TeamDAO {
     public List<Team> getTeamByClubId(final int clubId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select  e from Team e where clubId = :clubId ");
         query.setParameter("clubId", clubId);
@@ -79,12 +77,12 @@ public class TeamDAOImpl implements TeamDAO {
         System.out.println("Attempting to create team");
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Team OFF insert into dbo.team (teamName,clubId) values(:teamName,:clubId)" );
         query.setParameter("teamName", teamName);

@@ -15,25 +15,25 @@
             <column name="weekId" sql-type="int"/>
         </property>
         <property name="sessionType1">
-            <column name="sessionType1" sql-type="sysname" not-null="true"/>
+            <column name="sessionType1" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionType2">
-            <column name="sessionType2" sql-type="sysname" not-null="true"/>
+            <column name="sessionType2" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionType3">
-            <column name="sessionType3" sql-type="sysname" not-null="true"/>
+            <column name="sessionType3" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionType4">
-            <column name="sessionType4" sql-type="sysname" not-null="true"/>
+            <column name="sessionType4" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionType5">
-            <column name="sessionType5" sql-type="sysname" not-null="true"/>
+            <column name="sessionType5" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionType6">
-            <column name="sessionType6" sql-type="sysname" not-null="true"/>
+            <column name="sessionType6" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionType7">
-            <column name="sessionType7" sql-type="sysname" not-null="true"/>
+            <column name="sessionType7" sql-type="java.lang.String" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

@@ -1,14 +1,33 @@
 package dcu.datamodel;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by Sean on 06/04/2016.
  */
 public class AttendanceTable {
+
+    @Id
+    @Column(name = "attendanceId", unique = true, nullable = false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int attendanceId;
+
+    @Column(name = "playerId")
     private int playerId;
+
+    @Column(name = "reasonOfAbsence")
     private String reasonOfAbsence;
+
+    @Column(name = "present")
     private String present;
+
+    @Column(name = "sessionId")
     private int sessionId;
+
+    @Column(name = "weekId")
     private int weekId;
 
     public int getAttendanceId() {

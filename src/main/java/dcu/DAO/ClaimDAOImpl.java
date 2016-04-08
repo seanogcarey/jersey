@@ -4,8 +4,7 @@ package dcu.DAO;
  * Created by Sean on 08/03/2016.
  */
 import dcu.datamodel.Claim;
-import dcu.SessionFactoryHelper;
-import dcu.datamodel.Club;
+import dcu.service.HibernateUtil;
 import javassist.NotFoundException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
@@ -42,13 +41,13 @@ public class ClaimDAOImpl implements ClaimDAO {
 
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
         System.out.println("transaction begun");
 
-        SessionFactory sf = SessionFactoryHelper.getSessionFactory();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
         System.out.println("Got Session Factory, getting claims");
         System.out.println();
 
@@ -78,13 +77,13 @@ public class ClaimDAOImpl implements ClaimDAO {
 
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
         System.out.println("transaction begun");
 
-       SessionFactory sf = SessionFactoryHelper.getSessionFactory();
+       SessionFactory sf = HibernateUtil.getSessionFactory();
         System.out.println("Got Session Factory, getting claim");
         System.out.println();
 
@@ -110,17 +109,15 @@ public class ClaimDAOImpl implements ClaimDAO {
 
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
         System.out.println("transaction begun");
 
-        SessionFactory sf = SessionFactoryHelper.getSessionFactory();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
         System.out.println("Got Session Factory");
         System.out.println();
-
-        //String claimReference = "test";
 
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Claim OFF insert into dbo.Claim (claimReference) values(:claimReference)" );
         query.setParameter("claimReference", claimReference);

@@ -1,7 +1,6 @@
 package dcu.DAO;
 
-import dcu.SessionFactoryHelper;
-import dcu.datamodel.Manager;
+import dcu.service.HibernateUtil;
 import dcu.datamodel.Player;
 import javassist.NotFoundException;
 import org.hibernate.Query;
@@ -23,11 +22,11 @@ public class PlayerDAOImpl implements PlayerDAO {
     public List<Player> getAllPlayers() throws IOException, NotFoundException{
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
         List<Player> playerList  = (List<Player>) session.createQuery(GET_ALL_PLAYERS).list();
 
         session.getTransaction().commit();
@@ -38,11 +37,11 @@ public class PlayerDAOImpl implements PlayerDAO {
     public List<Player> getPlayerById(final int playerId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select e from Player e where playerId = :playerId ");
         query.setParameter("playerId", playerId);
@@ -58,11 +57,11 @@ public class PlayerDAOImpl implements PlayerDAO {
     public List<Player> getPlayerByTeamId(final int teamId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select e from Player e where teamId = :teamId ");
         query.setParameter("teamId", teamId);
@@ -83,12 +82,12 @@ public class PlayerDAOImpl implements PlayerDAO {
         System.out.println("Attempting to create manager");
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Player OFF insert into dbo.Player (firstName,lastName,teamId) values(:firstName,:lastName,:teamId)" );
         query.setParameter("firstName", firstName);

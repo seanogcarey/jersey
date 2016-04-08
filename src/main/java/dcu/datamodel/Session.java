@@ -1,14 +1,28 @@
 package dcu.datamodel;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.sql.Date;
 
 /**
  * Created by Sean on 06/04/2016.
  */
 public class Session {
+
+    @Id
+    @Column(name = "sessionId", unique = true, nullable = false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int sessionId;
+
+    @Column(name = "sessionType")
     private String sessionType;
+
+    @Column(name = "sessionDate")
     private Date sessionDate;
+
+    @Column(name = "weekId")
     private int weekId;
 
     public int getSessionId() {

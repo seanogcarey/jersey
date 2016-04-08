@@ -1,12 +1,27 @@
 package dcu.datamodel;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by Sean on 06/04/2016.
  */
 public class AttendanceWeekView {
+
+    @Id
+    @Column(name = "attendanceWeekViewId", unique = true, nullable = false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int attendanceWeekViewId;
+
+    @Column(name = "playerId")
     private int playerId;
+
+    @Column(name = "weekId")
     private int weekId;
+
+    @Column(name = "numOfSessions")
     private Integer numOfSessions;
 
     public int getAttendanceWeekViewId() {

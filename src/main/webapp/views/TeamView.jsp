@@ -38,7 +38,6 @@
                     <td><span ng-bind="a.map.teamId"></span></td>
                     <td><span ng-bind="a.map.teamName"></span></td>
                     <td><span ng-bind="a.map.clubId"></span></td>
-                    <td><span ng-bind="a.map.clubId"></span></td>
                     <td><a href="/jersey/teams/getTeam/{{a.map.teamId}}">Link</a></td>
                 </tr>
                 </tbody>

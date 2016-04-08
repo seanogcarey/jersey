@@ -12,10 +12,10 @@
             <column name="playerId" sql-type="int"/>
         </property>
         <property name="reasonOfAbsence">
-            <column name="reasonOfAbsence" sql-type="sysname" not-null="true"/>
+            <column name="reasonOfAbsence" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="present">
-            <column name="present" sql-type="sysname" not-null="true"/>
+            <column name="present" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionId">
             <column name="sessionId" sql-type="int"/>

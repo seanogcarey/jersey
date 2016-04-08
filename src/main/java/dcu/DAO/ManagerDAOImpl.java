@@ -1,12 +1,11 @@
 package dcu.DAO;
 
-import dcu.SessionFactoryHelper;
+import dcu.service.HibernateUtil;
 import dcu.datamodel.Manager;
 import javassist.NotFoundException;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,11 +22,11 @@ public class ManagerDAOImpl implements ManagerDAO{
 
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        //sf = SessionFactoryHelper.getSessionFactory();
+        //sf = HibernateUtil.getSessionFactory();
         List<Manager> managerList  = (List<Manager>) session.createQuery(GET_ALL_MANAGERS).list();
 
         session.getTransaction().commit();
@@ -37,11 +36,11 @@ public class ManagerDAOImpl implements ManagerDAO{
     public List<Manager> getManagerById(final int managerId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        //sf = SessionFactoryHelper.getSessionFactory();
+        //sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select  e from Manager e where managerId = :managerId ");
         query.setParameter("managerId", managerId);
@@ -57,11 +56,11 @@ public class ManagerDAOImpl implements ManagerDAO{
     public List<Manager> getManagerByTeamId(final int teamId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        //sf = SessionFactoryHelper.getSessionFactory();
+        //sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select  e from Manager e where teamId = :teamId ");
         query.setParameter("teamId", teamId);
@@ -79,12 +78,12 @@ public class ManagerDAOImpl implements ManagerDAO{
         System.out.println("Attempting to create manager");
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
 
-        //sf = SessionFactoryHelper.getSessionFactory();
+        //sf = HibernateUtil.getSessionFactory();
 
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Manager OFF insert into dbo.Manager (firstName,lastName,teamId) values(:firstName,:lastName,:teamId)" );
         query.setParameter("firstName", firstName);

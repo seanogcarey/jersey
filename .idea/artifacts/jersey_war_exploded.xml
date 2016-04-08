@@ -40,6 +40,7 @@
           <element id="library" level="project" name="org.hibernate:hibernate-ehcache:5.0.7.Final" />
           <element id="library" level="project" name="org.hibernate:hibernate-core:5.0.7.Final" />
           <element id="library" level="project" name="sqljdbc4" />
+          <element id="library" level="project" name="dom4j-1.6.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

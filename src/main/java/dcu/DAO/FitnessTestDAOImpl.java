@@ -1,8 +1,6 @@
 package dcu.DAO;
 
-import dcu.SessionFactoryHelper;
-import dcu.datamodel.Claim;
-import dcu.datamodel.Club;
+import dcu.service.HibernateUtil;
 import dcu.datamodel.FitnessTest;
 import javassist.NotFoundException;
 import org.hibernate.Query;
@@ -23,11 +21,11 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
     public List<FitnessTest> getAllFitnessTests() throws IOException, NotFoundException{
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
         List<FitnessTest> fitnessTestList  = (List<FitnessTest>) session.createQuery(GET_ALL_FINTESSTESTS).list();
 
         session.getTransaction().commit();
@@ -37,11 +35,11 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
     public List<FitnessTest> getFintessTestById(final int fitnessId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select e from FitnessTest e where fitnessId = :fitnessId ");
         query.setParameter("fitnessId", fitnessId);
@@ -54,11 +52,11 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
     public List<FitnessTest> getFintessTestByPlayerId(final int playerId){
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select e from FitnessTest e where playerId = :playerId ");
         query.setParameter("playerId", playerId);
@@ -74,12 +72,12 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
         System.out.println("Attempting to create manager");
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
 
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.FitnessTest OFF insert into dbo.FitnessTest (bodyFat,playerId) values(:bodyFat,:playerId)" );
         query.setParameter("bodyFat", bodyFat);

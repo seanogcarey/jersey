@@ -33,7 +33,7 @@
 <p ng-view>Hello {{name}}!</p>
 <a href="#/page1">page1</a> <a href="#/page2">page2</a>
 
-<div ng-controller="Page2Ctrl"> Hello {{name}} !</div>
+<div ng-controller="PageCtrl"> Hello {{name}} !</div>
 </body>
 
 </html>

@@ -1,18 +1,45 @@
 package dcu.datamodel;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by Sean on 06/04/2016.
  */
 public class ExtraSession {
+
+    @Id
+    @Column(name = "extraSessionId", unique = true, nullable = false)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int extraSessionId;
+
+    @Column(name = "playerId")
     private int playerId;
+
+    @Column(name = "weekId")
     private int weekId;
+
+    @Column(name = "sessionType1")
     private String sessionType1;
+
+    @Column(name = "sessionType2")
     private String sessionType2;
+
+    @Column(name = "sessionType3")
     private String sessionType3;
+
+    @Column(name = "sessionType4")
     private String sessionType4;
+
+    @Column(name = "sessionType5")
     private String sessionType5;
+
+    @Column(name = "sessionType6")
     private String sessionType6;
+
+    @Column(name = "sessionType7")
     private String sessionType7;
 
     public int getExtraSessionId() {

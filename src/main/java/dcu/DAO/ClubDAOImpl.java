@@ -1,7 +1,6 @@
 package dcu.DAO;
 
-import dcu.SessionFactoryHelper;
-import dcu.datamodel.Claim;
+import dcu.service.HibernateUtil;
 import dcu.datamodel.Club;
 import javassist.NotFoundException;
 import org.hibernate.Query;
@@ -26,13 +25,13 @@ public class ClubDAOImpl implements ClubDAO {
 
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
         System.out.println("transaction begun");
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
         System.out.println("Got Session Factory, getting clubs");
         System.out.println();
 
@@ -49,13 +48,13 @@ public class ClubDAOImpl implements ClubDAO {
 
 
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
         System.out.println("transaction begun");
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
         System.out.println("Got Session Factory, getting club");
         System.out.println();
 
@@ -76,13 +75,13 @@ public class ClubDAOImpl implements ClubDAO {
     public void createClub(final String clubName){
         System.out.println("Attempting to create club");
         //begin transaction
-        Session session = SessionFactoryHelper.getSessionFactory()
+        Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
         session.beginTransaction();
 
         System.out.println("transaction begun");
 
-        sf = SessionFactoryHelper.getSessionFactory();
+        sf = HibernateUtil.getSessionFactory();
         System.out.println("Got Session Factory");
         System.out.println();
 

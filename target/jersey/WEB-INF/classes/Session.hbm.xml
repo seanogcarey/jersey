@@ -9,7 +9,7 @@
             <column name="sessionId" sql-type="int"/>
         </id>
         <property name="sessionType">
-            <column name="sessionType" sql-type="sysname" not-null="true"/>
+            <column name="sessionType" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="sessionDate">
             <column name="sessionDate" sql-type="date" not-null="true"/>
