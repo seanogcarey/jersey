@@ -24,23 +24,15 @@ App.config(['$routeProvider' , function($routeProvider ) {
     });
 }])
 
-App.controller('MainCtrl', function($scope, $routeParams) {
-    $scope.name = 'World';
-    $scope.model ={
-        message: $routeParams.message
-    }
-});
+
 
 App.controller('PageCtrl', function($scope, $routeParams,$http) {
     $scope.name = 'Earth';
     console.log($routeParams.teamId);
-    $scope.model ={
-        message: $routeParams.message
-    }
     $http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
-        $scope.teams = data;
+        $scope.name = data;
         console.log(data);
     });
 

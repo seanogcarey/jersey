@@ -94,6 +94,20 @@ public class WeekController {
 
     }
 
+    /*
+    POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/createWeek/teamId/{teamId}/startDate/{startDate}/endDate/{endDate}")
+    public String createWeek(@PathParam("teamId") final int teamId, @PathParam("startDate") final Date startDate, @PathParam("endDate") final Date endDate) throws IOException, NotFoundException,JSONException{
+
+        //todo how to pass in dates....explore
+        weekDAOImpl.createWeek(teamId,startDate,endDate);
+        weekDAOImpl.createWeek(teamId);
+        return "createWeek";
+
+    }
+    */
+
 
 
 }

@@ -21,8 +21,11 @@ public interface AttendanceTableDAO {
 
     public List<AttendanceTable> getAllAttendanceTableBySessionId(final int sessionId);
 
+    public List<AttendanceTable> getAllAttendanceTableByWeekIdSessionId(final int weekId,final int sessionId);
+
     public List<AttendanceTable> getAllAttendanceTableBySessionIdPlayerId(final int weekId, final int playerId);
 
-    public void createAttendanceTable(final int weekId, final int playerId, final int sessionId);
+
+    public void createAttendanceTable(final int weekId, final int playerId, final int sessionId,final String present, final String reasonOfAbsence);
 
 }

@@ -69,6 +69,26 @@ public class SessionDAOImpl implements SessionDAO {
 
         return sessionList;
     }
+    public void createSession(final int weekId,final String sessionType){
+
+        //begin transaction
+        org.hibernate.Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Session OFF insert into dbo.Session (weekId,sessionType) values(:weekId,:sessionType)" );
+        query.setParameter("weekId", weekId);
+        query.setParameter("sessionType", sessionType);
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+
+    }
+/*
     public void createSession(final int weekId, final Date sessionDate, final String sessionType){
 
         //begin transaction
@@ -89,5 +109,7 @@ public class SessionDAOImpl implements SessionDAO {
 
 
     }
+    */
+
 
 }

@@ -84,7 +84,7 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
 
         return extraSessionList ;
     }
-    public List<ExtraSession> getExtraSessionByWeekIdPlayerId(final int playerId,final int weekId){
+    public List<ExtraSession> getExtraSessionByWeekIdPlayerId(final int weekId,final int playerId){
 
         Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
@@ -92,9 +92,9 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
 
         sf = HibernateUtil.getSessionFactory();
 
-        Query query = session.createQuery("select e from ExtraSession e where playerId = :playerId AND weekId = :weekId");
-        query.setParameter("playerId", playerId);
+        Query query = session.createQuery("select e from ExtraSession e where weekId = :weekId and playerId = :playerId");
         query.setParameter("weekId", weekId);
+        query.setParameter("playerId", playerId);
         List<ExtraSession> extraSessionList  = query.list();
 
         session.getTransaction().commit();
@@ -114,7 +114,7 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.ExtraSession OFF insert into dbo.ExtraSession (weekId,playerId,sessionType1) values(:weekId,:playerId,:sessionType1)" );
         query.setParameter("weekId", weekId);
         query.setParameter("playerId",playerId);
-        query.setParameter("sessionType",sessionType1);
+        query.setParameter("sessionType1",sessionType1);
         query.executeUpdate();
 
         session.getTransaction().commit();

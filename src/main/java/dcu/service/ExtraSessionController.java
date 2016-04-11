@@ -23,7 +23,7 @@ public class ExtraSessionController {
     ExtraSessionDAOImpl extraSessionDAOImpl = new ExtraSessionDAOImpl();
 
     @GET
-    @Path("/getAllSessions")
+    @Path("/getAllExtraSessions")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllExtraSessions()throws IOException, NotFoundException, JSONException {
 
@@ -65,7 +65,7 @@ public class ExtraSessionController {
     }
 
     @GET
-    @Path("/getExtraSessionByWeekIdPlayer/weekId/{weekId}/playerId/{playerId}")
+    @Path("/getExtraSessionByWeekIdPlayerId/weekId/{weekId}/playerId/{playerId}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getExtraSessionByWeekIdPlayerId(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
         List<ExtraSession> extraSessionList = extraSessionDAOImpl.getExtraSessionByWeekIdPlayerId(weekId,playerId);

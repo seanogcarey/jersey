@@ -1,5 +1,6 @@
 package dcu.DAO;
 
+import dcu.datamodel.AttendanceTable;
 import dcu.datamodel.AttendanceWeekView;
 import dcu.datamodel.ExtraSession;
 import dcu.service.HibernateUtil;
@@ -83,7 +84,7 @@ public class AttendanceWeekViewDAOImpl {
 
         return attendanceWeekViewList;
     }
-    public List<AttendanceWeekView> getAttendanceWeekViewByWeekIdPlayerId(final int playerId,final int weekId){
+    public List<AttendanceWeekView> getAttendanceWeekViewByWeekIdPlayerId(final int weekId,final int playerId){
 
 
         Session session = HibernateUtil.getSessionFactory()
@@ -92,9 +93,9 @@ public class AttendanceWeekViewDAOImpl {
 
         sf = HibernateUtil.getSessionFactory();
 
-        Query query = session.createQuery("select e from AttendanceWeekView e where playerId = :playerId and weekId = :weekId ");
-        query.setParameter("playerId", playerId);
+        Query query = session.createQuery("select e from AttendanceWeekView e where weekId = :weekId and playerId = :playerId ");
         query.setParameter("weekId", weekId);
+        query.setParameter("playerId", playerId);
 
         List<AttendanceWeekView> attendanceWeekViewList  = query.list();
 
@@ -103,7 +104,8 @@ public class AttendanceWeekViewDAOImpl {
         return attendanceWeekViewList;
     }
 
-    public void createAttendanceWeekView(final int weekId, final int playerId,final int numOfSessions){
+    public List<AttendanceWeekView> createAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions){
+
 
         Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
@@ -115,10 +117,14 @@ public class AttendanceWeekViewDAOImpl {
         SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.AttendanceWeekView OFF insert into dbo.AttendanceWeekView (weekId,playerId,numOfSessions) values(:weekId,:playerId,:numOfSessions)" );
         query.setParameter("weekId", weekId);
         query.setParameter("playerId",playerId);
-        query.setParameter("sessionType",numOfSessions);
+        query.setParameter("numOfSessions",numOfSessions);
         query.executeUpdate();
 
         session.getTransaction().commit();
+
+        List<AttendanceWeekView> attendanceWeekViewList = getAttendanceWeekViewByWeekIdPlayerId(weekId,playerId);
+
+        return attendanceWeekViewList;
 
     }
 }

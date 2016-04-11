@@ -15,5 +15,5 @@ public interface SessionDAO {
     public List<Session> getAllSessions() throws IOException, NotFoundException;
     public List<Session> getSessionById(final int sessionId);
     public List<Session> getSessionByWeekId(final int weekId);
-    public void createSession(final int weekId, final Date sessionDate,final String sessionType);
+    public void createSession(final int weekId,final String sessionType);
 }

@@ -100,7 +100,43 @@ public class AttendanceTableDAOImpl implements AttendanceTableDAO {
         return attendanceTableList;
     }
 
-    public List<AttendanceTable> getAllAttendanceTableBySessionIdPlayerId(final int weekId,final int playerId){
+    public List<AttendanceTable> getAllAttendanceTableBySessionIdPlayerId(final int sessionId,final int playerId){
+
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+        sf = HibernateUtil.getSessionFactory();
+
+        Query query = session.createQuery("select e from AttendanceTable e where sessionId = :sessionId and playerId = :playerId ");
+        query.setParameter("sessionId", sessionId);
+        query.setParameter("playerId", playerId);
+        List<AttendanceTable> attendanceTableList  = query.list();
+
+        session.getTransaction().commit();
+
+        return attendanceTableList;
+    }
+
+    public List<AttendanceTable> getAllAttendanceTableByWeekIdSessionId(final int weekId,final int sessionId){
+
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+        sf = HibernateUtil.getSessionFactory();
+
+        Query query = session.createQuery("select e from AttendanceTable e where weekId = :weekId and sessionId = :sessionId ");
+        query.setParameter("weekId", weekId);
+        query.setParameter("sessionId", sessionId);
+        List<AttendanceTable> attendanceTableList  = query.list();
+
+        session.getTransaction().commit();
+
+        return attendanceTableList;
+    }
+
+    public List<AttendanceTable> getAllAttendanceTableByWeekIdPlayerId(final int weekId,final int playerId){
 
 
         Session session = HibernateUtil.getSessionFactory()
@@ -120,7 +156,7 @@ public class AttendanceTableDAOImpl implements AttendanceTableDAO {
         return attendanceTableList;
     }
 
-    public void createAttendanceTable(final int weekId,final int playerId, final int sessionId){
+    public void createAttendanceTable(final int weekId,final int playerId, final int sessionId,final String present, final String reasonOfAbsence){
 
 
         Session session = HibernateUtil.getSessionFactory()
@@ -130,10 +166,13 @@ public class AttendanceTableDAOImpl implements AttendanceTableDAO {
 
         sf = HibernateUtil.getSessionFactory();
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.AttendanceTable OFF insert into dbo.AttendanceTable (weekId,playerId,sessionId) values(:weekId,:playerId,:sessionid)" );
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.AttendanceTable OFF insert into dbo.AttendanceTable (weekId,playerId,sessionId,present,reasonOfAbsence) values(:weekId,:playerId,:sessionId,:present,:reasonOfAbsence)" );
         query.setParameter("weekId", weekId);
         query.setParameter("playerId",playerId);
-        query.setParameter("sessionType",sessionId);
+        query.setParameter("sessionId",sessionId);
+        query.setParameter("present",present);
+        query.setParameter("reasonOfAbsence",reasonOfAbsence);
+        //todo maybe change to this to attendanceStatus
         query.executeUpdate();
 
         session.getTransaction().commit();

@@ -26,7 +26,7 @@ public class TeamController {
 
 
     @GET
-    @Path("/getAllTeams")
+    @Path("/getTeam/")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllTeams()throws IOException, NotFoundException, JSONException {
 

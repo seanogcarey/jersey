@@ -151,13 +151,13 @@ public class AttendanceTableController {
     }
 
 
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createAttendanceTable/weekId/{weekId}/playerId/{playerId}/sessionId/{sessionId}")
-    public String createAttendanceTable(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionId") final int sessionId) throws IOException, NotFoundException,JSONException{
+    @Path("/createAttendanceTable/weekId/{weekId}/playerId/{playerId}/sessionId/{sessionId}/present/{present}/reasonOfAbsence/{reasonOfAbsence}")
+    public String createAttendanceTable(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionId") final int sessionId,
+            @PathParam("present") final String present,@PathParam("reasonOfAbsence")final String reasonOfAbsence ) throws IOException, NotFoundException,JSONException{
 
-        attendanceTableDAOImpl.createAttendanceTable(weekId,playerId,sessionId);
+        attendanceTableDAOImpl.createAttendanceTable(weekId,playerId,sessionId,present,reasonOfAbsence);
         return "createAttendanceTable";
 
     }

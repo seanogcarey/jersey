@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,7 +42,7 @@ public class WeekDAOImpl implements WeekDAO {
 
         sf = HibernateUtil.getSessionFactory();
 
-        Query query = session.createQuery("select  e from Week e where weekId = :weekId ");
+        Query query = session.createQuery("select e from Week e where weekId = :weekId ");
         query.setParameter("weekId", weekId);
         List<Week> weekList  = query.list();
 
@@ -59,7 +60,7 @@ public class WeekDAOImpl implements WeekDAO {
 
         sf = HibernateUtil.getSessionFactory();
 
-        Query query = session.createQuery("select  e from Week e where weekId = :teamId ");
+        Query query = session.createQuery("select  e from Week e where teamId = :teamId ");
         query.setParameter("teamId", teamId);
         List<Week> weekList  = query.list();
 
@@ -85,4 +86,24 @@ public class WeekDAOImpl implements WeekDAO {
         session.getTransaction().commit();
 
     }
+/*
+    public void createWeek(final int teamId, final Date startDate, final Date endDate){
+
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Week OFF insert into dbo.Week (teamId,startDate,endDate) values(:teamId,:startDate,:endDate)" );
+        query.setParameter("teamId", teamId);
+        query.setParameter("startDate", startDate);
+        query.setParameter("endDate", endDate);
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+    }
+    */
 }

@@ -39,7 +39,7 @@ public class PlayerController {
         }
 
         JSONObject jsonObj = new JSONObject();
-        jsonObj.put("team",playerList);
+        jsonObj.put("player",playerList);
 
         Gson gson = new Gson();
         String players = gson.toJson(jsonObj);

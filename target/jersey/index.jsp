@@ -20,8 +20,11 @@
     <p><a href="jersey/players/getPlayer/1">Single Player View</a></p>
     <p><a href="views/ClubView.jsp">Club View</a></p>
     <p><a href="views/TeamView.jsp">Team View</a></p>
+    <p><a href="views/PlayerView.jsp">Player View</a></p>
+    <p><a href="views/PlayerSingleView.jsp">Player Single View</a></p>
     <p><a href="views/ManagerView.jsp">Manager View</a></p>
     <p><a href="views/sample.jsp">Sample View</a> </p>
+    <p><a href="views/View.jsp">View</a></p>
 
 
     <h2>Angular Example:</h2>

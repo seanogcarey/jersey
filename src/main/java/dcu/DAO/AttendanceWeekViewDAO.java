@@ -16,7 +16,7 @@ public interface AttendanceWeekViewDAO {
     public List<AttendanceWeekView> getAttendanceWeekViewById(final int attendanceWeekViewId);
     public List<AttendanceWeekView> getAttendanceWeekViewByWeekId(final int weekId);
     public List<AttendanceWeekView> getAttendanceWeekViewByPlayerId(final int playerId);
-    public List<AttendanceWeekView> getAttendanceWeekViewByWeekIdPlayerId(final int playerId,final int weekId);
+    public List<AttendanceWeekView> getAttendanceWeekViewByWeekIdPlayerId(final int weekId,final int playerId);
 
     public void createAttendanceWeekView(final int weekId, final int playerId,final int numOfSessions);
 }

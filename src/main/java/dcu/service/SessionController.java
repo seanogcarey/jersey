@@ -53,7 +53,7 @@ public class SessionController {
         List<dcu.datamodel.Session> sessionList = sessionDAOImpl.getSessionById(sessionId);
 
         if (sessionList == null) {
-            throw new NotFoundException("week does not exist");
+            throw new NotFoundException("session does not exist");
         }
 
 
@@ -67,6 +67,37 @@ public class SessionController {
 
     }
 
+    @GET
+    @Path("/getSessionByWeekId/{weekId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getSessionByWeekId(@PathParam("weekId") final int weekId) throws IOException, NotFoundException,JSONException{
+        List<dcu.datamodel.Session> sessionList = sessionDAOImpl.getSessionByWeekId(weekId);
+
+        if (sessionList == null) {
+            throw new NotFoundException("sessions do not exist");
+        }
+
+
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("session",sessionList);
+
+        Gson gson = new Gson();
+        String sessions = gson.toJson(jsonObj);
+
+        return sessions;
+
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/createSession/weekId/{weekId}/sessionType/{sessionType}")
+    public String createWeek(@PathParam("weekId") final int weekId,@PathParam("sessionType") final String sessionType) throws IOException, NotFoundException,JSONException{
+
+        sessionDAOImpl.createSession(weekId,sessionType);
+        return "createSession";
+
+    }
+    /*
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/createSession/weekId/{weekId}/sessionDate/{sessionDate}/sessionType/{sessionType}")
@@ -76,5 +107,6 @@ public class SessionController {
         return "createSession";
 
     }
+    */
 
 }

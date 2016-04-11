@@ -29,11 +29,14 @@
 
 </head>
 
-<body ng-controller="MainCtrl">
+<body ng-controller="PageCtrl">
 <p ng-view>Hello {{name}}!</p>
 <a href="#/page1">page1</a> <a href="#/page2">page2</a>
 
-<div ng-controller="PageCtrl"> Hello {{name}} !</div>
+<div ng-controller="PageCtrl"> <p>Hello {{name}} !</p>
+
+
+</div>
 </body>
 
 </html>
