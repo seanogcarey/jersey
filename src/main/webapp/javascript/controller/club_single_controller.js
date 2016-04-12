@@ -2,6 +2,9 @@
  * Created by Sean on 11/04/2016.
  */
 /**
+ * Created by Sean on 11/04/2016.
+ */
+/**
  * Created by Sean on 06/04/2016.
  */
 
@@ -13,14 +16,8 @@ var App = angular.module('myApp',[])
 App.config(['$routeProvider' , function($routeProvider ) {
     $routeProvider.when('/club/:clubId', {
 
-        templateUrl : "club.html",
-        controller: "ClubCtrl"
-
-    }).when('/club/', {
-
-        templateUrl : "club.html",
-        controller: "ClubCtrl",
-
+        templateUrl : "clubSingleView.html",
+        controller: "ClubSingleCtrl"
     }).when('/', {
 
         templateUrl : "club.html",
@@ -42,18 +39,6 @@ App.controller('Page1Ctrl', function($scope) {
     //$scope.page = data;
     console.log($scope.page);
     //});
-
-});
-
-App.controller('ClubCtrl', function($scope, $routeParams,$http) {
-
-    console.log($routeParams.teamId);
-    $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    success(function(data) {
-        $scope.clubs = data;
-        console.log(data);
-    });
 
 });
 

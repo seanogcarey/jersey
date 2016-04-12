@@ -10,16 +10,6 @@
 
 var App = angular.module('myApp',[])
 
-/*
- .directive('infos', function() {
- return {
- restrict: 'E',
- replace: true,
- templateUrl: 'infos.html'
- };
- })
- */
-
 App.config(['$routeProvider' , function($routeProvider ) {
     $routeProvider.when('/team/:teamId', {
 

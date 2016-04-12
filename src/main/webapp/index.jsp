@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Manager App</title>
+    <title>Smart Bainisteoir</title>
     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
@@ -18,7 +18,7 @@
     <p><a href="jersey/managers/getAllManagers">Managers</a> </p>
     <p><a href="jersey/players/getAllPlayers">Players</a> </p>
     <p><a href="jersey/players/getPlayer/1">Single Player View</a></p>
-    <p><a href="views/ClubView.jsp">Club View</a></p>
+    <p><a href="views/ClubView.jsp#/club/">Club View</a></p>
     <p><a href="views/TeamView.jsp">Team View</a></p>
     <p><a href="views/PlayerView.jsp">Player View</a></p>
     <p><a href="views/PlayerSingleView.jsp">Player Single View</a></p>
@@ -34,7 +34,7 @@
         Last Name: <input type="text" ng-model="lastName"><br>
         <br>
         Full Name: {{firstName + " " + lastName}}
-
+<!--
         <p>{{claims.map.claim.myArrayList}}</p>
         <div ng-repeat="a in claims.map.claim.myArrayList">
             <p><a href="jersey/claims/getClaim/{{a.map.claimId}}">Claim Link</a> </p>
@@ -43,6 +43,7 @@
             <p>The reference is {{a.map.claimReference}}</p>
         </div>
     </div>
+    -->
 
 </body>
 </html>

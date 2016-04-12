@@ -27,7 +27,7 @@ public class ClubController {
 
 
     @GET
-    @Path("/getAllClubs")
+    @Path("/getClub/")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllClubs()throws IOException, NotFoundException, JSONException {
 
@@ -53,7 +53,7 @@ public class ClubController {
     public String getClubById(@PathParam("clubId") final int clubId) throws IOException, NotFoundException,JSONException{
         List<Club> clubList = clubDAOImpl.getClubById(clubId);
 
-        System.out.println("I Have the claimID " + clubId);
+
         if (clubList == null) {
             throw new NotFoundException("club does not exist");
         }

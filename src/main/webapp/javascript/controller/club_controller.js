@@ -1,96 +1,76 @@
 /**
- * Created by Sean on 05/04/2016.
+ * Created by Sean on 11/04/2016.
  */
+/**
+ * Created by Sean on 06/04/2016.
+ */
+
 
 'use strict';
 
-App.controller('ClubController', ['$scope', 'ClubService', function($scope, ClubService) {
-    var self = this;
-    self.club={clubId:null,clubName:'',address:'',email:''};
-    self.clubs=[];
+var App = angular.module('myApp',[])
 
-    self.fetchAllClubs = function(){
-        ClubService.fetchAllClubs()
-            .then(
-                function(data) {
-                    self.clubs = data;
-                },
-                function(errResponse){
-                    console.error('Error while fetching Currencies');
-                }
-            );
-    };
+App.config(['$routeProvider' , function($routeProvider ) {
+    $routeProvider.when('/club/:clubId', {
 
-    self.createClub = function(club){
-        ClubService.createClub(club)
-            .then(
-                self.fetchAllClubs(),
-                function(errResponse){
-                    console.error('Error while creating User.');
-                }
-            );
-    };
-/*
-    self.updateUser = function(user, id){
-        UserService.updateUser(user, id)
-            .then(
-                self.fetchAllUsers,
-                function(errResponse){
-                    console.error('Error while updating User.');
-                }
-            );
-    };
+        templateUrl : "club.html",
+        controller: "ClubCtrl"
 
-    self.deleteUser = function(id){
-        UserService.deleteUser(id)
-            .then(
-                self.fetchAllUsers,
-                function(errResponse){
-                    console.error('Error while deleting User.');
-                }
-            );
-    };
-    */
+    }).when('/club/', {
 
-    self.fetchAllClubs();
+        templateUrl : "club.html",
+        controller: "ClubCtrl",
 
-    self.submit = function() {
-        if(self.club.clubId===null){
-            console.log('Saving New Club', self.club);
-            self.createUser(self.club);
-        }else{
-            //self.updateUser(self.club, self.club.id);
-            //console.log('Club updated with id ', self.club.id);
-            console.log('Club not made');
-        }
-        self.reset();
-    };
+    }).when('/', {
 
-    /*
-    self.edit = function(id){
-        console.log('id to be edited', id);
-        for(var i = 0; i < self.users.length; i++){
-            if(self.users[i].id === id) {
-                self.user = angular.copy(self.users[i]);
-                break;
-            }
-        }
-    };
-    */
+        templateUrl : "club.html",
+        controller: "Page1Ctrl"
 
-    /*
-    self.remove = function(id){
-        console.log('id to be deleted', id);
-        if(self.user.id === id) {//clean form if the user to be deleted is shown there.
-            self.reset();
-        }
-        self.deleteUser(id);
-    };
+    }).otherwise({
 
-    */
-    self.reset = function(){
-        self.club={clubId:null,clubName:'',address:'',email:''};
-        $scope.myForm.$setPristine(); //reset Form
-    };
+        template: '<div> This page does not exist </div>'
 
-}]);
+    });
+}])
+
+App.controller('Page1Ctrl', function($scope) {
+    $scope.page = 'Page1';
+    //console.log($routeParams.teamId);
+    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    //success(function(data) {
+    //$scope.page = data;
+    console.log($scope.page);
+    //});
+
+});
+
+App.controller('ClubCtrl', function($scope, $routeParams,$http) {
+
+    console.log($routeParams.teamId);
+    $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.clubs = data;
+        console.log(data);
+    });
+
+});
+
+App.controller('ClubSingleCtrl', function($scope, $routeParams,$http) {
+
+    console.log($routeParams.teamId);
+    $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.clubs = data;
+        console.log(data);
+    });
+    $http.get('http://localhost:8081/jersey/teams/getTeamByClub/' + $routeParams.clubId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.teams = data;
+    });
+
+});
+
