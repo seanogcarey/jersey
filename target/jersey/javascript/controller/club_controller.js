@@ -45,8 +45,10 @@ App.controller('Page1Ctrl', function($scope) {
 
 });
 
-App.controller('ClubCtrl', function($scope, $routeParams,$http) {
+App.controller('ClubCtrl', function($scope, $routeParams,$http,$route) {
 
+
+    $scope.newName = "";
     console.log($routeParams.teamId);
     $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
@@ -54,6 +56,15 @@ App.controller('ClubCtrl', function($scope, $routeParams,$http) {
         $scope.clubs = data;
         console.log(data);
     });
+    $scope.createClub = function() {
+        var postData = $scope.text
+        $http.post("http://localhost:8081/jersey/clubs/createClub/" + postData).success(function() {
+            //$route.reload();
+            $scope.submissionSuccess=true;
+            $route.reload();
+
+        })
+    }
 
 });
 

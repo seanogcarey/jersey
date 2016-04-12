@@ -65,24 +65,7 @@ public class PlayerController {
         String player = gson.toJson(jsonObj);
 
         System.out.println("Player is : " + player);
-//----------------------------------------------------------------------
-        String str = "Mick is fat Mick Boob";
-        String findStr = "Mick";
-        int lastIndex = 0;
-        count = 0;
 
-        while(lastIndex != -1){
-
-            lastIndex = player.indexOf(findStr,lastIndex);
-
-            if(lastIndex != -1){
-                count ++;
-                lastIndex += findStr.length();
-            }
-        }
-        System.out.println("hello occurs" + count + " time");
-        Integer.toString(count);
- //-----------------------------------------------------------------
         return player;
     }
 

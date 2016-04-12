@@ -66,12 +66,13 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="a in teams.map.team.myArrayList">
-                    <td><a href="/views/ClubView.jsp#/club/{{a.map.clubId}}">{{a.map.teamName}}</a></td>
+                    <td><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">{{a.map.teamName}}</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         </div>
+
 
 
     </script>
@@ -85,17 +86,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar">icon bar</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-
-            </button>
-
-            <!--   <a class="navbar-brand pull-left" href="#"><img alt="Notepad icon" src="/icons/notes.png"></a> --> <!-- credit: Freepik in education -->
-        </div>
 
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

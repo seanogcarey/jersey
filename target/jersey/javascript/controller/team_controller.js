@@ -1,25 +1,60 @@
 /**
- * Created by Sean on 05/04/2016.
+ * Created by Sean on 11/04/2016.
  */
-angular.module('myApp', []).controller('teamCtrl', function($scope, $http) {
+/**
+ * Created by Sean on 11/04/2016.
+ */
+/**
+ * Created by Sean on 06/04/2016.
+ */
 
-        $http.get('http://localhost:8081/jersey/teams/getAllTeams/').
-        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-        success(function(data) {
-            $scope.teams = data;
-        });
 
-    /*
-    $scope.fullName = function() {
-        return $scope.firstName + " " + $scope.lastName;
-    }
+'use strict';
 
-    $http.get('http://localhost:8081/jersey/teams/getTeam/1').success(function(isValid) {
+var App = angular.module('myApp',[])
 
-        if (isValid) {
-            alert('submitting data');
-        }
+App.config(['$routeProvider' , function($routeProvider ) {
+    $routeProvider.when('/club/:clubId/team/:teamId', {
+
+        templateUrl : "teamView.html",
+        controller: "TeamCtrl"
+    }).when('/', {
+
+        templateUrl : "teamView.html",
+        controller: "Page1Ctrl"
+
+    }).otherwise({
+
+        template: '<div> This page does not exist </div>'
+
     });
-    */
+}])
+
+App.controller('Page1Ctrl', function($scope) {
+    $scope.page = 'Page1';
+    //console.log($routeParams.teamId);
+    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    //success(function(data) {
+    //$scope.page = data;
+    console.log($scope.page);
+    //});
+
+});
+
+App.controller('TeamCtrl', function($scope, $routeParams,$http) {
+
+
+    $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.clubs = data;
+    });
+    $http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.teams = data;
+    });
+
 });
 

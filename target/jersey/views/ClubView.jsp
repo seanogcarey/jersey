@@ -40,6 +40,28 @@
         </div>
         </div>
 
+        <h2>Create Club</h2>
+
+
+        <form class="form-inline" ng-submit="createClub()">
+            <div class="form-group">
+                <label for="exampleInputName2">Club Name</label>
+                <input type="text" class="form-control" ng-model="text" id="exampleInputName2" placeholder="Club Name">
+            </div>
+            <!--
+            <div class="form-group">
+                <label for="exampleInputEmail2">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+            </div>
+            -->
+            <button type="submit" class="btn btn-primary">Enter</button>
+        </form>
+        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
+            <strong>Success! </strong> Club created
+        </div>
+
+
+
 
     </script>
 
@@ -76,9 +98,6 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-
-
-        <p><a class="navbar-brand" href="#"><img alt="Notepad icon" src="/icons/notes.png"></p>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
