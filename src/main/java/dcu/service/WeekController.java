@@ -1,7 +1,9 @@
 package dcu.service;
 
 import com.google.gson.Gson;
+import dcu.DAO.AttendanceWeekViewDAOImpl;
 import dcu.DAO.WeekDAOImpl;
+import dcu.datamodel.AttendanceWeekView;
 import dcu.datamodel.Team;
 import dcu.datamodel.Week;
 import javassist.NotFoundException;
@@ -21,6 +23,7 @@ import java.util.List;
 public class WeekController {
 
     WeekDAOImpl weekDAOImpl = new WeekDAOImpl();
+    AttendanceWeekViewDAOImpl attendanceWeekViewDAOImpl = new AttendanceWeekViewDAOImpl();
 
     @GET
     @Path("/getAllWeeks")
@@ -32,6 +35,8 @@ public class WeekController {
         if (weekList == null) {
             throw new NotFoundException("weeks do not exist");
         }
+
+
 
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("week",weekList);
@@ -53,8 +58,12 @@ public class WeekController {
             throw new NotFoundException("team does not exist");
         }
 
+        List<AttendanceWeekView> attendanceWeekViewList = attendanceWeekViewDAOImpl.getAttendanceWeekViewByWeekId(weekId);
+
+
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("team",weekList);
+        jsonObj.put("attendanceWeekView",attendanceWeekViewList);
 
 
         Gson gson = new Gson();

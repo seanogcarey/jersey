@@ -4,9 +4,11 @@ import com.google.gson.Gson;
 import dcu.DAO.AttendanceTableDAOImpl;
 import dcu.DAO.AttendanceWeekViewDAOImpl;
 import dcu.DAO.ExtraSessionDAOImpl;
+import dcu.DAO.PlayerDAOImpl;
 import dcu.datamodel.AttendanceTable;
 import dcu.datamodel.AttendanceWeekView;
 import dcu.datamodel.ExtraSession;
+import dcu.datamodel.Player;
 import javassist.NotFoundException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +26,7 @@ import java.util.List;
 public class AttendanceWeekViewController {
 
     AttendanceWeekViewDAOImpl attendanceWeekViewDAOImpl = new AttendanceWeekViewDAOImpl();
+    PlayerDAOImpl playerDAOImpl = new PlayerDAOImpl();
 
     @GET
     @Path("/getAllAttendanceWeekViews")
@@ -155,9 +158,9 @@ public class AttendanceWeekViewController {
         Gson gsonObject = new Gson();
         String attendanceWeekView = gsonObject.toJson(jsonObject);
 
-        int doesItExist = goThroughStrings(attendanceWeekView,"attendanceWeekViewId");
+        int attendanceWeekViewCount = goThroughStrings(attendanceWeekView,"attendanceWeekViewId");
 
-        if (doesItExist == 0) {
+        if (attendanceWeekViewCount == 0) {
 
 
 
@@ -189,9 +192,12 @@ public class AttendanceWeekViewController {
 
             List<AttendanceWeekView> newList = attendanceWeekViewDAOImpl.createAttendanceWeekView(weekId, playerId, numOfSessions);
 
+
             //find new list
             JSONObject jsonObj3 = new JSONObject();
             jsonObj3.put("attendanceWeekView", newList);
+
+
 
             Gson gson3 = new Gson();
             String attendanceWeekViewNew = gson3.toJson(jsonObj3);

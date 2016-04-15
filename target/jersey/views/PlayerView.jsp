@@ -42,6 +42,9 @@
         </div>
         </div>
 
+        <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
+            Week {{a.map.weekId}}: Number of training sessions  = {{a.map.numOfSessions}}
+        </div>
 
     </script>
 

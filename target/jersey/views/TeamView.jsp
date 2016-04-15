@@ -69,6 +69,10 @@
         </div>
         </div>
 
+        <p>Weeks:</p>
+        <div ng-repeat="a in weeks.map.week.myArrayList">
+            <p><span ng-bind="a.map.weekId"></span></p>
+        </div>
 
     </script>
 

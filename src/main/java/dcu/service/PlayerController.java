@@ -2,8 +2,10 @@ package dcu.service;
 
 import antlr.StringUtils;
 import com.google.gson.Gson;
+import dcu.DAO.AttendanceWeekViewDAOImpl;
 import dcu.DAO.ManagerDAOImpl;
 import dcu.DAO.PlayerDAOImpl;
+import dcu.datamodel.AttendanceWeekView;
 import dcu.datamodel.Manager;
 import dcu.datamodel.Player;
 import javassist.NotFoundException;
@@ -24,7 +26,7 @@ public class PlayerController {
 
 
     PlayerDAOImpl playerDAOImpl = new PlayerDAOImpl() ;
-    int count = 0;
+    AttendanceWeekViewDAOImpl attendanceWeekViewDAOImpl = new AttendanceWeekViewDAOImpl();
 
 
     @GET
@@ -58,8 +60,11 @@ public class PlayerController {
             throw new NotFoundException("player does not exist");
         }
 
+        List<AttendanceWeekView> attendanceWeekViewList = attendanceWeekViewDAOImpl.getAttendanceWeekViewByPlayerId(playerId);
+
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("player",playerList);
+        jsonObj.put("attendanceWeekView",attendanceWeekViewList);
 
         Gson gson = new Gson();
         String player = gson.toJson(jsonObj);
