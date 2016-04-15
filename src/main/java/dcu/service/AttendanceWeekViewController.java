@@ -136,6 +136,29 @@ public class AttendanceWeekViewController {
 
     }
 
+    @GET
+    @Path("/getAttendanceWeekViewByWeekId/{weekId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getAttendanceWeekViewByWeekId(@PathParam("weekId") final int weekId) throws IOException, NotFoundException,JSONException{
+
+        List<AttendanceWeekView> attendanceWeekViewList = attendanceWeekViewDAOImpl.getAttendanceWeekViewByWeekId(weekId);
+
+        if (attendanceWeekViewList == null) {
+            throw new NotFoundException("attendance week view does not exist");
+        }
+
+
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("attendanceWeekView",attendanceWeekViewList);
+
+        Gson gson = new Gson();
+        String attendanceWeekView = gson.toJson(jsonObj);
+
+
+        return attendanceWeekView;
+
+    }
+
 
 
 

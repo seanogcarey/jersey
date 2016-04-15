@@ -1,11 +1,5 @@
 /**
- * Created by Sean on 11/04/2016.
- */
-/**
- * Created by Sean on 11/04/2016.
- */
-/**
- * Created by Sean on 06/04/2016.
+ * Created by Sean on 15/04/2016.
  */
 
 
@@ -14,13 +8,13 @@
 var App = angular.module('myApp',[])
 
 App.config(['$routeProvider' , function($routeProvider ) {
-    $routeProvider.when('/player/:playerId', {
+    $routeProvider.when('/week/:weekId/player/:playerId', {
 
-        templateUrl : "playerView.html",
-        controller: "PlayerCtrl"
+        templateUrl : "weekPlayerView.html",
+        controller: "WeekPlayerCtrl"
     }).when('/', {
 
-        templateUrl : "playerView.html",
+        templateUrl : "weekPlayerView.html",
         controller: "Page1Ctrl"
 
     }).otherwise({
@@ -42,7 +36,7 @@ App.controller('Page1Ctrl', function($scope) {
 
 });
 
-App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
+App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http) {
 
     var teamId;
 
@@ -82,17 +76,27 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
 
     });
 
-    /*
-    $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
     success(function(data) {
-        $scope.teams = data;
-
+        $scope.players = data;
     });
-    */
 
     $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.attendanceWeekViews = data;;
+    });
+
+    $http.get('http://localhost:8081/jersey/session/getSessionByWeekId/' + $routeParams.weekId).
+    success(function(data) {
+        $scope.sessions = data;
+    });
+
+    $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByPlayerId/' + $routeParams.playerId).
+    success(function(data) {
+        $scope.extraSessions = data;
+    });
+
+    $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
     success(function(data) {
         $scope.attendanceWeekViews = data;
         console.log(data);
@@ -115,13 +119,13 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
             console.log((parsedJSON[i].id));
         }
         /*
-        for(var i = 0; i < json.length; i++) {
-            var obj = json[i];
+         for(var i = 0; i < json.length; i++) {
+         var obj = json[i];
 
-            console.log("in for loop now");
-            console.log(json);
-        }
-        */
+         console.log("in for loop now");
+         console.log(json);
+         }
+         */
 
 
 

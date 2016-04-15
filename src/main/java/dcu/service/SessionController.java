@@ -5,7 +5,9 @@ package dcu.service;
  */
 
 import com.google.gson.Gson;
+import dcu.DAO.AttendanceTableDAOImpl;
 import dcu.DAO.SessionDAOImpl;
+import dcu.datamodel.AttendanceTable;
 import javassist.NotFoundException;
 import org.hibernate.Session;
 import org.json.JSONException;
@@ -22,6 +24,7 @@ import java.util.List;
 public class SessionController {
 
     SessionDAOImpl sessionDAOImpl = new SessionDAOImpl();
+    AttendanceTableDAOImpl attendanceTableDAOImpl = new AttendanceTableDAOImpl();
 
     @GET
     @Path("/getAllSessions")
@@ -56,9 +59,11 @@ public class SessionController {
             throw new NotFoundException("session does not exist");
         }
 
+        List<AttendanceTable> attendanceTableList = attendanceTableDAOImpl.getAllAttendanceTableBySessionId(sessionId);
 
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("session",sessionList);
+        jsonObj.put("attendanceTableList",attendanceTableList);
 
         Gson gson = new Gson();
         String session = gson.toJson(jsonObj);

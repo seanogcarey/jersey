@@ -29,23 +29,36 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Player Name</th>
+                    <th>Player Name : {{players.map.player.myArrayList[1] }}</th>
+                    <th>Team : </th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.firstName}} {{a.map.lastName}}</td>
+                    <td ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
         </div>
 
+
+        <b>Week: </b>
+        <br>
+        <div ng-repeat="b in weeks.map.week.myArrayList">
+            <div ng-repeat="a in players.map.player.myArrayList">
+                     <p> Week {{a.map.weekId}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Overview: </a></p>
+            </div>
+        </div>
+
+
         <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
             Week {{a.map.weekId}}: Number of training sessions  = {{a.map.numOfSessions}}
         </div>
 
+        <div ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</div>
     </script>
 
 

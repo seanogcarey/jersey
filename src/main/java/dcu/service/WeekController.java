@@ -62,7 +62,7 @@ public class WeekController {
 
 
         JSONObject jsonObj = new JSONObject();
-        jsonObj.put("team",weekList);
+        jsonObj.put("week",weekList);
         jsonObj.put("attendanceWeekView",attendanceWeekViewList);
 
 

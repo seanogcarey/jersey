@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Sean
-  Date: 11/04/2016
-  Time: 10:00
+  Date: 15/04/2016
+  Time: 22:19
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,11 +14,11 @@
     <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" data-semver="1.0.8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="/javascript/controller/player_controller.js"></script>
+    <script src="/javascript/controller/week_player_controller.js"></script>
 
 
 
-    <script type="text/ng-template" id="playerView.html">
+    <script type="text/ng-template" id="weekPlayerView.html">
 
 
         <br>
@@ -29,7 +29,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Player Name : {{players.map.player.myArrayList[1] }}</th>
+                    <th>Player Name :</th>
                     <th>Team : </th>
                     <th width="20%"></th>
                 </tr>
@@ -47,10 +47,8 @@
 
         <b>Week: </b>
         <br>
-        <div ng-repeat="b in weeks.map.week.myArrayList">
-            <div ng-repeat="a in players.map.player.myArrayList">
-                     <p> Week {{a.map.weekId}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Overview: </a></p>
-            </div>
+        <div ng-repeat="a in weeks.map.week.myArrayList">
+            <p> Week {{a.map.weekId}} </p>
         </div>
 
 
@@ -72,3 +70,4 @@
 </body>
 
 </html>
+

@@ -44,18 +44,52 @@ App.controller('Page1Ctrl', function($scope) {
 
 App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
 
-    /*
-    $http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    success(function(data) {
-        $scope.teams = data;
-    });
-    */
+    var teamId;
+
     $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
         $scope.players = data;
+
+
+        var dataParsed = data.map.player.myArrayList;
+        console.log(dataParsed);
+        for (var i=0;i<dataParsed.length;i++) {
+            console.log("The TeamId is " + dataParsed[i].map.teamId);
+            teamId = dataParsed[i].map.teamId;
+        }
+
+        $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
+        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+        success(function(data) {
+            $scope.teams = data;
+
+        });
+
+        $http.get('http://localhost:8081/jersey/week/getWeekByTeamId/' + teamId).
+        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+        success(function(data) {
+            $scope.weeks = data;
+
+        });
+
+        $http.get('http://localhost:8081/jersey/week/getWeekByTeamId/' + teamId).
+        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+        success(function(data) {
+            $scope.sessions = data;
+
+        });
+
     });
+
+    /*
+    $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.teams = data;
+
+    });
+    */
 
     $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
