@@ -76,7 +76,7 @@ public class ExtraSessionController {
 
 
         JSONObject jsonObj = new JSONObject();
-        jsonObj.put("extraSessions",extraSessionList);
+        jsonObj.put("extraSession",extraSessionList);
 
         Gson gson = new Gson();
         String extraSessions = gson.toJson(jsonObj);

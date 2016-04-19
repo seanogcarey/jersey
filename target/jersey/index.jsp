@@ -26,7 +26,7 @@
     <p><a href="views/sample.jsp">Sample View</a> </p>
     <p><a href="views/View.jsp">View</a></p>
 
-
+<!--
     <h2>Angular Example:</h2>
     <div ng-app="myApp" ng-controller="personCtrl">
 
@@ -34,6 +34,8 @@
         Last Name: <input type="text" ng-model="lastName"><br>
         <br>
         Full Name: {{firstName + " " + lastName}}
+
+ -->
 <!--
         <p>{{claims.map.claim.myArrayList}}</p>
         <div ng-repeat="a in claims.map.claim.myArrayList">

@@ -49,7 +49,7 @@
         <br>
         <div ng-repeat="b in weeks.map.week.myArrayList">
             <div ng-repeat="a in players.map.player.myArrayList">
-                     <p> Week {{a.map.weekId}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Overview: </a></p>
+                     <p> Week {{b.map.weekId}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Go to players record for {{b.map.weekId}}</a></p>
             </div>
         </div>
 

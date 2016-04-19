@@ -5,6 +5,7 @@ import dcu.datamodel.Club;
 import dcu.datamodel.ExtraSession;
 import dcu.datamodel.Team;
 import dcu.service.ClaimsController;
+import dcu.service.TestService;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -18,7 +19,12 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         System.out.println("Running Main - test our data");
 
+        TestService testService = new TestService();
+        String test;
+        test = testService.returnClubs();
+        System.out.println(test);
 
+        /*
         int playerId = 3;
         int weekId = 1;
 
@@ -93,7 +99,7 @@ public class Main {
 
         //FitnessTestDAOImpl creatingFitnessTest = new FitnessTestDAOImpl();
         //creatingFitnessTest.createFitnessTest(1,3)
-
+*/
 
 
 /*

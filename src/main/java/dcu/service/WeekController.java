@@ -58,12 +58,12 @@ public class WeekController {
             throw new NotFoundException("team does not exist");
         }
 
-        List<AttendanceWeekView> attendanceWeekViewList = attendanceWeekViewDAOImpl.getAttendanceWeekViewByWeekId(weekId);
+        //List<AttendanceWeekView> attendanceWeekViewList = attendanceWeekViewDAOImpl.getAttendanceWeekViewByWeekId(weekId);
 
 
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("week",weekList);
-        jsonObj.put("attendanceWeekView",attendanceWeekViewList);
+        //jsonObj.put("attendanceWeekView",attendanceWeekViewList);
 
 
         Gson gson = new Gson();
@@ -106,10 +106,12 @@ public class WeekController {
     /*
     POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createWeek/teamId/{teamId}/startDate/{startDate}/endDate/{endDate}")
+    @Path("/createWeek/teamId/{teamId}/startDate//endDate/{endDate}")
     public String createWeek(@PathParam("teamId") final int teamId, @PathParam("startDate") final Date startDate, @PathParam("endDate") final Date endDate) throws IOException, NotFoundException,JSONException{
 
         //todo how to pass in dates....explore
+        //Maybe I could pass in a string, convert to date
+
         weekDAOImpl.createWeek(teamId,startDate,endDate);
         weekDAOImpl.createWeek(teamId);
         return "createWeek";

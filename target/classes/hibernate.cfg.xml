@@ -15,17 +15,24 @@
         </property>
 
         <!-- When running locally
-<property name="connection.url">
+        <property name="connection.url">
 
         </property>
         -->
+
         <property name="connection.url">
             jdbc:sqlserver://localhost;databaseName=SSSMSDemo;servername=DESKTOP-2REM4RC\MSSQLSERVER2
         </property>
 
-        <!-- WHEN RUNNING REMOTELY 192.168.0.15  136.206.198.38 , 192.168.1.2 136.206.243.108
 
-            jdbc:sqlserver://;databaseName=SSSMSDemo;servername=136.206.243.108;port=49170
+
+
+        <!-- WHEN RUNNING REMOTELY
+         Ip addresses:
+                192.168.0.15  136.206.198.38 , 192.168.1.2 136.206.243.108 192.168.0.15
+                jdbc:sqlserver://;databaseName=SSSMSDemo;servername=192.168.0.15;port=49170
+
+
 
           -->
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>

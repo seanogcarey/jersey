@@ -60,7 +60,31 @@ public class AttendanceWeekViewDAOImpl {
 
         sf = HibernateUtil.getSessionFactory();
 
-        Query query = session.createQuery("select e from AttendanceWeekView e where weekId = :weekId ");
+
+        /*
+        SQLQuery sqlQuery = session.createSQLQuery("SELECT AttendanceWeekView.NumOfSessions, Player.firstName from AttendanceWeekView join Player on Player.playerId = AttendanceWeekView.playerId where attendanceWeekViewId = :weekId");
+        sqlQuery.setParameter("weekId",weekId);
+        System.out.println(sqlQuery.list());
+        List<AttendanceWeekView> attendanceWeekViewListSQL = sqlQuery.list();
+
+
+        System.out.print("HERE IS THE SQL JOIN: " + attendanceWeekViewListSQL);
+
+        //Query query2 = session.createQuery("SELECT AttendanceWeekView.NumOfSessions, Player.firstName from AttendanceWeekView join Player on Player.playerId = AttendanceWeekView.playerId where attendanceWeekViewId = 1 ");
+
+        //Query queryJoin = session.
+
+        Query queryJoin = session.createQuery("SELECT attendanceWeekView.attendanceWeekViewId, attendanceWeekView.weekId,attendanceWeekView.playerId,attendanceWeekView.numOfSessions FROM AttendanceWeekView attendanceWeekView WHERE  attendanceWeekView.weekId = :weekId");
+
+        //Query queryJoin = session.createQuery("SELECT attendanceWeekView.attendanceWeekViewId, attendanceWeekView.weekId,attendanceWeekView.playerId,attendanceWeekView.numOfSessions, player.firstName FROM AttendanceWeekView attendanceWeekView, Player player WHERE attendanceWeekView.playerId = player.playerId AND attendanceWeekView.weekId = :weekId ORDER BY attendanceWeekView.playerId");
+        queryJoin.setParameter("weekId", weekId);
+
+        List<AttendanceWeekView> attendanceWeekViewListNew = queryJoin.list();
+        System.out.println("LIST :" + attendanceWeekViewListNew);
+        */
+
+
+        Query query = session.createQuery("select e, player from AttendanceWeekView e ,Player player where weekId = :weekId and e.playerId = player.playerId ");
         query.setParameter("weekId", weekId);
         List<AttendanceWeekView> attendanceWeekViewList  = query.list();
 
@@ -125,6 +149,28 @@ public class AttendanceWeekViewDAOImpl {
         List<AttendanceWeekView> attendanceWeekViewList = getAttendanceWeekViewByWeekIdPlayerId(weekId,playerId);
 
         return attendanceWeekViewList;
+
+    }
+
+    public void updateAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions){
+
+
+        System.out.println("Attempting to update Attendance Week View");
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+
+
+        SQLQuery query= session.createSQLQuery("Update AttendanceWeekView set NumOfSessions=:numOfSessions where playerId = :playerId and weekId=:weekId" );
+        query.setParameter("weekId", weekId);
+        query.setParameter("playerId",playerId);
+        query.setParameter("numOfSessions",numOfSessions);
+        query.executeUpdate();
+
+        session.getTransaction().commit();
 
     }
 }

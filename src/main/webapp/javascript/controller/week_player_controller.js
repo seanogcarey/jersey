@@ -36,7 +36,7 @@ App.controller('Page1Ctrl', function($scope) {
 
 });
 
-App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http) {
+App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
     var teamId;
 
@@ -60,19 +60,13 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http) {
 
         });
 
-        $http.get('http://localhost:8081/jersey/week/getWeekByTeamId/' + teamId).
-        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-        success(function(data) {
-            $scope.weeks = data;
 
-        });
+    });
 
-        $http.get('http://localhost:8081/jersey/week/getWeekByTeamId/' + teamId).
-        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-        success(function(data) {
-            $scope.sessions = data;
-
-        });
+    $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.weeks = data;
 
     });
 
@@ -80,54 +74,88 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http) {
     success(function(data) {
         $scope.players = data;
     });
-
+/*
     $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
     success(function(data) {
-        $scope.attendanceWeekViews = data;;
+        $scope.attendanceWeekViews = data;
     });
+*/
 
     $http.get('http://localhost:8081/jersey/session/getSessionByWeekId/' + $routeParams.weekId).
     success(function(data) {
         $scope.sessions = data;
     });
 
-    $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByPlayerId/' + $routeParams.playerId).
+    $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
     success(function(data) {
-        $scope.extraSessions = data;
-    });
-
-    $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
-    success(function(data) {
-        $scope.attendanceWeekViews = data;
-        console.log(data);
-        var json = data;
-
-        var dataParsed = data.map.attendanceWeekView.myArrayList;
+        //$scope.extraSessions = data;
+        var dataParsed = data.map.extraSession.myArrayList;
+        var extraSessionId;
         console.log(dataParsed);
         for (var i=0;i<dataParsed.length;i++) {
-            console.log("The weekID is " + dataParsed[i].map.weekId);
+            console.log("The ExtraSessionId is " + dataParsed[i].map.extraSessionId);
+            extraSessionId = dataParsed[i].map.extraSessionId;
         }
+        if (extraSessionId==null){
+            console.log("Creating an initialised extra session ");
 
+            //post: Create extra session data with initialised data
+            var initialisedData = "EMPTY"
+            $http.post("http://localhost:8081/jersey/extraSession/createSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + initialisedData).
+            success(function() {
 
-        console.log("before for loop");
-        console.log("data length :" + json.length);
+                $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
+                success(function(newData) {
+                    $scope.extraSessions = newData;
+                });
+            });
+        }
+        else{
 
-        var dataArray = {"d":[{"id":28,"class":"Sweden"}, {"id":56,"class":"USA"}, {"id":89,"class":"England"}]};
+            $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
+            success(function(newData) {
+                $scope.extraSessions = newData;
+            });
 
-        var parsedJSON = dataArray.d;
-        for (var i=0;i<parsedJSON.length;i++) {
-            console.log((parsedJSON[i].id));
         }
         /*
-         for(var i = 0; i < json.length; i++) {
-         var obj = json[i];
+        $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
+        success(function(newData) {
+            $scope.extraSessions = newData;
+        });
+        */
 
-         console.log("in for loop now");
-         console.log(json);
-         }
-         */
+        console.log("Extra Session ID: " + extraSessionId);
+
+    });
+
+    /*
+    $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
+    success(function(newData) {
+        $scope.extraSessions = newData;
+    });
+    */
 
 
+    $scope.createExtraSession = function() {
+        var postData = $scope.text
+        $http.post("http://localhost:8081/jersey/extraSession/createSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + postData).success(function() {
+            $scope.submissionSuccess=true;
+
+            $http.put("http://localhost:8081/jersey/attendanceWeekView/updateAttendanceWeekView/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId).
+            success(function() {
+                $route.reload();
+
+            });
+
+            //$route.reload();
+
+        })
+    }
+
+    $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
+    success(function(data) {
+        $scope.attendanceWeekViews = data;
 
     });
 

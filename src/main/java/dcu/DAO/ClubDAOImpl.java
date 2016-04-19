@@ -112,4 +112,33 @@ public class ClubDAOImpl implements ClubDAO {
 
     }
 
+    public void updateClub(final int clubId, final String clubName){
+        System.out.println("Attempting to updateclub");
+        //begin transaction
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+        System.out.println("transaction begun");
+
+        sf = HibernateUtil.getSessionFactory();
+        System.out.println("Got Session Factory");
+        System.out.println("The CLub ID : " + clubId);
+
+
+
+        SQLQuery query= session.createSQLQuery("Update Club set clubName= :clubName where clubId = :clubId");
+        query.setParameter("clubId", clubId);
+        query.setParameter("clubName", clubName);
+        query.executeUpdate();
+
+
+        session.getTransaction().commit();
+
+        System.out.println("Club updated");
+
+    }
+
+
+
 }

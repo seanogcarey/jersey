@@ -57,7 +57,6 @@ public class ClaimDAOImpl implements ClaimDAO {
 
         session.getTransaction().commit();
 
-        System.out.println("Claims got from query");
 
         return claimsList;
 

@@ -69,9 +69,9 @@
         </div>
         </div>
 
-        <p>Weeks:</p>
+        <p>Weeks View:</p>
         <div ng-repeat="a in weeks.map.week.myArrayList">
-            <p><span ng-bind="a.map.weekId"></span></p>
+            <p>Week <span ng-bind="a.map.weekId"></span></p><p><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></p>
         </div>
 
     </script>

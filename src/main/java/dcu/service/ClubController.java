@@ -11,8 +11,10 @@ import javassist.NotFoundException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,8 +42,13 @@ public class ClubController {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("club",clubList);
 
+        System.out.println("JSON: " + jsonObj);
+
+
         Gson gson = new Gson();
         String clubs = gson.toJson(jsonObj);
+
+        System.out.println("STRING CLUBS: " +clubs);
 
         return clubs;
 
@@ -80,6 +87,23 @@ public class ClubController {
         //todo St John's GAA club-> ' gives weird result
         return "createClub";
 
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/updateClub/club/{clubId}/clubName/{clubName}")
+    public String updateClub(@PathParam("clubId") final int clubId,@PathParam("clubName") final String clubName)throws IOException, NotFoundException,JSONException{
+
+
+        List<Club> clubList = clubDAOImpl.getClubById(clubId);
+
+        if (clubList == null) {
+            throw new NotFoundException("club does not exist");
+        }
+
+        clubDAOImpl.updateClub(clubId,clubName);
+
+        return "updatedClub";
     }
 
 }

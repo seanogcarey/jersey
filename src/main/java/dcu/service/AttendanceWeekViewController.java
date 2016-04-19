@@ -28,6 +28,21 @@ public class AttendanceWeekViewController {
     AttendanceWeekViewDAOImpl attendanceWeekViewDAOImpl = new AttendanceWeekViewDAOImpl();
     PlayerDAOImpl playerDAOImpl = new PlayerDAOImpl();
 
+
+    //Strings to check
+    final String collegeTraining = "College Training";
+    final String schoolTraining = "School Training";
+    final String collegeSchoolMatch ="College/School Match";
+    final String countyTraining = "County Training";
+    final String countyMatch = "County Match";
+    final String otherClubTraining = "Other Club Training";
+    final String otherClubMatch = "Other Club Match";
+    final String otherTeamWithinCLub = "Other Team(within this club) Match/Training";
+    final String other = "Other";
+
+    final String attendedTraining = "True";
+
+
     @GET
     @Path("/getAllAttendanceWeekViews")
     @Produces(MediaType.APPLICATION_JSON)
@@ -233,22 +248,107 @@ public class AttendanceWeekViewController {
         return attendanceWeekView;
     }
 
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/updateAttendanceWeekView/weekId/{weekId}/playerId/{playerId}")
+    public String updateAttendanceWeekView(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
+
+
+        List<AttendanceWeekView> attendanceWeekViewList = attendanceWeekViewDAOImpl.getAttendanceWeekViewByWeekIdPlayerId(weekId,playerId);
+
+        if (attendanceWeekViewList == null) {
+            throw new NotFoundException("attendance week view does not exist");
+        }
+
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("attendanceWeekView",attendanceWeekViewList);
+
+        Gson gsonObject = new Gson();
+        String attendanceWeekView = gsonObject.toJson(jsonObject);
+
+
+
+        AttendanceTableDAOImpl attendanceTableDAOImpl = new AttendanceTableDAOImpl();
+        List<AttendanceTable> attendanceTableList = attendanceTableDAOImpl.getAllAttendanceTableByWeekIdPlayerId(weekId, playerId);
+
+        ExtraSessionDAOImpl extraSessionDAOImpl = new ExtraSessionDAOImpl();
+        List<ExtraSession> extraSessionList = extraSessionDAOImpl.getExtraSessionByWeekIdPlayerId(weekId, playerId);
+
+        //Go through Attendance Table
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("attendanceTable", attendanceTableList);
+
+        Gson gson = new Gson();
+        String attendanceTable = gson.toJson(jsonObj);
+
+        //Go through Extra Sessions
+        JSONObject jsonObj2 = new JSONObject();
+        jsonObj2.put("extraSession", extraSessionList);
+
+        Gson gson2 = new Gson();
+        String extraSession = gson2.toJson(jsonObj2);
+
+        int numOfSessions = getNumOfSessions(attendanceTable, extraSession);
+
+        System.out.println("NUMBER OF TRAININGS IN UPDATE : " + numOfSessions);
+
+        attendanceWeekViewDAOImpl.updateAttendanceWeekView(weekId,playerId,numOfSessions);
+       // List<AttendanceWeekView> newList = attendanceWeekViewDAOImpl.createAttendanceWeekView(weekId, playerId, numOfSessions);
+
+
+        return "UpdatedAttendanceWeekView ";
+    }
+
 
     public int getNumOfSessions(String attendanceTable,String extraSession ){
 
-        //Strings to check
-        String collegeTraining = "College Training";
-        String attendedTraining = "True";
 
-        int attendanceTableCheckCollege = goThroughStrings(attendanceTable,collegeTraining);
-        int extraSessionCheckCollege = goThroughStrings(extraSession,collegeTraining);
+        //Check attendance table
+        int attendanceTableCheckCollegeTraining = goThroughStrings(attendanceTable,collegeTraining);
+        int attendanceTableCheckSchoolTraining = goThroughStrings(attendanceTable,schoolTraining);
+        int attendanceTableCheckCollegeSchoolMatch = goThroughStrings(attendanceTable,collegeSchoolMatch);
+        int attendanceTableCheckCountyTraining = goThroughStrings(attendanceTable,countyTraining);
+        int attendanceTableCheckCollegeMatch = goThroughStrings(attendanceTable,countyMatch);
+        int attendanceTableCheckOtherClubTraining = goThroughStrings(attendanceTable,otherClubTraining);
+        int attendanceTableCheckOtherClubMatch= goThroughStrings(attendanceTable,otherClubMatch);
+        int attendanceTableCheckOtherTeamWithinClub= goThroughStrings(attendanceTable,otherTeamWithinCLub);
+        int attendanceTableCheckOther = goThroughStrings(attendanceTable,other);
+
+
+        //check extra sessions table
+        int extraSessionCheckCollegeTraining = goThroughStrings(extraSession,collegeTraining);
+        int extraSessionCheckSchoolTraining = goThroughStrings(extraSession,schoolTraining);
+        int extraSessionCheckCollegeSchoolMatch = goThroughStrings(extraSession,collegeSchoolMatch);
+        int extraSessionCheckCountyTraining = goThroughStrings(extraSession,countyTraining);
+        int extraSessionCheckCollegeMatch = goThroughStrings(extraSession,countyMatch);
+        int extraSessionCheckOtherClubTraining = goThroughStrings(extraSession,otherClubTraining);
+        int extraSessionCheckOtherClubMatch= goThroughStrings(extraSession,otherClubMatch);
+        int extraSessionCheckOtherTeamWithinClub= goThroughStrings(extraSession,otherTeamWithinCLub);
+        int extraSessionCheckOther = goThroughStrings(extraSession,other);
+
 
         int attendanceTableCheckTrue = goThroughStrings(attendanceTable,attendedTraining);
 
-        int numOfSessions = attendanceTableCheckCollege  + extraSessionCheckCollege + attendanceTableCheckTrue;
+        int attendanceTableCounts= attendanceTableCheckCollegeTraining  + attendanceTableCheckSchoolTraining
+                                    + attendanceTableCheckCollegeSchoolMatch + attendanceTableCheckCountyTraining + attendanceTableCheckCollegeMatch
+                                    + attendanceTableCheckOtherClubTraining + attendanceTableCheckOtherClubMatch + attendanceTableCheckOtherTeamWithinClub + attendanceTableCheckOther
+                                    + attendanceTableCheckTrue;
+
+        int extraSessionsCount = extraSessionCheckCollegeTraining  + extraSessionCheckSchoolTraining
+                                 + extraSessionCheckCollegeSchoolMatch + extraSessionCheckCountyTraining + extraSessionCheckCollegeMatch
+                                 + extraSessionCheckOtherClubTraining + extraSessionCheckOtherClubMatch + extraSessionCheckOtherTeamWithinClub + extraSessionCheckOther ;
+
+        int numOfSessions =  attendanceTableCounts +  extraSessionsCount;
+
+        //int numOfSessions = attendanceTableCheckCollegeTraining  + extraSessionCheckCollegeTraining + attendanceTableCheckTrue;
 
         return numOfSessions;
     }
+
+
+
+
 
     public int goThroughStrings(String jsonResponce,String findString){
 

@@ -62,7 +62,6 @@
 
 
 
-
     </script>
 
     <script type="text/ng-template" id="clubSingleView.html">

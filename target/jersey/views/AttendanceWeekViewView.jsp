@@ -18,39 +18,26 @@
 
 
 
-    <script type="text/ng-template" id="AttendanceWeekViewView.html">
+    <script type="text/ng-template" id="attendanceWeekViewView.html">
 
 
         <br>
         <br>
-
-        <div class="panel-heading"></div>
-        <div class="tablecontainer">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Player Name</th>
-                    <th width="20%"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td ng-repeat="a in players.map.player.myArrayList">{{a.map.firstName}} {{a.map.lastName}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <div ng-repeat="a in weeks.map.week.myArrayList">
+        <h3>Week {{a.map.weekId}} Training Count:</h3>
         </div>
 
         <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
-            Week {{a.map.weekId}}: Number of training sessions  = {{a.map.numOfSessions}}
+            <br>
+            <p><b>Name and Total Training Count:</b></p>
+            <div ng-repeat="b in a.myArrayList">
+                {{b.map.firstName}} {{b.map.lastName}} {{b.map.numOfSessions}}
+                <br>
+            </div>
+
         </div>
 
-
-
-        <div ng-repeat="a in weeks.map.attendanceWeekView.myArrayList">
-            Week by week Id : {{a.map.weekId}}
-        </div>
+        <!-- NOTE: Have another Div to show the attendance from just the team -->
     </script>
 
 
