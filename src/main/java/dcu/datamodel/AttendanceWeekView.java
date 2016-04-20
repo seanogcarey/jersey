@@ -24,6 +24,9 @@ public class AttendanceWeekView {
     @Column(name = "numOfSessions")
     private Integer numOfSessions;
 
+    @Column(name = "numOfSessionsWithTeam")
+    private Integer numOfSessionsWithTeam;
+
     public int getAttendanceWeekViewId() {
         return attendanceWeekViewId;
     }
@@ -54,6 +57,14 @@ public class AttendanceWeekView {
 
     public void setNumOfSessions(Integer numOfSessions) {
         this.numOfSessions = numOfSessions;
+    }
+
+    public Integer getNumOfSessionsWithTeam() {
+        return numOfSessionsWithTeam;
+    }
+
+    public void setNumOfSessionsWithTeam(Integer numOfSessionsWithTeam) {
+        this.numOfSessionsWithTeam = numOfSessionsWithTeam;
     }
 
     @Override

@@ -116,5 +116,17 @@ public class ExtraSessionController {
 
     }
 
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}")
+    public String updateClub(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionType1") final String sessionType1)throws IOException, NotFoundException,JSONException{
+
+
+        extraSessionDAOImpl.updateExtraSession(weekId,playerId,sessionType1);
+
+        //todo other puts here
+        return "updatedExtraSession";
+    }
+
 
 }

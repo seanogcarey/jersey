@@ -57,8 +57,9 @@ App.controller('ClubCtrl', function($scope, $routeParams,$http,$route) {
         console.log(data);
     });
     $scope.createClub = function() {
-        var postData = $scope.text
-        $http.post("http://localhost:8081/jersey/clubs/createClub/" + postData).success(function() {
+        var nameData = $scope.clubName;
+        var emailData = $scope.email;
+        $http.post("http://localhost:8081/jersey/clubs/createClub/" + nameData + "/email/" + emailData ).success(function() {
             //$route.reload();
             $scope.submissionSuccess=true;
             $route.reload();

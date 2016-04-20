@@ -63,6 +63,13 @@ App.controller('AttendanceWeekViewCtrl', function($scope, $routeParams,$http) {
     });
 
 
+    $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.weeks = data;
+    });
+
+
 
 });
 

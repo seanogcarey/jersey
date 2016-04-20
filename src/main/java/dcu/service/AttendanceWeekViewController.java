@@ -226,9 +226,12 @@ public class AttendanceWeekViewController {
 
             int numOfSessions = getNumOfSessions(attendanceTable, extraSession);
 
+            int numOfSessionsWithTeam = getNumOfSessionsWithTeam(attendanceTable);
+            System.out.println("NUMBER OF TRAININGS WITH TEAM " + numOfSessionsWithTeam );
+
             System.out.println("NUMBER OF TRAININGS : " + numOfSessions);
 
-            List<AttendanceWeekView> newList = attendanceWeekViewDAOImpl.createAttendanceWeekView(weekId, playerId, numOfSessions);
+            List<AttendanceWeekView> newList = attendanceWeekViewDAOImpl.createAttendanceWeekView(weekId, playerId, numOfSessions,numOfSessionsWithTeam);
 
 
             //find new list
@@ -291,15 +294,24 @@ public class AttendanceWeekViewController {
 
         int numOfSessions = getNumOfSessions(attendanceTable, extraSession);
 
+        int numOfSessionsWithTeam = getNumOfSessionsWithTeam(attendanceTable);
+        System.out.println("NUMBER OF TRAININGS WITH TEAM " + numOfSessionsWithTeam );
+
         System.out.println("NUMBER OF TRAININGS IN UPDATE : " + numOfSessions);
 
-        attendanceWeekViewDAOImpl.updateAttendanceWeekView(weekId,playerId,numOfSessions);
+        attendanceWeekViewDAOImpl.updateAttendanceWeekView(weekId,playerId,numOfSessions,numOfSessionsWithTeam);
        // List<AttendanceWeekView> newList = attendanceWeekViewDAOImpl.createAttendanceWeekView(weekId, playerId, numOfSessions);
 
 
         return "UpdatedAttendanceWeekView ";
     }
 
+    public int getNumOfSessionsWithTeam(String attendanceTable){
+
+        int attendanceTableCheckCollegeTraining = goThroughStrings(attendanceTable,"True");
+
+        return attendanceTableCheckCollegeTraining;
+    }
 
     public int getNumOfSessions(String attendanceTable,String extraSession ){
 

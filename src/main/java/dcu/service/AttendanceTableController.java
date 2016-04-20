@@ -64,7 +64,7 @@ public class AttendanceTableController {
     }
 
     @GET
-    @Path("/getAttendanceTableByWeekIdPlayerId/sessionId/{sessionId}/playerId/{playerId}")
+    @Path("/getAttendanceTableBySessionIdPlayerId/sessionId/{sessionId}/playerId/{playerId}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAttendanceTableBySessionIdPlayerId(@PathParam("sessionId") final int sessionId,@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
 
@@ -160,6 +160,19 @@ public class AttendanceTableController {
         attendanceTableDAOImpl.createAttendanceTable(weekId,playerId,sessionId,present,reasonOfAbsence);
         return "createAttendanceTable";
 
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/updateAttendanceTable/playerId/{playerId}/sessionId/{sessionId}/present/{present}/reasonOfAbsence/{reasonOfAbsence}")
+    public String updateAttendanceTable(@PathParam("playerId") final int playerId,@PathParam("sessionId") final int sessionId,
+                                        @PathParam("present") final String present,@PathParam("reasonOfAbsence") final String reasonOfAbsence)
+                                        throws IOException, NotFoundException,JSONException{
+
+
+        attendanceTableDAOImpl.updateAttendanceTable(playerId,sessionId,present,reasonOfAbsence);
+
+        return "updatedAttendanceTable";
     }
 
 

@@ -16,6 +16,7 @@ public interface ExtraSessionDAO {
     public List<ExtraSession> getExtraSessionByWeekId(final int weekId);
     public List<ExtraSession> getExtraSessionByPlayerId(final int playerId);
     public List<ExtraSession> getExtraSessionByWeekIdPlayerId(final int weekId,final int playerId);
+    public void updateExtraSession(final int weekId, final int playerId, final String sessionType1);
 
     public void createExtraSession(final int weekId, final int playerId, final String sessionType1);
 }

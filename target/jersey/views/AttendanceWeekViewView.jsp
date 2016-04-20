@@ -24,14 +24,30 @@
         <br>
         <br>
         <div ng-repeat="a in weeks.map.week.myArrayList">
-        <h3>Week {{a.map.weekId}} Training Count:</h3>
+        <h3>Week {{a.map.weekId}}</h3>
         </div>
+
+        <h4><b>Total Training Count</b></h4>
 
         <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
             <br>
-            <p><b>Name and Total Training Count:</b></p>
+            <p>Name and Total Training Count:</p>
             <div ng-repeat="b in a.myArrayList">
                 {{b.map.firstName}} {{b.map.lastName}} {{b.map.numOfSessions}}
+                <br>
+            </div>
+
+        </div>
+
+        <br>
+
+        <h4><b>Training Count With Team</b></h4>
+
+        <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
+            <br>
+            <p>Name and Total Training With Team Count:</p>
+            <div ng-repeat="b in a.myArrayList">
+                {{b.map.firstName}} {{b.map.lastName}} {{b.map.numOfSessionsWithTeam}}
                 <br>
             </div>
 

@@ -128,7 +128,7 @@ public class AttendanceWeekViewDAOImpl {
         return attendanceWeekViewList;
     }
 
-    public List<AttendanceWeekView> createAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions){
+    public List<AttendanceWeekView> createAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions, final int numOfSessionsWithTeam){
 
 
         Session session = HibernateUtil.getSessionFactory()
@@ -138,10 +138,11 @@ public class AttendanceWeekViewDAOImpl {
 
         sf = HibernateUtil.getSessionFactory();
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.AttendanceWeekView OFF insert into dbo.AttendanceWeekView (weekId,playerId,numOfSessions) values(:weekId,:playerId,:numOfSessions)" );
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.AttendanceWeekView OFF insert into dbo.AttendanceWeekView (weekId,playerId,numOfSessions,numOfSessionsWithTeam) values(:weekId,:playerId,:numOfSessions,:numOfSessionsWithTeam)" );
         query.setParameter("weekId", weekId);
         query.setParameter("playerId",playerId);
         query.setParameter("numOfSessions",numOfSessions);
+        query.setParameter("numOfSessionsWithTeam",numOfSessionsWithTeam);
         query.executeUpdate();
 
         session.getTransaction().commit();
@@ -152,7 +153,7 @@ public class AttendanceWeekViewDAOImpl {
 
     }
 
-    public void updateAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions){
+    public void updateAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions,final int numOfSessionsWithTeam){
 
 
         System.out.println("Attempting to update Attendance Week View");
@@ -164,10 +165,11 @@ public class AttendanceWeekViewDAOImpl {
         sf = HibernateUtil.getSessionFactory();
 
 
-        SQLQuery query= session.createSQLQuery("Update AttendanceWeekView set NumOfSessions=:numOfSessions where playerId = :playerId and weekId=:weekId" );
+        SQLQuery query= session.createSQLQuery("Update AttendanceWeekView set NumOfSessions=:numOfSessions,numOfSessionsWithTeam =:numOfSessionsWithTeam  where playerId = :playerId and weekId=:weekId" );
         query.setParameter("weekId", weekId);
         query.setParameter("playerId",playerId);
         query.setParameter("numOfSessions",numOfSessions);
+        query.setParameter("numOfSessionsWithTeam",numOfSessionsWithTeam);
         query.executeUpdate();
 
         session.getTransaction().commit();

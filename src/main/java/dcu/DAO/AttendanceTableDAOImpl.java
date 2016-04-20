@@ -178,4 +178,33 @@ public class AttendanceTableDAOImpl implements AttendanceTableDAO {
         session.getTransaction().commit();
 
     }
+
+    public void updateAttendanceTable(final int playerId,final int sessionId,final String present,final String reasonOfAbsence){
+        System.out.println("Attempting to update Attendance Table");
+        //begin transaction
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+        System.out.println("transaction begun");
+
+        sf = HibernateUtil.getSessionFactory();
+        System.out.println("Got Session Factory");
+
+
+
+        SQLQuery query= session.createSQLQuery("Update AttendanceTable set present= :present , reasonOfAbsence = :reasonOfAbsence where playerId= :playerId and sessionId = :sessionId");
+        query.setParameter("playerId", playerId);
+        query.setParameter("sessionId", sessionId);
+        query.setParameter("present", present);
+        query.setParameter("reasonOfAbsence", reasonOfAbsence);
+        query.executeUpdate();
+
+
+        session.getTransaction().commit();
+
+        System.out.println("Attendance Table updated");
+
+    }
+
 }

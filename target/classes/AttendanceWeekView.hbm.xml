@@ -17,5 +17,8 @@
         <property name="numOfSessions">
             <column name="NumOfSessions" sql-type="int" not-null="true"/>
         </property>
+        <property name="numOfSessionsWithTeam">
+        <column name="numOfSessionsWithTeam" sql-type="int" not-null="true"/>
+    </property>
     </class>
 </hibernate-mapping>

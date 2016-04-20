@@ -72,7 +72,7 @@ public class ClubDAOImpl implements ClubDAO {
         return clubList;
     }
 
-    public void createClub(final String clubName){
+    public void createClub(final String clubName,final String email){
         System.out.println("Attempting to create club");
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()
@@ -83,7 +83,7 @@ public class ClubDAOImpl implements ClubDAO {
 
         sf = HibernateUtil.getSessionFactory();
         System.out.println("Got Session Factory");
-        System.out.println();
+
 
 
         //SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Club OFF");
@@ -102,8 +102,10 @@ public class ClubDAOImpl implements ClubDAO {
         */
 
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Club OFF insert into dbo.Club (clubName) values(:clubName)" );
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Club OFF insert into dbo.Club (clubName,email) values(:clubName,:email)" );
         query.setParameter("clubName", clubName);
+        query.setParameter("email", email);
+
         query.executeUpdate();
 
         session.getTransaction().commit();

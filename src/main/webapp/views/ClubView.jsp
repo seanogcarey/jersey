@@ -45,8 +45,10 @@
 
         <form class="form-inline" ng-submit="createClub()">
             <div class="form-group">
-                <label for="exampleInputName2">Club Name</label>
-                <input type="text" class="form-control" ng-model="text" id="exampleInputName2" placeholder="Club Name">
+                <label for="inputClubName">Club Name</label>
+                <input type="text" class="form-control" ng-model="clubName" id="inputClubName" placeholder="Club Name">
+                <label for="inputClubEmail">Club Name</label>
+                <input type="text" class="form-control" ng-model="email" id="inputClubEmail" placeholder="Email">
             </div>
             <!--
             <div class="form-group">

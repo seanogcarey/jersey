@@ -122,5 +122,28 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
 
     }
 
+    public void updateExtraSession(final int weekId, final int playerId, final String sessionType1){
+
+
+        System.out.println("Attempting to update Extra Session");
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+
+
+        SQLQuery query= session.createSQLQuery("Update ExtraSession set sessionType1=:sessionType1 where playerId = :playerId and weekId=:weekId" );
+        query.setParameter("weekId", weekId);
+        query.setParameter("playerId",playerId);
+        query.setParameter("sessionType1",sessionType1);
+
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+    }
+
 
 }

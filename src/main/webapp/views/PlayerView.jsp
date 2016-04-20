@@ -49,7 +49,7 @@
         <br>
         <div ng-repeat="b in weeks.map.week.myArrayList">
             <div ng-repeat="a in players.map.player.myArrayList">
-                     <p> Week {{b.map.weekId}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Go to players record for {{b.map.weekId}}</a></p>
+                     <p> Week {{b.map.weekId}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Week {{b.map.weekId}} Record</a></p>
             </div>
         </div>
 
@@ -58,7 +58,6 @@
             Week {{a.map.weekId}}: Number of training sessions  = {{a.map.numOfSessions}}
         </div>
 
-        <div ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</div>
     </script>
 
 

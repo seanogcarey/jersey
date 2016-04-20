@@ -69,12 +69,12 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         $scope.weeks = data;
 
     });
-
+    /*
     $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
     success(function(data) {
         $scope.players = data;
     });
-/*
+
     $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
     success(function(data) {
         $scope.attendanceWeekViews = data;
@@ -112,10 +112,8 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         }
         else{
 
-            $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
-            success(function(newData) {
-                $scope.extraSessions = newData;
-            });
+                $scope.extraSessions = data;
+
 
         }
         /*
@@ -139,7 +137,8 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
     $scope.createExtraSession = function() {
         var postData = $scope.text
-        $http.post("http://localhost:8081/jersey/extraSession/createSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + postData).success(function() {
+        //updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}
+        $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + postData).success(function() {
             $scope.submissionSuccess=true;
 
             $http.put("http://localhost:8081/jersey/attendanceWeekView/updateAttendanceWeekView/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId).

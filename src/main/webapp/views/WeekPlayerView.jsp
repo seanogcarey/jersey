@@ -80,8 +80,8 @@
                 <tbody>
 
                 <tr ng-repeat="a in sessions.map.session.myArrayList">
-                    <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionType}}</a></td>
-                    <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionDate}}</a></td>
+                    <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionType}}</a></td>
+                    <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionDate}}</a></td>
                 </tr>
                 </tbody>
 
