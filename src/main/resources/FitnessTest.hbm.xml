@@ -20,5 +20,21 @@
         <property name="playerId">
             <column name="playerId" sql-type="int"/>
         </property>
+        <property name="sprint">
+            <column name="sprint" sql-type="int"/>
+        </property>
+        <property name="kmRun">
+            <column name="kmRun" sql-type="int"/>
+        </property>
+        <property name="agility">
+            <column name="agility" sql-type="int"/>
+        </property>
+        <property name="workLifestyle">
+            <column name="workLifestyle" sql-type="java.lang.String" not-null="true"/>
+        </property>
+        <property name="weeklyAverageTrainingCount">
+            <column name="weeklyAverageTrainingCount" sql-type="int"/>
+        </property>
+
     </class>
 </hibernate-mapping>

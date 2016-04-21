@@ -62,6 +62,7 @@
         <mapping resource="AttendanceTable.hbm.xml"/>
         <mapping resource="ExtraSession.hbm.xml"/>
         <mapping resource="AttendanceWeekView.hbm.xml"/>
+        <mapping resource="TrainingGroup.hbm.xml"/>
 
         <!-- DB schema will be updated if needed
         <class-cache class="dcu.datamodel.Claim" usage="read-only"></class-cache>

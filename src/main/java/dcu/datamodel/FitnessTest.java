@@ -17,12 +17,30 @@ public class FitnessTest {
 
     @Column(name = "bodyfat")
     private Integer bodyFat;
+
     @Column(name = "chinUps")
     private Integer chinUps;
+
     @Column(name = "pushUps")
     private Integer pushUps;
+
     @Column(name = "playerId")
     private int playerId;
+
+    @Column(name = "sprint")
+    private Integer sprint;
+
+    @Column(name = "kmRun")
+    private Integer kmRun;
+
+    @Column(name = "agility")
+    private Integer agility;
+
+    @Column(name = "workLifestyle")
+    private String workLifestyle;
+
+    @Column(name = "weeklyAverageTrainingCount")
+    private Integer weeklyAverageTrainingCount;
 
     public int getFitnessId() {
         return fitnessId;
@@ -62,6 +80,47 @@ public class FitnessTest {
 
     public void setPlayerId(int playerId) {
         this.playerId = playerId;
+    }
+
+
+    public Integer getSprint() {
+        return sprint;
+    }
+
+    public void setSprint(Integer sprint) {
+        this.sprint = sprint;
+    }
+
+    public Integer getKmRun() {
+        return kmRun;
+    }
+
+    public void setKmRun(Integer kmRun) {
+        this.kmRun = kmRun;
+    }
+
+    public Integer getAgility() {
+        return agility;
+    }
+
+    public void setAgility(Integer agility) {
+        this.agility = agility;
+    }
+
+    public String getWorkLifestyle() {
+        return workLifestyle;
+    }
+
+    public void setWorkLifestyle(String workLifestyle) {
+        this.workLifestyle = workLifestyle;
+    }
+
+    public Integer getWeeklyAverageTrainingCount() {
+        return weeklyAverageTrainingCount;
+    }
+
+    public void setWeeklyAverageTrainingCount(Integer weeklyAverageTrainingCount) {
+        this.weeklyAverageTrainingCount = weeklyAverageTrainingCount;
     }
 
     @Override
