@@ -22,6 +22,29 @@
 
         <h2>Clubs</h2>
 
+        <h3>Create Club</h3>
+
+
+        <form class="form-inline" ng-submit="createClub()">
+            <div class="form-group">
+                <label for="inputClubName">Club Name</label>
+                <input type="text" class="form-control" ng-model="clubName" id="inputClubName" placeholder="Club Name">
+                <label for="inputClubEmail">Email</label>
+                <input type="text" class="form-control" ng-model="email" id="inputClubEmail" placeholder="Email">
+            </div>
+            <!--
+            <div class="form-group">
+                <label for="exampleInputEmail2">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+            </div>
+            -->
+            <button type="submit" class="btn btn-primary">Enter</button>
+        </form>
+        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
+            <strong>Success! </strong> Club created
+        </div>
+
+
         <div class="panel-heading"><span class="lead">List of Clubs </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
@@ -38,28 +61,6 @@
                 </tbody>
             </table>
         </div>
-        </div>
-
-        <h2>Create Club</h2>
-
-
-        <form class="form-inline" ng-submit="createClub()">
-            <div class="form-group">
-                <label for="inputClubName">Club Name</label>
-                <input type="text" class="form-control" ng-model="clubName" id="inputClubName" placeholder="Club Name">
-                <label for="inputClubEmail">Club Name</label>
-                <input type="text" class="form-control" ng-model="email" id="inputClubEmail" placeholder="Email">
-            </div>
-            <!--
-            <div class="form-group">
-                <label for="exampleInputEmail2">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-            </div>
-            -->
-            <button type="submit" class="btn btn-primary">Enter</button>
-        </form>
-        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
-            <strong>Success! </strong> Club created
         </div>
 
 

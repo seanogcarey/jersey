@@ -60,7 +60,7 @@
                 <tbody>
                 <tr ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
                     <td>  {{a.map.numOfSessions }}</td>
-                    <td></td>
+                    <td>{{a.map.numOfSessionsWithTeam}}</td>
                 </tr>
                 </tbody>
             </table>

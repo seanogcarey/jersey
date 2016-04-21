@@ -60,6 +60,11 @@ App.controller('TeamCtrl', function($scope, $routeParams,$http) {
     success(function(data) {
         $scope.weeks = data;
     });
+    $http.get('http://localhost:8081/jersey/managers/getManagerByTeamId/' + $routeParams.teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.managers = data;
+    });
 
 });
 

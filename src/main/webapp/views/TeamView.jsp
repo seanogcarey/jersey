@@ -39,13 +39,34 @@
                 <tr>
                     <td ng-repeat="a in teams.map.team.myArrayList"><span ng-bind="a.map.teamName"></span></td>
                     <td ng-repeat="a in clubs.map.club.myArrayList"><span ng-bind="a.map.clubName"></span></td>
-                    <td ng-repeat="a in clubs.map.club.myArrayList"><span ng-bind="a.map.clubSport"></span></td>
+                    <td ng-repeat="a in clubs.map.club.myArrayList"><span ng-bind="a.map.sport"></span></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         </div>
 
+
+        <div class="panel-heading"><span class="lead"></span></div>
+        <div class="tablecontainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        Managers
+                    </th>
+
+                    <th width="20%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="a in managers.map.manager.myArrayList">
+                    <td><a href="/views/ManagerView.jsp#/manager/{{a.map.managerId}}">{{a.map.firstName}} {{a.map.lastName}}</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
 
 
         <div class="panel-heading"><span class="lead"></span></div>
