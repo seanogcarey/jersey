@@ -100,16 +100,22 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
 
         var dataParsed = data.map.attendanceWeekView.myArrayList;
         console.log(dataParsed);
-
-        var sum = 0;
         for (var i=0;i<dataParsed.length;i++) {
             console.log("The weekID is " + dataParsed[i].map.weekId);
-            sum = sum + dataParsed[i].map.weekId;
         }
 
-        var average = sum/dataParsed.length;
-        console.log("AVERAGE : " + average);
+        /*
+            ///////////////////////////// average
+         var sum = 0;
+         for (var i=0;i<dataParsed.length;i++) {
+         console.log("The weekID is " + dataParsed[i].map.weekId);
+         sum = sum + dataParsed[i].map.weekId;
+         }
 
+         var average = sum/dataParsed.length;
+         console.log("AVERAGE : " + average);
+
+        /////////////////////////////////////////////////////////
         console.log("before for loop");
         console.log("data length :" + json.length);
 
@@ -119,7 +125,7 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
         for (var i=0;i<parsedJSON.length;i++) {
             console.log((parsedJSON[i].id));
         }
-        /*
+
         for(var i = 0; i < json.length; i++) {
             var obj = json[i];
 

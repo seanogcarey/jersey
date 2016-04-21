@@ -12,55 +12,55 @@
       </database>
       <schema id="2" parent="1" name="dbo">
         <object-id>1</object-id>
-        <introspection-timestamp>2016-04-21.12:53:57.300</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:29.137</introspection-timestamp>
       </schema>
       <schema id="3" parent="1" name="guest">
         <object-id>2</object-id>
-        <introspection-timestamp>2016-04-21.12:53:57.433</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:29.530</introspection-timestamp>
       </schema>
       <schema id="4" parent="1" name="INFORMATION_SCHEMA">
         <object-id>3</object-id>
-        <introspection-timestamp>2016-04-21.12:53:57.553</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:29.620</introspection-timestamp>
       </schema>
       <schema id="5" parent="1" name="sys">
         <object-id>4</object-id>
-        <introspection-timestamp>2016-04-21.12:53:57.963</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.337</introspection-timestamp>
       </schema>
       <schema id="6" parent="1" name="db_owner">
         <object-id>16384</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.027</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.410</introspection-timestamp>
       </schema>
       <schema id="7" parent="1" name="db_accessadmin">
         <object-id>16385</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.073</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.457</introspection-timestamp>
       </schema>
       <schema id="8" parent="1" name="db_securityadmin">
         <object-id>16386</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.123</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.503</introspection-timestamp>
       </schema>
       <schema id="9" parent="1" name="db_ddladmin">
         <object-id>16387</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.163</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.560</introspection-timestamp>
       </schema>
       <schema id="10" parent="1" name="db_backupoperator">
         <object-id>16389</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.210</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.620</introspection-timestamp>
       </schema>
       <schema id="11" parent="1" name="db_datareader">
         <object-id>16390</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.247</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.697</introspection-timestamp>
       </schema>
       <schema id="12" parent="1" name="db_datawriter">
         <object-id>16391</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.280</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.770</introspection-timestamp>
       </schema>
       <schema id="13" parent="1" name="db_denydatareader">
         <object-id>16392</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.333</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:30.923</introspection-timestamp>
       </schema>
       <schema id="14" parent="1" name="db_denydatawriter">
         <object-id>16393</object-id>
-        <introspection-timestamp>2016-04-21.12:53:58.427</introspection-timestamp>
+        <introspection-timestamp>2016-04-21.20:07:31.187</introspection-timestamp>
       </schema>
       <table id="15" parent="2" name="AttendanceTable">
         <object-id>82099333</object-id>
@@ -88,9 +88,9 @@
         <modified-timestamp>2016-04-06.19:52:11.120</modified-timestamp>
       </table>
       <table id="20" parent="2" name="FitnessTest">
-        <object-id>1493580359</object-id>
-        <created-timestamp>2016-03-30.11:58:49.960</created-timestamp>
-        <modified-timestamp>2016-04-21.12:41:13.970</modified-timestamp>
+        <object-id>482100758</object-id>
+        <created-timestamp>2016-04-21.20:05:51.963</created-timestamp>
+        <modified-timestamp>2016-04-21.20:05:52.240</modified-timestamp>
       </table>
       <table id="21" parent="2" name="Manager">
         <object-id>1845581613</object-id>
@@ -100,7 +100,7 @@
       <table id="22" parent="2" name="Player">
         <object-id>1765581328</object-id>
         <created-timestamp>2016-03-30.13:49:49.293</created-timestamp>
-        <modified-timestamp>2016-04-20.23:49:21.463</modified-timestamp>
+        <modified-timestamp>2016-04-21.20:05:52.107</modified-timestamp>
       </table>
       <table id="23" parent="2" name="Session">
         <object-id>50099219</object-id>
@@ -120,7 +120,7 @@
       <table id="26" parent="2" name="TrainingGroup">
         <object-id>418100530</object-id>
         <created-timestamp>2016-04-20.23:45:37.517</created-timestamp>
-        <modified-timestamp>2016-04-20.23:49:21.470</modified-timestamp>
+        <modified-timestamp>2016-04-21.20:05:52.243</modified-timestamp>
       </table>
       <table id="27" parent="2" name="UserLogIn">
         <object-id>629577281</object-id>
@@ -14375,7 +14375,7 @@
         <data-type>int</data-type>
       </column>
       <column id="2227" parent="20" name="workLifestyle">
-        <data-type>varchar(50)</data-type>
+        <data-type>int</data-type>
       </column>
       <column id="2228" parent="20" name="weeklyAverageTrainingCount">
         <data-type>int</data-type>
@@ -14387,17 +14387,17 @@
         <inner-id>1</inner-id>
       </index>
       <key id="2230" parent="20" name="PK_FitnessTest">
-        <object-id>1509580416</object-id>
-        <created-timestamp>2016-03-30.11:58:50.057</created-timestamp>
-        <modified-timestamp>2016-03-30.11:58:50.057</modified-timestamp>
+        <object-id>498100815</object-id>
+        <created-timestamp>2016-04-21.20:05:52.107</created-timestamp>
+        <modified-timestamp>2016-04-21.20:05:52.107</modified-timestamp>
         <columns>fitnessId</columns>
         <underlying-index>PK_FitnessTest</underlying-index>
         <primary>1</primary>
       </key>
       <foreign-key id="2231" parent="20" name="FK_FitnessTest_Player">
-        <object-id>1829581556</object-id>
-        <created-timestamp>2016-03-30.13:49:49.440</created-timestamp>
-        <modified-timestamp>2016-03-30.13:49:49.440</modified-timestamp>
+        <object-id>514100872</object-id>
+        <created-timestamp>2016-04-21.20:05:52.107</created-timestamp>
+        <modified-timestamp>2016-04-21.20:05:52.107</modified-timestamp>
         <columns>playerId</columns>
         <ref-key>Player.PK_Player</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
@@ -14455,10 +14455,10 @@
       <column id="2242" parent="22" name="firstName">
         <data-type>sysname</data-type>
       </column>
-      <column id="2243" parent="22" name="lastName">
+      <column id="2243" parent="22" name="email">
         <data-type>sysname</data-type>
       </column>
-      <column id="2244" parent="22" name="email">
+      <column id="2244" parent="22" name="lastName">
         <data-type>sysname</data-type>
       </column>
       <column id="2245" parent="22" name="phoneNumber">
@@ -14616,7 +14616,7 @@ name</columns>
       <column id="2272" parent="26" name="trainingGroupId">
         <mandatory>1</mandatory>
         <data-type>int</data-type>
-        <sequence-identity>1</sequence-identity>
+        <sequence-identity>1(2)</sequence-identity>
       </column>
       <column id="2273" parent="26" name="playerId">
         <data-type>int</data-type>
@@ -14658,9 +14658,9 @@ name</columns>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
       <foreign-key id="2281" parent="26" name="FK_TrainingGroup_FitnessTest">
-        <object-id>466100701</object-id>
-        <created-timestamp>2016-04-20.23:49:21.467</created-timestamp>
-        <modified-timestamp>2016-04-20.23:49:21.467</modified-timestamp>
+        <object-id>530100929</object-id>
+        <created-timestamp>2016-04-21.20:05:52.240</created-timestamp>
+        <modified-timestamp>2016-04-21.20:05:52.240</modified-timestamp>
         <columns>fitnessId</columns>
         <ref-key>FitnessTest.PK_FitnessTest</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>

@@ -37,7 +37,7 @@ public class FitnessTest {
     private Integer agility;
 
     @Column(name = "workLifestyle")
-    private String workLifestyle;
+    private Integer workLifestyle;
 
     @Column(name = "weeklyAverageTrainingCount")
     private Integer weeklyAverageTrainingCount;
@@ -107,11 +107,11 @@ public class FitnessTest {
         this.agility = agility;
     }
 
-    public String getWorkLifestyle() {
+    public Integer getWorkLifestyle() {
         return workLifestyle;
     }
 
-    public void setWorkLifestyle(String workLifestyle) {
+    public void setWorkLifestyle(Integer workLifestyle) {
         this.workLifestyle = workLifestyle;
     }
 

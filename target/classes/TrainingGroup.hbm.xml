@@ -15,13 +15,13 @@
             <column name="fitnessId" sql-type="int"/>
         </property>
         <property name="fitnessGroup">
-            <column name="fitnessGroup" sql-type="sysname" not-null="true"/>
+            <column name="fitnessGroup" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="strengthGroup">
-            <column name="strengthGroup" sql-type="sysname" not-null="true"/>
+            <column name="strengthGroup" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="speedGroup">
-            <column name="speedGroup" sql-type="sysname" not-null="true"/>
+            <column name="speedGroup" sql-type="java.lang.String" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

@@ -25,6 +25,7 @@
     <p><a href="views/ManagerView.jsp">Manager View</a></p>
     <p><a href="views/sample.jsp">Sample View</a> </p>
     <p><a href="views/View.jsp">View</a></p>
+    <p><a href="views/GraphTestView.jsp">Graph Test</a></p>
 
 <!--
     <h2>Angular Example:</h2>

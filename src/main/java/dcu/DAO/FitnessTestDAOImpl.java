@@ -17,7 +17,7 @@ import java.util.List;
 public class FitnessTestDAOImpl implements FitnessTestDAO {
 
     private SessionFactory sf =null ;
-    private static final String GET_ALL_FINTESSTESTS = "select e from FitnessTest e";
+    private static final String GET_ALL_FINTESS_TESTS = "select e from FitnessTest e";
 
     public List<FitnessTest> getAllFitnessTests() throws IOException, NotFoundException{
         //begin transaction
@@ -26,7 +26,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
         session.beginTransaction();
 
         sf = HibernateUtil.getSessionFactory();
-        List<FitnessTest> fitnessTestList  = (List<FitnessTest>) session.createQuery(GET_ALL_FINTESSTESTS).list();
+        List<FitnessTest> fitnessTestList  = (List<FitnessTest>) session.createQuery(GET_ALL_FINTESS_TESTS).list();
 
         session.getTransaction().commit();
 
@@ -67,7 +67,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
         return fitnessTestPlayerList ;
     }
 
-    public void createFitnessTest(final int playerId, final int bodyFat){
+    public void createFitnessTest(final int chinUps,int pushUps,final int playerId,final int sprint,final int kmRun,final int agility,final int workLifestyle,final int weeklyAverageTrainingCount){
 
         System.out.println("Attempting to create manager");
 
@@ -78,13 +78,52 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
 
         sf = HibernateUtil.getSessionFactory();
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.FitnessTest OFF insert into dbo.FitnessTest (chinUps,pushUps,playerId,sprint,kmRun,agility,workLifestyle,weeklyAverageTrainingCount) values(:chinUps,:pushUps,:playerId,:sprint,:kmRun,:agility,:workLifestyle,:weeklyAverageTrainingCount)");
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.FitnessTest OFF insert into dbo.FitnessTest (bodyFat,playerId) values(:bodyFat,:playerId)" );
-        query.setParameter("bodyFat", bodyFat);
+        query.setParameter("chinUps", chinUps);
+        query.setParameter("pushUps", pushUps);
         query.setParameter("playerId",playerId);
+        query.setParameter("sprint",sprint);
+        query.setParameter("kmRun",kmRun);
+        query.setParameter("agility",kmRun);
+        query.setParameter("workLifestyle",workLifestyle);
+        query.setParameter("weeklyAverageTrainingCount",weeklyAverageTrainingCount);
+
+
+
         query.executeUpdate();
 
         session.getTransaction().commit();
 
     }
+
+    public void updateFitnessTest(final int chinUps,int pushUps,final int playerId,final int sprint,final int kmRun,final int agility,final int workLifestyle,final int weeklyAverageTrainingCount){
+
+
+        //begin transaction
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+        SQLQuery query= session.createSQLQuery("Update FitnessTest set chinUps=:chinUps,pushUps=:pushUps,sprint=:sprint,kmRun=:kmRun,agility=:agility,workLifestyle=:workLifestyle,weeklyAverageTrainingCount=:weeklyAverageTrainingCount where playerId = :playerId" );
+        query.setParameter("chinUps", chinUps);
+        query.setParameter("pushUps", pushUps);
+        query.setParameter("playerId",playerId);
+        query.setParameter("sprint",sprint);
+        query.setParameter("agility",kmRun);
+        query.setParameter("kmRun",kmRun);
+        query.setParameter("workLifestyle",workLifestyle);
+        query.setParameter("weeklyAverageTrainingCount",weeklyAverageTrainingCount);
+
+
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+    }
+
+
+
 }

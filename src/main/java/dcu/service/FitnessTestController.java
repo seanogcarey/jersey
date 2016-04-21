@@ -91,12 +91,25 @@ public class FitnessTestController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createFitnessTest/playerId/{playerId}/bodyFat/{bodyFat}")
-    public String createFitnessTest(@PathParam("playerId") final int playerId,@PathParam("bodyFat") final int bodyFat) throws IOException, NotFoundException,JSONException{
+    @Path("/createFitnessTest/playerId/{playerId}/chinUps/{chinUps}/pushUps/{pushUps}/sprint/{sprint}/kmRun/{kmRun}/agility/{agility}/workLifestyle/{workLifestyle}/weeklyAverageTrainingCount/{weeklyAverageTrainingCount}")
+    public String createFitnessTest(@PathParam("playerId") final int playerId,@PathParam("chinUps") final int chinUps,@PathParam("pushUps") final int pushUps,
+    @PathParam("sprint") final int sprint, @PathParam("kmRun") final int kmRun,@PathParam("agility") final int agility,@PathParam("workLifestyle") final int workLifestyle,@PathParam("weeklyAverageTrainingCount") final int weeklyAverageTrainingCount,@PathParam("bodyFat") final int bodyFat) throws IOException, NotFoundException,JSONException{
 
-        fitnessTestDAOImpl.createFitnessTest(playerId,bodyFat);
+        fitnessTestDAOImpl.createFitnessTest(chinUps,pushUps,playerId,sprint,kmRun,agility,workLifestyle,weeklyAverageTrainingCount);
         return "createFitnesstest";
 
     }
+
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/updateFitnessTest/playerId/{playerId}/chinUps/{chinUps}/pushUps/{pushUps}/sprint/{sprint}/kmRun/{kmRun}/agility/{agility}/workLifestyle/{workLifestyle}/weeklyAverageTrainingCount/{weeklyAverageTrainingCount}")
+    public String updateFitnessTest(@PathParam("playerId") final int playerId,@PathParam("chinUps") final int chinUps,@PathParam("pushUps") final int pushUps,
+                                    @PathParam("sprint") final int sprint, @PathParam("kmRun") final int kmRun,@PathParam("agility") final int agility,@PathParam("workLifestyle") final int workLifestyle,@PathParam("weeklyAverageTrainingCount") final int weeklyAverageTrainingCount) throws IOException, NotFoundException,JSONException{
+
+        fitnessTestDAOImpl.updateFitnessTest(chinUps,pushUps,playerId,sprint,kmRun,agility,workLifestyle,weeklyAverageTrainingCount);
+        return "updateFitnessTest";
+    }
+
 
 }

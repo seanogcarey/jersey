@@ -19,10 +19,9 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         System.out.println("Running Main - test our data");
 
-        TestService testService = new TestService();
-        String test;
-        test = testService.returnClubs();
-        System.out.println(test);
+        FitnessTestDAOImpl fitnessTestDAOImpl = new FitnessTestDAOImpl();
+
+        fitnessTestDAOImpl.createFitnessTest(1,1,4,1,1,1,1,1);
 
         /*
         int playerId = 3;
