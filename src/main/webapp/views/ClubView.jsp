@@ -61,7 +61,6 @@
                 </tbody>
             </table>
         </div>
-        </div>
 
 
 
@@ -86,7 +85,6 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
         </div>
 
 

@@ -69,6 +69,28 @@
         </div>
 
 
+        <h3>Add Player</h3>
+
+
+        <form class="form-inline" ng-submit="createPlayer()">
+            <div class="form-group">
+                <label for="inputFirstName">First Name</label>
+                <input type="text" class="form-control" ng-model="firstName" id="inputFirstName" placeholder="First Name">
+                <label for="inputSecondName">Second Name</label>
+                <input type="text" class="form-control" ng-model="secondName" id="inputSecondName" placeholder="Second Name">
+            </div>
+            <!--
+            <div class="form-group">
+                <label for="exampleInputEmail2">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+            </div>
+            -->
+            <button type="submit" class="btn btn-primary">Enter</button>
+        </form>
+        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
+            <strong>Success! </strong> Player Added
+        </div>
+
         <div class="panel-heading"><span class="lead"></span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
