@@ -107,8 +107,8 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
 
 
     $scope.updateAttendance= function() {
-        var presentData = $scope.presentStatus
-        var reasonOfAbsenceData =  $scope.reasonOfAbsence
+        var presentData = $scope.presentStatus;
+        var reasonOfAbsenceData =  $scope.reasonOfAbsence;
         console.log(presentData);
         console.log(reasonOfAbsenceData);
 

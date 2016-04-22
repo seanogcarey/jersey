@@ -111,5 +111,13 @@ public class FitnessTestController {
         return "updateFitnessTest";
     }
 
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/updateFitnessTestAttendanceCount/playerId/{playerId}/weeklyAverageTrainingCount/{weeklyAverageTrainingCount}")
+    public String updateFitnessTestAttendanceCount(@PathParam("playerId") final int playerId,@PathParam("workLifestyle") final int workLifestyle,@PathParam("weeklyAverageTrainingCount") final int weeklyAverageTrainingCount) throws IOException, NotFoundException,JSONException{
+
+        fitnessTestDAOImpl.updateFitnessTestAttendanceCount(playerId,weeklyAverageTrainingCount);
+        return "updateFitnessTestAttendanceCount";
+    }
 
 }

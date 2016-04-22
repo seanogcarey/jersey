@@ -124,6 +124,28 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
     }
 
+    public void updateFitnessTestAttendanceCount(final int playerId,final int weeklyAverageTrainingCount){
+
+
+        //begin transaction
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+        SQLQuery query= session.createSQLQuery("Update FitnessTest set weeklyAverageTrainingCount=:weeklyAverageTrainingCount where playerId = :playerId" );
+        query.setParameter("playerId",playerId);
+        query.setParameter("weeklyAverageTrainingCount",weeklyAverageTrainingCount);
+
+
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+    }
+
+
 
 
 }

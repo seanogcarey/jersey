@@ -61,7 +61,7 @@ App.controller('AttendanceWeekViewCtrl', function($scope, $routeParams,$http) {
     success(function(data) {
         $scope.weeks = data;
     });
-    
+
 
 
 

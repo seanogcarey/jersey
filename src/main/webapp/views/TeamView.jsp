@@ -46,6 +46,10 @@
         </div>
         </div>
 
+        <div ng-repeat="a in teams.map.team.myArrayList">
+
+            <p><a href="/views/TeamFitnessTestView.jsp#/team/{{a.map.teamId}}">Fitness Test</a></p>
+        </div>
 
         <div class="panel-heading"><span class="lead"></span></div>
         <div class="tablecontainer">
