@@ -15,6 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="/javascript/controller/player_fitness_test_controller.js"></script>
+    <script src="../javascript/externalJavascriptResources/Chart.js"></script>
+
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
 
@@ -168,11 +170,12 @@
             </div>
 
         </form>
-        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
-            <strong>Success! </strong> Club created
-        </div>
+
+        <!-- line chart canvas element -->
+        <canvas id="buyers" width="600" height="400"></canvas>
 
     </script>
+
 
 
 </head>

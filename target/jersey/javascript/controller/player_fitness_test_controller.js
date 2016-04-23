@@ -63,6 +63,24 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
             $scope.playerBurnoutDanger=true;
         }
 
+
+        // line chart data
+        var buyerData = {
+            labels : ["Fitness","Speed","Strength"],
+            datasets : [
+                {
+                    fillColor : "rgba(172,194,132,0.4)",
+                    strokeColor : "#ACC26D",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#9DB86D",
+                    data : [3,3,1]
+                }
+            ]
+        }
+        // get line chart canvas
+        var buyers = document.getElementById('buyers').getContext('2d');
+
+
     });
 
     $scope.updateFitnessTest= function() {
