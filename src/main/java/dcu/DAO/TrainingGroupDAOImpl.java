@@ -148,6 +148,37 @@ public class TrainingGroupDAOImpl implements TrainingGroupDAO {
     }
 
 
+    public void updateTrainingGroupByPlayerId(final int playerId,final String fitnessGroup,final String strengthGroup,final String speedGroup){
+
+
+        //begin transaction
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+        System.out.println("transaction begun");
+
+        sf = HibernateUtil.getSessionFactory();
+        System.out.println("Got Session Factory");
+
+
+
+        SQLQuery query= session.createSQLQuery("Update TrainingGroup set fitnessGroup= :fitnessGroup,strengthGroup =:strengthGroup,speedGroup =:speedGroup where playerId = :playerId");
+        query.setParameter("playerId", playerId);
+        query.setParameter("fitnessGroup", fitnessGroup);
+        query.setParameter("strengthGroup", strengthGroup);
+        query.setParameter("speedGroup", speedGroup);
+
+        query.executeUpdate();
+
+
+        session.getTransaction().commit();
+
+        System.out.println("Training Group updated");
+
+    }
+
+
     public void updateTrainingGroup(final int trainingGroupId,final String fitnessGroup,final String strengthGroup,final String speedGroup){
 
 

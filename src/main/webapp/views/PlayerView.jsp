@@ -31,6 +31,7 @@
                 <tr>
                     <th>Player Name : {{players.map.player.myArrayList[1] }}</th>
                     <th>Team : </th>
+                    <th>Fitness Test: </th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -38,6 +39,7 @@
                 <tr>
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.firstName}} {{a.map.lastName}}</td>
                     <td ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</td>
+                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}">Go to Test info</a></td>
                 </tr>
                 </tbody>
             </table>

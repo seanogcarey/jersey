@@ -41,6 +41,12 @@
             </table>
         </div>
 
+
+        <br>
+        <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
+            <strong>Possible Player Burnout Warning! </strong>
+        </div>
+
         <div class="panel-heading"><span class="lead">Test Scores: </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">

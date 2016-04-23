@@ -81,7 +81,7 @@ public class TrainingGroupController {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateTrainingGroup/trainingGroupId/{trainingGroupId}/fitnessGroup/{fitnessGroup}/strengthGroup/{strengthGroup}/speedGroup/{speedGroup}")
-    public String updateClub(@PathParam("trainingGroupId") final int trainingGroupId,@PathParam("fitnessGroup") final String fintessGroup,
+    public String updateTrainingGroup(@PathParam("trainingGroupId") final int trainingGroupId,@PathParam("fitnessGroup") final String fintessGroup,
                              @PathParam("strengthGroup") final String strengthGroup, @PathParam("speedGroup") final String speedGroup)
             throws IOException, NotFoundException,JSONException{
 
@@ -98,6 +98,28 @@ public class TrainingGroupController {
 
         return "updatedClub";
     }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/updateTrainingGroupByPlayerId/playerId/{playerId}/fitnessGroup/{fitnessGroup}/strengthGroup/{strengthGroup}/speedGroup/{speedGroup}")
+    public String updateTrainingGroupByPlayerId(@PathParam("playerId") final int playerId,@PathParam("fitnessGroup") final String fintessGroup,
+                             @PathParam("strengthGroup") final String strengthGroup, @PathParam("speedGroup") final String speedGroup)
+            throws IOException, NotFoundException,JSONException{
+
+
+        //todo find out if player id and fitness id are needed
+        /*
+        List<Updat> clubList = clubDAOImpl.getClubById(clubId);
+
+        if (clubList == null) {
+            throw new NotFoundException("club does not exist");
+        }
+        */
+        trainingGroupDAOImpl.updateTrainingGroupByPlayerId(playerId, fintessGroup,strengthGroup,speedGroup);
+
+        return "updatedClub";
+    }
+
 
 
 
