@@ -95,10 +95,10 @@ public class WeekController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createWeek/teamId/{teamId}")
-    public String createWeek(@PathParam("teamId") final int teamId) throws IOException, NotFoundException,JSONException{
+    @Path("/createWeek/teamId/{teamId}/weekNum/{weekNum}/startDateString/{startDateString}/endDateString/{endDateString}")
+    public String createWeek(@PathParam("teamId") final int teamId,@PathParam("weekNum") final int weekNum,@PathParam("startDateString") final String startDateString,@PathParam("endDateString") final String endDateString) throws IOException, NotFoundException,JSONException{
 
-        weekDAOImpl.createWeek(teamId);
+        weekDAOImpl.createWeek(teamId,weekNum,startDateString,endDateString);
         return "createWeek";
 
     }

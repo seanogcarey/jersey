@@ -33,7 +33,7 @@
             <column name="workLifestyle" sql-type="int" not-null="true"/>
         </property>
         <property name="weeklyAverageTrainingCount">
-            <column name="weeklyAverageTrainingCount" sql-type="int"/>
+            <column name="weeklyAverageTrainingCount" sql-type="Double"/>
         </property>
 
     </class>

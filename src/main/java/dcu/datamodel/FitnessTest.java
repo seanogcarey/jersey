@@ -40,7 +40,7 @@ public class FitnessTest {
     private Integer workLifestyle;
 
     @Column(name = "weeklyAverageTrainingCount")
-    private Integer weeklyAverageTrainingCount;
+    private Double weeklyAverageTrainingCount;
 
     public int getFitnessId() {
         return fitnessId;
@@ -82,7 +82,6 @@ public class FitnessTest {
         this.playerId = playerId;
     }
 
-
     public Integer getSprint() {
         return sprint;
     }
@@ -115,11 +114,11 @@ public class FitnessTest {
         this.workLifestyle = workLifestyle;
     }
 
-    public Integer getWeeklyAverageTrainingCount() {
+    public Double getWeeklyAverageTrainingCount() {
         return weeklyAverageTrainingCount;
     }
 
-    public void setWeeklyAverageTrainingCount(Integer weeklyAverageTrainingCount) {
+    public void setWeeklyAverageTrainingCount(Double weeklyAverageTrainingCount) {
         this.weeklyAverageTrainingCount = weeklyAverageTrainingCount;
     }
 

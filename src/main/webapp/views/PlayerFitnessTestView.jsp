@@ -43,10 +43,19 @@
             </table>
         </div>
 
+        <p>Burnout Notice: </p>
 
         <br>
         <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
-            <strong>Possible Player Burnout Warning! </strong>
+            <strong>Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
+        </div>
+
+        <div class="alert alert-warning"  aria-label="close" ng-show="playerBurnoutWarning">
+            <strong>Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
+        </div>
+
+        <div class="alert alert-success"  aria-label="close" ng-show="playerBurnoutSafe">
+            <strong>Player is not experiencing burnout </strong> ( Player is fine to train )
         </div>
 
         <div class="panel-heading"><span class="lead">Test Scores: </span></div>
@@ -108,7 +117,7 @@
                 <br>
 
                 <br><label for="insertKmRun"> 1 KM Run Score (1=low 2=medium 3=high) </label>
-                <select id="insertKmRun" ng-model="kmRunStatus">
+                <select id="insertKmRun" ng-model="kmRunStatus" class="form-control">
                     <option value="1">1 (greater than 04.10 minutes)</option>
                     <option value="2">2 (between 04.10 and 03.45)</option>
                     <option value="3">3 (less than 03.45)</option>
@@ -117,7 +126,7 @@
                 <br>
 
                 <br><label for="insertAgility"> Agility Score (1=low 2=medium 3=high) </label>
-                <select id="insertAgility" ng-model="agilityStatus">
+                <select id="insertAgility" ng-model="agilityStatus" class="form-control">
                     <option value="1">1 (greater than 04.10 minutes)</option>
                     <option value="2">2 (between 04.10 and 03.45)</option>
                     <option value="3">3 (less than 03.45)</option>
@@ -125,8 +134,8 @@
                 <br>
                 <br>
 
-                <br><label for="insertSprint">Sprint Score </label>
-                <select id="insertSprint" ng-model="sprintStatus">
+                <br><label for="insertSprint">Sprint Score  (1=low 2=medium 3=high)</label>
+                <select id="insertSprint" ng-model="sprintStatus" class="form-control">
                     <option value="1">1 (greater than 04.10 minutes)</option>
                     <option value="2">2 (between 04.10 and 03.45)</option>
                     <option value="3">3 (less than 03.45)</option>
@@ -134,8 +143,8 @@
                 <br>
                 <br>
 
-                <br><label for="insertPushUps">Push Ups Score </label>
-                <select id="insertPushUps" ng-model="pushUpsStatus">
+                <br><label for="insertPushUps">Push Ups Score (1=low 2=medium 3=high)</label>
+                <select id="insertPushUps" ng-model="pushUpsStatus" class="form-control">
                     <option value="1">1 (greater than 04.10 minutes)</option>
                     <option value="2">2 (between 04.10 and 03.45)</option>
                     <option value="3">3 (less than 03.45)</option>
@@ -143,8 +152,8 @@
                 <br>
                 <br>
 
-                <br><label for="insertChinUps">Chin Ups Score </label>
-                <select id="insertChinUps" ng-model="chinUpsStatus">
+                <br><label for="insertChinUps">Chin Ups Score  (1=low 2=medium 3=high) </label>
+                <select id="insertChinUps" ng-model="chinUpsStatus" class="form-control">
                     <option value="1">1 (greater than 04.10 minutes)</option>
                     <option value="2">2 (between 04.10 and 03.45)</option>
                     <option value="3">3 (less than 03.45)</option>
@@ -152,8 +161,8 @@
                 <br>
                 <br>
 
-                <br><label for="insertWorkLifestyle">Work/Lifestyle Activity (1-5)</label>
-                <select id="insertWorkLifestyle" ng-model="workLifestyleStatus">
+                <br><label for="insertWorkLifestyle">Work/Lifestyle Activity (Rate from 1-5)</label>
+                <select id="insertWorkLifestyle" ng-model="workLifestyleStatus" class="form-control">
                     <option value="1">1 (greater than 04.10 minutes)</option>
                     <option value="2">2 (between 04.10 and 03.45)</option>
                     <option value="3">3 (less than 03.45)</option>

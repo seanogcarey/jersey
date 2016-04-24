@@ -105,7 +105,7 @@ public class FitnessTestController {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateFitnessTest/playerId/{playerId}/chinUps/{chinUps}/pushUps/{pushUps}/sprint/{sprint}/kmRun/{kmRun}/agility/{agility}/workLifestyle/{workLifestyle}/weeklyAverageTrainingCount/{weeklyAverageTrainingCount}")
     public String updateFitnessTest(@PathParam("playerId") final int playerId,@PathParam("chinUps") final int chinUps,@PathParam("pushUps") final int pushUps,
-                                    @PathParam("sprint") final int sprint, @PathParam("kmRun") final int kmRun,@PathParam("agility") final int agility,@PathParam("workLifestyle") final int workLifestyle,@PathParam("weeklyAverageTrainingCount") final int weeklyAverageTrainingCount) throws IOException, NotFoundException,JSONException{
+                                    @PathParam("sprint") final int sprint, @PathParam("kmRun") final int kmRun,@PathParam("agility") final int agility,@PathParam("workLifestyle") final int workLifestyle,@PathParam("weeklyAverageTrainingCount") final double weeklyAverageTrainingCount) throws IOException, NotFoundException,JSONException{
 
         fitnessTestDAOImpl.updateFitnessTest(chinUps,pushUps,playerId,sprint,kmRun,agility,workLifestyle,weeklyAverageTrainingCount);
         return "updateFitnessTest";
@@ -114,7 +114,7 @@ public class FitnessTestController {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateFitnessTestAttendanceCount/playerId/{playerId}/weeklyAverageTrainingCount/{weeklyAverageTrainingCount}")
-    public String updateFitnessTestAttendanceCount(@PathParam("playerId") final int playerId,@PathParam("workLifestyle") final int workLifestyle,@PathParam("weeklyAverageTrainingCount") final int weeklyAverageTrainingCount) throws IOException, NotFoundException,JSONException{
+    public String updateFitnessTestAttendanceCount(@PathParam("playerId") final int playerId,@PathParam("workLifestyle") final int workLifestyle,@PathParam("weeklyAverageTrainingCount") final double weeklyAverageTrainingCount) throws IOException, NotFoundException,JSONException{
 
         fitnessTestDAOImpl.updateFitnessTestAttendanceCount(playerId,weeklyAverageTrainingCount);
         return "updateFitnessTestAttendanceCount";

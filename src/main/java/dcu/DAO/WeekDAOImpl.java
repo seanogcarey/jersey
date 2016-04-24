@@ -70,7 +70,7 @@ public class WeekDAOImpl implements WeekDAO {
 
         return weekList;
     }
-    public void createWeek(final int teamId){
+    public void createWeek(final int teamId,final int weekNum,final String startDateString,final String endDateString){
 
         Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
@@ -79,8 +79,13 @@ public class WeekDAOImpl implements WeekDAO {
 
         sf = HibernateUtil.getSessionFactory();
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Week OFF insert into dbo.Week (teamId) values(:teamId)" );
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Week OFF insert into dbo.Week (teamId,weekNum,startDateString,endDateString) values(:teamId,:weekNum,:startDateString,:endDateString)" );
         query.setParameter("teamId", teamId);
+        query.setParameter("weekNum", weekNum);
+        query.setParameter("startDateString", startDateString);
+        query.setParameter("endDateString", endDateString);
+
+
         query.executeUpdate();
 
         session.getTransaction().commit();

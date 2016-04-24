@@ -67,7 +67,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
         return fitnessTestPlayerList ;
     }
 
-    public void createFitnessTest(final int chinUps,int pushUps,final int playerId,final int sprint,final int kmRun,final int agility,final int workLifestyle,final int weeklyAverageTrainingCount){
+    public void createFitnessTest(final int chinUps,int pushUps,final int playerId,final int sprint,final int kmRun,final int agility,final int workLifestyle,final double weeklyAverageTrainingCount){
 
         System.out.println("Attempting to create manager");
 
@@ -97,7 +97,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
     }
 
-    public void updateFitnessTest(final int chinUps,int pushUps,final int playerId,final int sprint,final int kmRun,final int agility,final int workLifestyle,final int weeklyAverageTrainingCount){
+    public void updateFitnessTest(final int chinUps,int pushUps,final int playerId,final int sprint,final int kmRun,final int agility,final int workLifestyle,final double weeklyAverageTrainingCount){
 
 
         //begin transaction
@@ -124,7 +124,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
     }
 
-    public void updateFitnessTestAttendanceCount(final int playerId,final int weeklyAverageTrainingCount){
+    public void updateFitnessTestAttendanceCount(final int playerId,final double weeklyAverageTrainingCount){
 
 
         //begin transaction

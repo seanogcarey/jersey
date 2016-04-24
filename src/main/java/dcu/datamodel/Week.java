@@ -28,6 +28,12 @@ public class Week {
     @Column(name = "teamId")
     private int teamId;
 
+    @Column(name = "startDateString")
+    private String startDateString;
+
+    @Column(name = "endDateString")
+    private String endDateString;
+
     public int getWeekId() {
         return weekId;
     }
@@ -66,6 +72,22 @@ public class Week {
 
     public void setTeamId(int teamId) {
         this.teamId = teamId;
+    }
+
+    public String getStartDateString() {
+        return startDateString;
+    }
+
+    public void setStartDateString(String startDateString) {
+        this.startDateString = startDateString;
+    }
+
+    public String getEndDateString() {
+        return endDateString;
+    }
+
+    public void setEndDateString(String endDateString) {
+        this.endDateString = endDateString;
     }
 
     @Override
