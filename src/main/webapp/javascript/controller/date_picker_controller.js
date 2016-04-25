@@ -1,12 +1,50 @@
-angular.module('MyApp', ['ngAnimate', 'ui.bootstrap']);
-angular.module('MyApp').controller('DatepickerPopupDemoCtrl', function ($scope,$http) {
+var App = angular.module('MyApp', ['ui.bootstrap','ngAnimate','ngRoute']);
+
+
+App.config(['$routeProvider' , function($routeProvider ) {
+    $routeProvider.when('/team/:teamId', {
+
+        templateUrl : "teamView.html",
+        controller: "DatepickerPopupDemoCtrl"
+
+    }).when('/', {
+
+        templateUrl : "teamView.html",
+        controller: "PageCtrl"
+
+    }).otherwise({
+
+        template: '<div> This page does not exist </div>'
+
+    });
+}])
+
+
+App.controller('Page1Ctrl', function($scope) {
+    $scope.page = 'Page1';
+    //console.log($routeParams.teamId);
+    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    //success(function(data) {
+    //$scope.page = data;
+    console.log($scope.page);
+    //});
+
+});
+
+App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$route,$routeParams) {
     $scope.today = function() {
         $scope.dt = new Date();
+        $scope.dt2 = new Date();
+        console.log( $animate.enabled() );
+        console.log( $routeParams.teamId );
+
     };
     $scope.today();
 
     $scope.clear = function() {
         $scope.dt = null;
+        $scope.dt2 = null;
     };
 
     $scope.inlineOptions = {
@@ -39,6 +77,7 @@ angular.module('MyApp').controller('DatepickerPopupDemoCtrl', function ($scope,$
 
     $scope.setDate = function(year, month, day) {
         $scope.dt = new Date(year, month, day);
+        $scope.dt2 = new Date(year, month, day);
     };
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
@@ -85,6 +124,41 @@ angular.module('MyApp').controller('DatepickerPopupDemoCtrl', function ($scope,$
 
         return '';
     }
+
+    $http.get('http://localhost:8081/jersey/week/getWeekByTeamId/' + $routeParams.teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.weeks = data;
+    });
+
+    $scope.createWeek = function() {
+        var weekData = $scope.weekNum;
+        var startDay=$scope.dt.getDate();
+        var startMonth=$scope.dt.getMonth() +1;
+        if ($scope.dt.getMonth() == 12){
+            //todo: this is a quick fix for date issue (gives 1 month behind)
+            startMonth == 1;
+        }
+
+        var startYear=$scope.dt.getFullYear();
+
+
+        var startDay2=$scope.dt2.getDate();
+        var startMonth2=$scope.dt2.getMonth() +1;
+        var startYear2=$scope.dt2.getFullYear();
+        //console.log(startDay + " " + startMonth + " " + startYear);
+
+        var startDateData = startDay + " " + startMonth + " " + startYear;
+        var endDateData= startDay2 + " " + startMonth2 + " " + startYear2;
+        console.log(startDateData);
+
+        $http.post("http://localhost:8081/jersey/week/createWeek/teamId/"+$routeParams.teamId+"/weekNum/"+weekData+"/startDateString/"+startDateData+"/endDateString/"+endDateData).success(function() {
+
+            $route.reload();
+
+        })
+    }
+
 
 
 
