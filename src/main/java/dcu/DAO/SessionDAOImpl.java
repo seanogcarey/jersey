@@ -69,7 +69,7 @@ public class SessionDAOImpl implements SessionDAO {
 
         return sessionList;
     }
-    public void createSession(final int weekId,final String sessionType){
+    public void createSession(final int weekId,final String sessionType,final String sessionDateString){
 
         //begin transaction
         org.hibernate.Session session = HibernateUtil.getSessionFactory()
@@ -79,9 +79,10 @@ public class SessionDAOImpl implements SessionDAO {
 
         sf = HibernateUtil.getSessionFactory();
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Session OFF insert into dbo.Session (weekId,sessionType) values(:weekId,:sessionType)" );
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Session OFF insert into dbo.Session (weekId,sessionType,sessionDateString) values(:weekId,:sessionType,:sessionDateString)" );
         query.setParameter("weekId", weekId);
         query.setParameter("sessionType", sessionType);
+        query.setParameter("sessionDateString", sessionDateString);
         query.executeUpdate();
 
         session.getTransaction().commit();

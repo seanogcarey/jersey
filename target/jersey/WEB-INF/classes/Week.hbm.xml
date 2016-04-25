@@ -20,11 +20,13 @@
         <property name="teamId">
             <column name="teamId" sql-type="int"/>
         </property>
+
         <property name="startDateString">
             <column name="startDateString" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="endDateString">
             <column name="endDateString" sql-type="java.lang.String" not-null="true"/>
         </property>
+
     </class>
 </hibernate-mapping>

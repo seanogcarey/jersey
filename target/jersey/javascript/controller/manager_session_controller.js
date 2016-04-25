@@ -1,16 +1,19 @@
+/**
+ * Created by Sean on 25/04/2016.
+ */
 var App = angular.module('MyApp', ['ui.bootstrap','ngAnimate','ngRoute']);
 
 
 App.config(['$routeProvider' , function($routeProvider ) {
-    $routeProvider.when('/team/:teamId', {
+    $routeProvider.when('/week/:weekId', {
 
-        templateUrl : "teamView.html",
+        templateUrl : "sessionView.html",
         controller: "DatepickerPopupDemoCtrl"
 
     }).when('/', {
 
-        templateUrl : "teamView.html",
-        controller: "PageCtrl"
+        templateUrl : "sessionView.html",
+        controller: "Page1Ctrl"
 
     }).otherwise({
 
@@ -35,16 +38,13 @@ App.controller('Page1Ctrl', function($scope) {
 App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$route,$routeParams) {
     $scope.today = function() {
         $scope.dt = new Date();
-        $scope.dt2 = new Date();
         console.log( $animate.enabled() );
-        console.log( $routeParams.teamId );
 
     };
     $scope.today();
 
     $scope.clear = function() {
         $scope.dt = null;
-        $scope.dt2 = null;
     };
 
     $scope.inlineOptions = {
@@ -71,13 +71,8 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
         $scope.popup1.opened = true;
     };
 
-    $scope.open2 = function() {
-        $scope.popup2.opened = true;
-    };
-
     $scope.setDate = function(year, month, day) {
         $scope.dt = new Date(year, month, day);
-        $scope.dt2 = new Date(year, month, day);
     };
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
@@ -125,14 +120,22 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
         return '';
     }
 
-    $http.get('http://localhost:8081/jersey/week/getWeekByTeamId/' + $routeParams.teamId).
+    $http.get('http://localhost:8081/jersey/session/getSessionByWeekId/' + $routeParams.weekId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    success(function(data) {
+        $scope.sessions = data;
+    });
+
+
+    $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
     success(function(data) {
         $scope.weeks = data;
     });
 
-    $scope.createWeek = function() {
-        var weekData = $scope.weekNum;
+    $scope.createSession = function() {
+
+
+        var sessionTypeData = $scope.sessionTypeStatus;
         var startDay=$scope.dt.getDate();
         var startMonth=$scope.dt.getMonth() +1;
         if ($scope.dt.getMonth() == 12){
@@ -142,19 +145,15 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
 
         var startYear=$scope.dt.getFullYear();
 
-
-        var startDay2=$scope.dt2.getDate();
-        var startMonth2=$scope.dt2.getMonth() +1;
-        var startYear2=$scope.dt2.getFullYear();
         //console.log(startDay + " " + startMonth + " " + startYear);
 
-        var startDateData = startDay + " " + startMonth + " " + startYear;
-        var endDateData= startDay2 + " " + startMonth2 + " " + startYear2;
+        var startDateData = startDay + "." + startMonth + "." + startYear;
         console.log(startDateData);
 
-        $http.post("http://localhost:8081/jersey/week/createWeek/teamId/"+$routeParams.teamId+"/weekNum/"+weekData+"/startDateString/"+startDateData+"/endDateString/"+endDateData).success(function() {
+        $http.post("http://localhost:8081/jersey/session/createSession/weekId/"+$routeParams.weekId+"/sessionType/"+sessionTypeData+"/sessionDateString/"+startDateData).success(function() {
 
             //$route.reload();
+            $scope.submissionSuccess = true;
 
         })
     }

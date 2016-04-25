@@ -95,10 +95,10 @@ public class SessionController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createSession/weekId/{weekId}/sessionType/{sessionType}")
-    public String createWeek(@PathParam("weekId") final int weekId,@PathParam("sessionType") final String sessionType) throws IOException, NotFoundException,JSONException{
+    @Path("/createSession/weekId/{weekId}/sessionType/{sessionType}/sessionDateString/{sessionDateString}")
+    public String createWeek(@PathParam("weekId") final int weekId,@PathParam("sessionType") final String sessionType,@PathParam("sessionDateString") final String sessionDateString) throws IOException, NotFoundException,JSONException{
 
-        sessionDAOImpl.createSession(weekId,sessionType);
+        sessionDAOImpl.createSession(weekId,sessionType,sessionDateString);
         return "createSession";
 
     }

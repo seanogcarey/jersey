@@ -40,8 +40,11 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
     var teamId;
 
+    $scope.submissionSuccess = false;
+
+
     $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+
     success(function(data) {
         $scope.players = data;
 

@@ -25,6 +25,9 @@ public class Session {
     @Column(name = "weekId")
     private int weekId;
 
+    @Column(name = "sessionDateString")
+    private String sessionDateString;
+
     public int getSessionId() {
         return sessionId;
     }
@@ -55,6 +58,14 @@ public class Session {
 
     public void setWeekId(int weekId) {
         this.weekId = weekId;
+    }
+
+    public String getSessionDateString() {
+        return sessionDateString;
+    }
+
+    public void setSessionDateString(String sessionDateString) {
+        this.sessionDateString = sessionDateString;
     }
 
     @Override

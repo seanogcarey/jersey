@@ -40,13 +40,10 @@ App.controller('Page1Ctrl', function($scope) {
 
 App.controller('TeamFitnessCtrl', function($scope, $routeParams,$http) {
 
-    console.log($routeParams.teamId);
     $http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
     success(function(data) {
         $scope.teams = data;
         console.log(data);
     });
-
-
 });
 

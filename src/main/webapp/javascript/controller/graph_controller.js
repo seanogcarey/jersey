@@ -4,12 +4,43 @@
 
 'use strict';
 
-var app = angular.module('app',[])
+var app = angular.module('app',[]);
 
-app.controller('ChartCtrl', function($scope,$http) {
+app.config(['$routeProvider' , function($routeProvider ) {
+    $routeProvider.when('/team/:teamId', {
+
+        templateUrl : "graphView.html",
+        controller: "ChartCtrl"
+    }).when('/', {
+
+        templateUrl : "graphView.html",
+        controller: "Page1Ctrl"
+
+    }).otherwise({
+
+        template: '<div> This page does not exist </div>'
+
+    });
+}])
+
+app.controller('Page1Ctrl', function($scope) {
+    $scope.page = 'Page1';
+    //console.log($routeParams.teamId);
+    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
+    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+    //success(function(data) {
+    //$scope.page = data;
+    console.log($scope.page);
+    //});
+
+});
+
+
+app.controller('ChartCtrl', function($scope,$http,$routeParams) {
 
 
 
+    console.log("Does this work:" + $routeParams.teamId);
     var fitnessValue;
     var speedValue;
     var strengthValue;

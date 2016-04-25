@@ -19,7 +19,7 @@
       <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
       -->
-    <script src="/javascript/controller/date_picker_controller.js"></script>
+    <script src="/javascript/controller/manager_team_controller.js"></script>
 
 
 
@@ -27,6 +27,11 @@
 
     <script type="text/ng-template" id="teamView.html">
 
+
+
+        <div ng-repeat="a in teams.map.team.myArrayList">
+            <p><b>{{a.map.teamName}}</b></p>
+        </div>
 
         <br>
         <form class="form-inline" ng-submit="createWeek()">
@@ -75,9 +80,7 @@
         </div>
 
 
-
-        <p>Weeks : </p>
-        <div class="panel-heading"><span class="lead"></span></div>
+        <div class="panel-heading"><span class="lead">Weeks: </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
@@ -91,6 +94,9 @@
                     <th>
                         End Date:
                     </th>
+                    <th>
+                        Sessions
+                    </th>
 
                     <th width="20%"></th>
                 </tr>
@@ -100,6 +106,8 @@
                     <td>{{a.map.weekNum}}</td>
                     <td>{{a.map.startDateString}}</td>
                     <td>{{a.map.endDateString}}</td>
+                    <td><a href="http://localhost:8081/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Week {{a.map.weekNum}} Sessions </a></td>
+
                 </tr>
                 </tbody>
             </table>
@@ -108,6 +116,22 @@
 
 
 
+        <div class="panel-heading"><span class="lead">Players </span></div>
+        <div class="tablecontainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th width="20%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="a in teams.map.player.myArrayList">
+                    <td>{{a.map.firstName}} {{a.map.lastName}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
     </script>
 
