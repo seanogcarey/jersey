@@ -15,6 +15,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="/javascript/controller/week_player_controller.js"></script>
+    <script src="/javascript/externalJavascriptResources/Chart.js"></script>
+    <script src="http://bebraw.github.io/Chart.js.legend/src/legend.js"></script>
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico" />
 
 
 
@@ -53,7 +56,9 @@
                 <thead>
                 <tr>
                     <th>Number of overall training sessions:</th>
-                    <th>Sessions with this team</th>
+                    <th>Sessions with this team:</th>
+                    <th>Sessions outside team:</th>
+
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -61,11 +66,16 @@
                 <tr ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
                     <td>  {{a.map.numOfSessions }}</td>
                     <td> {{a.map.numOfSessionsWithTeam}}</td>
+                    <td> {{numOfSessionsOutsideTeam}}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
 
+        <h3>Chart representation:</h3>
+        <br>
+        <canvas id="income" width="600" height="400"></canvas>
+        <br>
 
         <div class="panel-heading"><span class="lead">Sessions</span></div>
         <div class="tablecontainer">
@@ -125,6 +135,43 @@
 
         <form class="form-inline" ng-submit="createExtraSession()">
             <div class="form-group">
+
+
+            <br>
+            <br>
+
+            <br><label for="insertSessionType1">Sesson Type 1</label>
+            <select id="insertSessionType1" ng-model="session1Type" class="form-control" placeholder="SessionType1" >
+
+                <option value="Fitness Workout">Fitness Workout</option>
+                <option value="College Training">College Training</option>
+                <option value="School Training">School Training</option>
+                <option value="College,School Match">College,School Match</option>
+                <option value="County Training">County Training</option>
+                <option value="County Match">County Match</option>
+                <option value="Other Club Training">Other Club Training</option>
+                <option value="Other Club Match">Other Club Match</option>
+                <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
+
+            </select><br>
+            <br>
+            <br>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enter</button>
+        </form>
+        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
+            <strong>Success! </strong> Club created
+        </div>
+
+<!--
+
+        <h2>Update Extra Sessions</h2>
+
+
+        <form class="form-inline" ng-submit="createExtraSession()">
+            <div class="form-group">
                 <label for="exampleInputName2">Sesson Type 1</label>
                 <input type="text" class="form-control" ng-model="text" id="exampleInputName2" placeholder="SessionType1">
             </div>
@@ -134,11 +181,13 @@
                 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
             </div>
             -->
+        <!--
             <button type="submit" class="btn btn-primary">Enter</button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Club created
         </div>
+        -->
 
     </script>
 

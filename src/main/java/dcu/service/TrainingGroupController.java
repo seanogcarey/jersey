@@ -66,6 +66,26 @@ public class TrainingGroupController {
     }
 
 
+    @GET
+    @Path("/getTrainingGroupByPlayerId/{playerId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getTrainingGroupByPlayerId(@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
+        List<TrainingGroup> trainingGroupList = trainingGroupDAOImpl.getTrainingGroupByPlayerId(playerId);
+
+        if (trainingGroupList == null) {
+            throw new NotFoundException("training group does not exist");
+        }
+
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("trainingGroup",trainingGroupList);
+
+        Gson gson = new Gson();
+        String trainingGroup = gson.toJson(jsonObj);
+
+        return trainingGroup;
+    }
+
+
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/createTrainingGroup/playerId/{playerId}/fitnessId/{fitnessId}/fitnessGroup/{fitnessGroup}/strengthGroup/{strengthGroup}/speedGroup/{speedGroup}")

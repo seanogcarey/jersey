@@ -13,6 +13,9 @@
           <element id="library" level="project" name="org.codehaus.jackson:jackson-core-asl:1.9.11" />
           <element id="library" level="project" name="jersey-container-servlet-core-2.22.1" />
           <element id="library" level="project" name="dom4j-1.6.1" />
+          <element id="library" level="project" name="javax.ws.rs-api-2.0.1" />
+          <element id="library" level="project" name="jackson-jaxrs-json-provider-2.3.3" />
+          <element id="library" level="project" name="jaxb-impl-2.0.1" />
         </element>
       </element>
     </root>

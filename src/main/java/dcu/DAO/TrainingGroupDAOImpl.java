@@ -55,6 +55,7 @@ public class TrainingGroupDAOImpl implements TrainingGroupDAO {
         return trainingGroupList;
     }
 
+
     public List<TrainingGroup> getTrainingGroupByFitnessId(final int fitnessId){
 
         //begin transaction

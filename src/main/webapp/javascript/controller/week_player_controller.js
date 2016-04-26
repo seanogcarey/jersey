@@ -139,11 +139,11 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
 
     $scope.createExtraSession = function() {
-        var postData = $scope.text
+        var session1Data = $scope.session1Type;
         var attendanceAverageTrainingCount=0;
 
         //updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}
-        $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + postData).success(function() {
+        $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + session1Data).success(function() {
             $scope.submissionSuccess=true;
 
             $http.put("http://localhost:8081/jersey/attendanceWeekView/updateAttendanceWeekView/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId).
@@ -286,11 +286,70 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         })
     }
 
+
+    var numOfSessionsWithTeamData;
+    var numOfSessionsData;
+    var numOfSessionsOutsideTeamData;
+
+
     $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
     success(function(data) {
         $scope.attendanceWeekViews = data;
 
+        var dataParsed = data.map.attendanceWeekView.myArrayList;
+        console.log(dataParsed);
+
+        for (var i=0;i<dataParsed.length;i++) {
+
+            numOfSessionsWithTeamData = dataParsed[i].map.numOfSessionsWithTeam;
+            numOfSessionsData=   dataParsed[i].map.numOfSessions;
+        }
+
+
+        numOfSessionsOutsideTeamData = numOfSessionsData - numOfSessionsWithTeamData;
+        $scope.numOfSessionsOutsideTeam = numOfSessionsOutsideTeamData;
+
+        var barData = {
+            labels : ["Overall Attendance Count","With Team","Outside Team"],
+            datasets : [
+                {
+
+                    fillColor : "#316f66",
+                    strokeColor : "#316f66",
+                    data : [numOfSessionsData , , ]
+
+                },
+                {
+                    fillColor : "#48A497",
+                    strokeColor : "#48A497",
+                    data : [ ,numOfSessionsWithTeamData, ]
+                },
+                {
+                    fillColor : "rgba(73,188,170,0.4)",
+                    strokeColor : "rgba(72,174,209,0.4)",
+                    data : [ , , numOfSessionsOutsideTeamData]
+                }
+            ]
+        }
+
+        Chart.defaults.global.scaleOverride = true;
+        Chart.defaults.global.scaleSteps = 7;
+        Chart.defaults.global.scaleStartValue = 0;
+        Chart.defaults.global.scaleStepWidth = 1;
+
+
+
+        // get line chart canvas
+        //var buyers = document.getElementById('buyers').getContext('2d');
+
+        var income = document.getElementById("income").getContext("2d");
+
+        new Chart(income).Bar(barData);
+
+
+
     });
+
 
 
 });

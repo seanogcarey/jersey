@@ -32,12 +32,13 @@ public class AttendanceWeekViewController {
     //Strings to check
     final String collegeTraining = "College Training";
     final String schoolTraining = "School Training";
-    final String collegeSchoolMatch ="College/School Match";
+    final String collegeSchoolMatch ="College,School Match";
     final String countyTraining = "County Training";
     final String countyMatch = "County Match";
     final String otherClubTraining = "Other Club Training";
     final String otherClubMatch = "Other Club Match";
-    final String otherTeamWithinCLub = "Other Team(within this club) Match/Training";
+    final String otherTeamWithinCLub = "Other Team(within this club) Match,Training";
+    final String fitnessWorkout ="Fitness Workout";
     final String other = "Other";
 
     final String attendedTraining = "True";
@@ -337,6 +338,7 @@ public class AttendanceWeekViewController {
         int extraSessionCheckOtherClubTraining = goThroughStrings(extraSession,otherClubTraining);
         int extraSessionCheckOtherClubMatch= goThroughStrings(extraSession,otherClubMatch);
         int extraSessionCheckOtherTeamWithinClub= goThroughStrings(extraSession,otherTeamWithinCLub);
+        int extraSessionCheckFitnessWorkout= goThroughStrings(extraSession,fitnessWorkout);
         int extraSessionCheckOther = goThroughStrings(extraSession,other);
 
 
@@ -349,7 +351,7 @@ public class AttendanceWeekViewController {
 
         int extraSessionsCount = extraSessionCheckCollegeTraining  + extraSessionCheckSchoolTraining
                                  + extraSessionCheckCollegeSchoolMatch + extraSessionCheckCountyTraining + extraSessionCheckCollegeMatch
-                                 + extraSessionCheckOtherClubTraining + extraSessionCheckOtherClubMatch + extraSessionCheckOtherTeamWithinClub + extraSessionCheckOther ;
+                                 + extraSessionCheckOtherClubTraining + extraSessionCheckOtherClubMatch + extraSessionCheckOtherTeamWithinClub + extraSessionCheckFitnessWorkout + extraSessionCheckOther ;
 
         int numOfSessions =  attendanceTableCounts +  extraSessionsCount;
 

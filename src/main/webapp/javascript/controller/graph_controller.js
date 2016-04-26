@@ -7,7 +7,7 @@
 var app = angular.module('app',[]);
 
 app.config(['$routeProvider' , function($routeProvider ) {
-    $routeProvider.when('/team/:teamId', {
+    $routeProvider.when('/player/:playerId', {
 
         templateUrl : "graphView.html",
         controller: "ChartCtrl"
@@ -40,15 +40,16 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
 
 
 
-    console.log("Does this work:" + $routeParams.teamId);
     var fitnessValue;
     var speedValue;
     var strengthValue;
 
 
-    $http.get('http://localhost:8081/jersey/trainingGroups/getTrainingGroup/2').
+    $http.get('http://localhost:8081/jersey/trainingGroups/getTrainingGroupByPlayerId/'+ $routeParams.playerId).
     success(function(data) {
-        //$scope.trainingGroup = data;
+
+        console.log($routeParams.playerId);
+        $scope.trainingGroups = data;
 
         var dataParsed = data.map.trainingGroup.myArrayList;
         var speedGroup;
@@ -61,13 +62,6 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
             strengthGroup = dataParsed[i].map.strengthGroup;
             fitnessGroup = dataParsed[i].map.fitnessGroup;
         }
-
-        var username = "Agent006";
-
-        if(username == "Agent006")
-            console.log("Welcome special agent 007");
-        else
-            console.log("Access Denied!");
 
 
         console.log("finess Group:" + fitnessGroup);

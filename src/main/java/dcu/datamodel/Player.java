@@ -21,6 +21,7 @@ public class Player {
     private String lastName;
     @Column(name = "phoneNumber")
     private Long phoneNumber;
+    //todo set to a string!
     @Column(name = "email")
     private String email;
     @Column(name = "teamId")
