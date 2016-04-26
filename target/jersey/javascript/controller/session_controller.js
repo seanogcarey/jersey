@@ -45,6 +45,19 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
     success(function(data) {
         $scope.players = data;
 
+        var dataParsed = data.map.player.myArrayList;
+        console.log(dataParsed);
+        for (var i=0;i<dataParsed.length;i++) {
+            console.log("The TeamId is " + dataParsed[i].map.teamId);
+            teamId = dataParsed[i].map.teamId;
+        }
+        $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
+
+        success(function(data) {
+            $scope.teams = data;
+
+        });
+
     });
 
     $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
@@ -52,11 +65,6 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
     success(function(data) {
         $scope.weeks = data;
 
-    });
-
-    $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
-    success(function(data) {
-        $scope.players = data;
     });
 
     $http.get('http://localhost:8081/jersey/session/getSessionById/' + $routeParams.sessionId).
