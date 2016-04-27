@@ -66,6 +66,40 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
     });
 
+
+    $http.get('http://localhost:8081/jersey/fitnessTest/getFitnessTestByPlayerId/' + $routeParams.playerId).
+    success(function(data) {
+
+        $scope.fitnessTests = data;
+
+        var playerBurnoutDanger = false;
+        var playerBurnoutSafe = false;
+        var playerBurnoutWarning = false;
+
+        var dataParsed = data.map.fitnessTest.myArrayList;
+        var playerBurnout = 0;
+
+        for (var i = 0; i < dataParsed.length; i++) {
+            playerBurnout = dataParsed[i].map.weeklyAverageTrainingCount;
+        }
+
+        if (playerBurnout > 5) {
+
+            $scope.playerBurnoutDanger = true;
+        }
+
+        if (playerBurnout == 4) {
+
+            $scope.playerBurnoutWarning = true;
+
+        }
+
+        if (playerBurnout < 4) {
+
+            $scope.playerBurnoutSafe = true;
+        }
+    });
+
     $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
@@ -104,7 +138,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
             //post: Create extra session data with initialised data
             var initialisedData = "EMPTY"
-            $http.post("http://localhost:8081/jersey/extraSession/createSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + initialisedData).
+            $http.post("http://localhost:8081/jersey/extraSession/createExtraSession2/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + initialisedData+ "/sessionType2/" + initialisedData+ "/sessionType3/" + initialisedData+ "/sessionType4/" + initialisedData+ "/sessionType5/" + initialisedData+ "/sessionType6/" + initialisedData+ "/sessionType7/" + initialisedData).
             success(function() {
 
                 $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
@@ -140,10 +174,17 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
     $scope.createExtraSession = function() {
         var session1Data = $scope.session1Type;
+        var session2Data = $scope.session2Type;
+        var session3Data = $scope.session3Type;
+        var session4Data = $scope.session4Type;
+        var session5Data = $scope.session5Type;
+        var session6Data = $scope.session6Type;
+        var session7Data = $scope.session7Type;
+
         var attendanceAverageTrainingCount=0;
 
         //updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}
-        $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + session1Data).success(function() {
+        $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession2/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + session1Data+"/sessionType2/"+session2Data+"/sessionType3/"+session3Data+"/sessionType4/"+session4Data+"/sessionType5/"+session5Data+"/sessionType6/"+session6Data+"/sessionType7/"+session7Data).success(function() {
             $scope.submissionSuccess=true;
 
             $http.put("http://localhost:8081/jersey/attendanceWeekView/updateAttendanceWeekView/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId).

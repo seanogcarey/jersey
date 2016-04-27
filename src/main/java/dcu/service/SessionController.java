@@ -73,6 +73,7 @@ public class SessionController {
     }
 
     @GET
+
     @Path("/getSessionByWeekId/{weekId}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getSessionByWeekId(@PathParam("weekId") final int weekId) throws IOException, NotFoundException,JSONException{

@@ -29,7 +29,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Player Name : {{players.map.player.myArrayList[1] }}</th>
+                    <th>Player Name : </th>
                     <th>Team : </th>
                     <th>Fitness Test: </th>
                     <th width="20%"></th>
@@ -46,18 +46,34 @@
         </div>
         </div>
 
+        <p>Burnout Notice: </p>
+
+        <br>
+        <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
+            <strong>Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
+        </div>
+
+        <div class="alert alert-warning"  aria-label="close" ng-show="playerBurnoutWarning">
+            <strong>Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
+        </div>
+
+        <div class="alert alert-success"  aria-label="close" ng-show="playerBurnoutSafe">
+            <strong>Player is not experiencing burnout </strong> ( Player is fine to train )
+        </div>
+
+
 
         <b>Week: </b>
         <br>
         <div ng-repeat="b in weeks.map.week.myArrayList">
             <div ng-repeat="a in players.map.player.myArrayList">
-                     <p> Week {{b.map.weekId}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Week {{b.map.weekId}} Record</a></p>
+                     <p> Week {{b.map.weekNum}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Week {{b.map.weekNum}} Record</a></p>
             </div>
         </div>
 
 
         <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
-            Week {{a.map.weekId}}: Number of training sessions  = {{a.map.numOfSessions}}
+            Week {{a.map.weekNum}}: Number of training sessions  = {{a.map.numOfSessions}}
         </div>
 
     </script>

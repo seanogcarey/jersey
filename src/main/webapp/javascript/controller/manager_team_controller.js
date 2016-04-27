@@ -166,10 +166,11 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
 
         $http.post("http://localhost:8081/jersey/week/createWeek/teamId/"+$routeParams.teamId+"/weekNum/"+weekData+"/startDateString/"+startDateData+"/endDateString/"+endDateData).success(function() {
 
-            //$route.reload();
+            //
             $scope.submissionSuccess = true;
 
         })
+        $route.reload();
     }
 
 

@@ -22,7 +22,7 @@
             <column name="sport" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="clubContactNumber">
-            <column name="clubContactNumber" sql-type="java.lang.Long" not-null="true"/>
+            <column name="clubContactNumber" sql-type="java.lang.String" not-null="true"/>
         </property>
         <!--
                <set name="teams" table="team"  lazy="true" inverse="true">

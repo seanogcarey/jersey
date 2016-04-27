@@ -40,7 +40,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td ng-repeat="a in weeks.map.week.myArrayList">  {{a.map.weekId }}</td>
+                    <td ng-repeat="a in weeks.map.week.myArrayList">  {{a.map.weekNum }}</td>
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.firstName}} {{a.map.lastName}}</td>
                     <td ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</td>
                 </tr>
@@ -49,8 +49,23 @@
         </div>
         </div>
 
+        <p>Burnout Notice: </p>
 
-        <div class="panel-heading"ng-repeat="a in weeks.map.week.myArrayList"><span class="lead"> Overall Attendance for  Week {{a.map.weekId }} </span></div>
+        <br>
+        <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
+            <strong>Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
+        </div>
+
+        <div class="alert alert-warning"  aria-label="close" ng-show="playerBurnoutWarning">
+            <strong>Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
+        </div>
+
+        <div class="alert alert-success"  aria-label="close" ng-show="playerBurnoutSafe">
+            <strong>Player is not experiencing burnout </strong> ( Player is fine to train )
+        </div>
+
+
+        <div class="panel-heading"ng-repeat="a in weeks.map.week.myArrayList"><span class="lead"> Overall Attendance for  Week {{a.map.weekNum }} </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
@@ -153,13 +168,111 @@
                 <option value="Other Club Match">Other Club Match</option>
                 <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
 
-            </select><br>
-            <br>
-            <br>
+            </select>
+                <br>
+                <br>
+                <br><label for="insertSessionType2">Sesson Type 2</label>
+                <select id="insertSessionType2" ng-model="session2Type" class="form-control" placeholder="SessionType2" >
+
+                    <option value="Fitness Workout">Fitness Workout</option>
+                    <option value="College Training">College Training</option>
+                    <option value="School Training">School Training</option>
+                    <option value="College,School Match">College,School Match</option>
+                    <option value="County Training">County Training</option>
+                    <option value="County Match">County Match</option>
+                    <option value="Other Club Training">Other Club Training</option>
+                    <option value="Other Club Match">Other Club Match</option>
+                    <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
+
+                </select>
+                <br>
+                <br>
+                <br><label for="insertSessionType3">Sesson Type 3</label>
+                <select id="insertSessionType3" ng-model="session3Type" class="form-control" placeholder="SessionType3" >
+
+                    <option value="Fitness Workout">Fitness Workout</option>
+                    <option value="College Training">College Training</option>
+                    <option value="School Training">School Training</option>
+                    <option value="College,School Match">College,School Match</option>
+                    <option value="County Training">County Training</option>
+                    <option value="County Match">County Match</option>
+                    <option value="Other Club Training">Other Club Training</option>
+                    <option value="Other Club Match">Other Club Match</option>
+                    <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
+
+                </select>
+                <br>
+                <br>
+                <br><label for="insertSessionType4">Sesson Type 4</label>
+                <select id="insertSessionType4" ng-model="session4Type" class="form-control" placeholder="SessionType4" >
+
+                    <option value="Fitness Workout">Fitness Workout</option>
+                    <option value="College Training">College Training</option>
+                    <option value="School Training">School Training</option>
+                    <option value="College,School Match">College,School Match</option>
+                    <option value="County Training">County Training</option>
+                    <option value="County Match">County Match</option>
+                    <option value="Other Club Training">Other Club Training</option>
+                    <option value="Other Club Match">Other Club Match</option>
+                    <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
+
+                </select>
+                <br>
+                <br>
+                <br><label for="insertSessionType5">Sesson Type 5</label>
+                <select id="insertSessionType5" ng-model="session5Type" class="form-control" placeholder="SessionType5" >
+
+                    <option value="Fitness Workout">Fitness Workout</option>
+                    <option value="College Training">College Training</option>
+                    <option value="School Training">School Training</option>
+                    <option value="College,School Match">College,School Match</option>
+                    <option value="County Training">County Training</option>
+                    <option value="County Match">County Match</option>
+                    <option value="Other Club Training">Other Club Training</option>
+                    <option value="Other Club Match">Other Club Match</option>
+                    <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
+
+                </select>
+                <br>
+                <br>
+                <br>
+                <label for="insertSessionType6">Sesson Type 6</label>
+                <select id="insertSessionType6" ng-model="session6Type" class="form-control" placeholder="SessionType6" >
+
+                    <option value="Fitness Workout">Fitness Workout</option>
+                    <option value="College Training">College Training</option>
+                    <option value="School Training">School Training</option>
+                    <option value="College,School Match">College,School Match</option>
+                    <option value="County Training">County Training</option>
+                    <option value="County Match">County Match</option>
+                    <option value="Other Club Training">Other Club Training</option>
+                    <option value="Other Club Match">Other Club Match</option>
+                    <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
+
+                </select>
+                <br>
+                <br>
+                <br><label for="insertSessionType7">Sesson Type 7</label>
+                <select id="insertSessionType7" ng-model="session7Type" class="form-control" placeholder="SessionType7" >
+
+                    <option value="Fitness Workout">Fitness Workout</option>
+                    <option value="College Training">College Training</option>
+                    <option value="School Training">School Training</option>
+                    <option value="College,School Match">College,School Match</option>
+                    <option value="County Training">County Training</option>
+                    <option value="County Match">County Match</option>
+                    <option value="Other Club Training">Other Club Training</option>
+                    <option value="Other Club Match">Other Club Match</option>
+                    <option value="Other Team(within this club) Match,Training">Other Team(within this club) Match/Training</option>
+
+                </select>
+
 
             </div>
 
-            <button type="submit" class="btn btn-primary">Enter</button>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Club created

@@ -91,6 +91,41 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
     });
     */
 
+    $http.get('http://localhost:8081/jersey/fitnessTest/getFitnessTestByPlayerId/' + $routeParams.playerId).
+    success(function(data) {
+
+        $scope.fitnessTests = data;
+
+        var playerBurnoutDanger = false;
+        var playerBurnoutSafe = false;
+        var playerBurnoutWarning = false;
+
+        var dataParsed = data.map.fitnessTest.myArrayList;
+        var playerBurnout = 0;
+
+        for (var i = 0; i < dataParsed.length; i++) {
+            playerBurnout = dataParsed[i].map.weeklyAverageTrainingCount;
+        }
+
+        if (playerBurnout > 5) {
+
+            $scope.playerBurnoutDanger = true;
+        }
+
+        if (playerBurnout == 4) {
+
+            $scope.playerBurnoutWarning = true;
+
+        }
+
+        if (playerBurnout < 4) {
+
+            $scope.playerBurnoutSafe = true;
+        }
+    });
+
+
+
     $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {

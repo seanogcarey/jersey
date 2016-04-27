@@ -37,7 +37,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td ng-repeat="a in weeks.map.week.myArrayList">  {{a.map.weekId }}</td>
+                    <td ng-repeat="a in weeks.map.week.myArrayList">  {{a.map.weekNum }}</td>
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.firstName}} {{a.map.lastName}}</td>
                     <td ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</td>
                 </tr>
@@ -48,7 +48,7 @@
 
 
         <div ng-repeat="b in sessions.map.session.myArrayList">
-        <div class="panel-heading"ng-repeat="a in weeks.map.week.myArrayList"><span class="lead">Attendance Table for {{b.map.sessionType}},  Week {{a.map.weekId }} Date: </span></div>
+        <div class="panel-heading"ng-repeat="a in weeks.map.week.myArrayList"><span class="lead">Attendance Table for {{b.map.sessionType}},  Week {{a.map.weekNum }} Date: </span></div>
         </div>
         <div class="tablecontainer">
             <table class="table table-hover">

@@ -45,6 +45,41 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
     var strengthValue;
 
 
+    $http.get('http://localhost:8081/jersey/fitnessTest/getFitnessTestByPlayerId/' + $routeParams.playerId).
+    success(function(data) {
+
+        $scope.fitnessTests = data;
+
+        var playerBurnoutDanger = false;
+        var playerBurnoutSafe = false;
+        var playerBurnoutWarning = false;
+
+        var dataParsed = data.map.fitnessTest.myArrayList;
+        var playerBurnout = 0;
+
+        for (var i = 0; i < dataParsed.length; i++) {
+            playerBurnout = dataParsed[i].map.weeklyAverageTrainingCount;
+        }
+
+        if (playerBurnout > 5) {
+
+            $scope.playerBurnoutDanger = true;
+        }
+
+        if (playerBurnout == 4) {
+
+            $scope.playerBurnoutWarning = true;
+
+        }
+
+        if (playerBurnout < 4) {
+
+            $scope.playerBurnoutSafe = true;
+        }
+    });
+
+
+
     $http.get('http://localhost:8081/jersey/trainingGroups/getTrainingGroupByPlayerId/'+ $routeParams.playerId).
     success(function(data) {
 

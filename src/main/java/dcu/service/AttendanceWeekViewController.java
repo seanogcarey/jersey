@@ -339,7 +339,7 @@ public class AttendanceWeekViewController {
         int extraSessionCheckOtherClubMatch= goThroughStrings(extraSession,otherClubMatch);
         int extraSessionCheckOtherTeamWithinClub= goThroughStrings(extraSession,otherTeamWithinCLub);
         int extraSessionCheckFitnessWorkout= goThroughStrings(extraSession,fitnessWorkout);
-        int extraSessionCheckOther = goThroughStrings(extraSession,other);
+        //int extraSessionCheckOther = goThroughStrings(extraSession,other);
 
 
         int attendanceTableCheckTrue = goThroughStrings(attendanceTable,attendedTraining);
@@ -351,7 +351,7 @@ public class AttendanceWeekViewController {
 
         int extraSessionsCount = extraSessionCheckCollegeTraining  + extraSessionCheckSchoolTraining
                                  + extraSessionCheckCollegeSchoolMatch + extraSessionCheckCountyTraining + extraSessionCheckCollegeMatch
-                                 + extraSessionCheckOtherClubTraining + extraSessionCheckOtherClubMatch + extraSessionCheckOtherTeamWithinClub + extraSessionCheckFitnessWorkout + extraSessionCheckOther ;
+                                 + extraSessionCheckOtherClubTraining + extraSessionCheckOtherClubMatch + extraSessionCheckOtherTeamWithinClub + extraSessionCheckFitnessWorkout;
 
         int numOfSessions =  attendanceTableCounts +  extraSessionsCount;
 

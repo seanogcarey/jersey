@@ -24,7 +24,7 @@
         <br>
         <br>
         <div ng-repeat="a in weeks.map.week.myArrayList">
-        <h3>Week {{a.map.weekId}}</h3>
+        <h3>Week {{a.map.weekNum}}</h3>
         </div>
 
         <h4><b>Total Training Count</b></h4>

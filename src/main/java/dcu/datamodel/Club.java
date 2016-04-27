@@ -30,13 +30,13 @@ public class Club {
     private String sport;
 
     @Column(name = "clubContactNumber")
-    private Long clubContactNumber;
+    private String clubContactNumber;
 
     //private Set<Team> teams;
     
     public Club(){
     }
-    public Club(int clubId,String clubName,String email,String address,String sport, Long clubContactNumber){
+    public Club(int clubId,String clubName,String email,String address,String sport, String clubContactNumber){
 
         this.clubId = clubId;
         this.clubName = clubName;
@@ -104,11 +104,11 @@ public class Club {
         this.sport = sport;
     }
 
-    public Long getClubContactNumber() {
+    public String getClubContactNumber() {
         return clubContactNumber;
     }
 
-    public void setClubContactNumber(Long clubContactNumber) {
+    public void setClubContactNumber(String clubContactNumber) {
         this.clubContactNumber = clubContactNumber;
     }
 

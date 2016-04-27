@@ -101,6 +101,7 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
 
         return extraSessionList ;
     }
+
     public void createExtraSession(final int weekId, final int playerId, final String sessionType1){
 
 
@@ -121,6 +122,34 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
 
 
     }
+    public void createExtraSession2(final int weekId, final int playerId, final String sessionType1,final String sessionType2,final String sessionType3,
+                                    final String sessionType4,final String sessionType5,final String sessionType6,final String sessionType7){
+
+
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.ExtraSession OFF insert into dbo.ExtraSession (weekId,playerId,sessionType1,sessionType2,sessionType3,sessionType4,sessionType5,sessionType6,sessionType7) values(:weekId,:playerId,:sessionType1,:sessionType2,:sessionType3,:sessionType4,:sessionType5,:sessionType6,:sessionType7)" );
+        query.setParameter("weekId", weekId);
+        query.setParameter("playerId",playerId);
+        query.setParameter("sessionType1",sessionType1);
+        query.setParameter("sessionType2",sessionType2);
+        query.setParameter("sessionType3",sessionType3);
+        query.setParameter("sessionType4",sessionType4);
+        query.setParameter("sessionType5",sessionType5);
+        query.setParameter("sessionType6",sessionType6);
+        query.setParameter("sessionType7",sessionType7);
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+
+    }
+
 
     public void updateExtraSession(final int weekId, final int playerId, final String sessionType1){
 
@@ -144,6 +173,38 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
         session.getTransaction().commit();
 
     }
+
+
+
+    public void updateExtraSession2(final int weekId, final int playerId, final String sessionType1, final String sessionType2, final String sessionType3, final String sessionType4, final String sessionType5, final String sessionType6, final String sessionType7){
+
+
+        System.out.println("Attempting to update Extra Session");
+        Session session = HibernateUtil.getSessionFactory()
+                .getCurrentSession();
+        session.beginTransaction();
+
+
+        sf = HibernateUtil.getSessionFactory();
+
+
+        SQLQuery query= session.createSQLQuery("Update ExtraSession set sessionType1=:sessionType1,sessionType2=:sessionType2,sessionType3=:sessionType3,sessionType4=:sessionType4,sessionType5=:sessionType5,sessionType6=:sessionType6,sessionType7=:sessionType7 where playerId = :playerId and weekId=:weekId" );
+        query.setParameter("weekId", weekId);
+        query.setParameter("playerId",playerId);
+        query.setParameter("sessionType1",sessionType1);
+        query.setParameter("sessionType2",sessionType2);
+        query.setParameter("sessionType3",sessionType3);
+        query.setParameter("sessionType4",sessionType4);
+        query.setParameter("sessionType5",sessionType5);
+        query.setParameter("sessionType6",sessionType6);
+        query.setParameter("sessionType7",sessionType7);
+
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+
+    }
+
 
 
 }

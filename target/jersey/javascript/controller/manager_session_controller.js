@@ -156,6 +156,7 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
             $scope.submissionSuccess = true;
 
         })
+        $route.reload();
     }
 
 

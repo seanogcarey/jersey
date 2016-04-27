@@ -19,6 +19,23 @@
     <script type="text/ng-template" id="graphView.html">
 
 
+
+        <p>Burnout Notice: </p>
+
+        <br>
+        <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
+            <strong>Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
+        </div>
+
+        <div class="alert alert-warning"  aria-label="close" ng-show="playerBurnoutWarning">
+            <strong>Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
+        </div>
+
+        <div class="alert alert-success"  aria-label="close" ng-show="playerBurnoutSafe">
+            <strong>Player is not experiencing burnout </strong> ( Player is fine to train )
+        </div>
+
+
         <h3>Info:</h3>
         <p><b>Low:   </b>Means more work needs to be done</p>
         <p><b>Medium:</b>Good but room for improvement</p>

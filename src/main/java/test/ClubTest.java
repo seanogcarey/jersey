@@ -58,16 +58,16 @@ public class ClubTest {
         assertEquals(club.getEmail(),"email@email.com");
     }
 
-    /*
+
     @Test
     public void setClubContactNumberTest(){
 
         Club club = new Club();
-        club.setClubContactNumber(0872449601L);
+        club.setClubContactNumber("0872449601");
 
-        assertEquals(club.getClubContactNumber(),0872449601L);
+        assertEquals(club.getClubContactNumber(),"0872449601");
 
 
     }
-    */
+
 }
