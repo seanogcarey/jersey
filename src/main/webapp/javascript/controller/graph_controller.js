@@ -39,6 +39,28 @@ app.controller('Page1Ctrl', function($scope) {
 app.controller('ChartCtrl', function($scope,$http,$routeParams) {
 
 
+    $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
+    success(function(data) {
+        $scope.players = data;
+
+        var teamId;
+        var dataParsed = data.map.player.myArrayList;
+        console.log(dataParsed);
+        for (var i=0;i<dataParsed.length;i++) {
+            console.log("The TeamId is " + dataParsed[i].map.teamId);
+            teamId = dataParsed[i].map.teamId;
+        }
+
+        $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
+        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+        success(function(data) {
+            $scope.teams = data;
+
+        });
+
+
+    });
+
 
     var fitnessValue;
     var speedValue;

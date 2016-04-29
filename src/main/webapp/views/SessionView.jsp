@@ -15,15 +15,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="/javascript/controller/session_controller.js"></script>
+    <link rel="icon" href="/icons/notes.png">
 
 
 
     <script type="text/ng-template" id="attendanceTableView.html">
 
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                        <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
 
         <br>
         <br>
+        <br>
+        <div ng-repeat="a in sessions.map.session.myArrayList">
+            <h2>Attendance Record: {{a.map.sessionType}}  {{a.map.sessionDateString}}</h2>
+        </div>
+        <div ng-repeat="a in players.map.player.myArrayList">
+            <h4>Player: {{a.map.firstName}} {{a.map.lastName}}</h4>
+        </div>
+        <br>
 
+        <br>
         <div class="panel-heading"></div>
         <div class="tablecontainer">
             <table class="table table-hover">
@@ -68,16 +96,28 @@
             </table>
         </div>
 
-        <h2>Update Attendance</h2>
+        <h3>Update Attendance</h3>
 
 
         <form class="form-inline" ng-submit="updateAttendance()">
-            <!--<div class="form-group" ng-repeat="a in attendanceTables.map.attendanceTable.myArrayList"></div>-->
 
                 <label for="insertPresentStatus">Present Status </label>
-                <input type="text" class="form-control" ng-model="presentStatus" id="insertPresentStatus" placeholder="Present status">
+                <select id="insertPresentStatus" ng-model="presentStatus" class="form-control">
+                <option value="True">True</option>
+                <option value="False">False</option>
+                </select><br>
+            `   <br>
                 <label for="insertReasonOfAbsence">Reason of Absence (If Present is false)</label>
-                <input type="text" class="form-control" ng-model="reasonOfAbsence" id="insertReasonOfAbsence" value="NULL" placeholder="NULL">
+                <select id="insertReasonOfAbsence" ng-model="reasonOfAbsence" class="form-control">
+                    <option value="EMPTY">NULL</option>
+                    <option value="College Training">College Training</option>
+                    <option value="School Training">School Training</option>
+                    <option value="College,School Match">College,School Match</option>
+                    <option value="County Training">County Training</option>
+                    <option value="County Match">County Match</option>
+                    <option value="Other Club Training">Other Club Training</option>
+                    <option value="Other Club Match">Other Club Match</option>
+                </select><br>
 
             <button type="submit" class="btn btn-primary">Enter</button>
         </form>

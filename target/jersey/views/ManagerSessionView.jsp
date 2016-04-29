@@ -90,7 +90,7 @@ pls-0.13.2.js"></script>
                 <thead>
                 <tr>
                     <th>
-                        Session Type
+                        Session Type:
                     </th>
                     <th>
                         Date:

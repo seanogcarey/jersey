@@ -182,9 +182,31 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         var session6Data = $scope.session6Type;
         var session7Data = $scope.session7Type;
 
+        if ($scope.session1Type==null){
+            session1Data="EMPTY"
+        }
+        if ($scope.session2Type==null){
+            session2Data="EMPTY"
+        }
+        if ($scope.session3Type==null){
+            session3Data="EMPTY"
+        }
+        if ($scope.session4Type==null){
+            session4Data="EMPTY"
+        }
+        if ($scope.session5Type==null){
+            session5Data="EMPTY"
+        }
+        if ($scope.session6Type==null){
+            session6Data="EMPTY"
+        }
+        if ($scope.session7Type==null){
+            session7Data="EMPTY"
+        }
+
+
         var attendanceAverageTrainingCount=0;
 
-        //updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}
         $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + session1Data+"/sessionType2/"+session2Data+"/sessionType3/"+session3Data+"/sessionType4/"+session4Data+"/sessionType5/"+session5Data+"/sessionType6/"+session6Data+"/sessionType7/"+session7Data).success(function() {
             $scope.submissionSuccess=true;
 

@@ -15,10 +15,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="/javascript/controller/player_controller.js"></script>
+    <link rel="icon" href="/icons/notes.png">
 
 
 
     <script type="text/ng-template" id="playerView.html">
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                        <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+        <br>
+        <br>
+        <h2 ng-repeat="a in players.map.player.myArrayList">Player Overview: {{a.map.firstName}} {{a.map.lastName}}</h2>
 
 
         <br>
@@ -31,7 +56,10 @@
                 <tr>
                     <th>Player Name : </th>
                     <th>Team : </th>
-                    <th>Fitness Test: </th>
+                    <th>Phone Number : </th>
+                    <th>Email : </th>
+                    <th></th>
+                    <th></th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -39,15 +67,16 @@
                 <tr>
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.firstName}} {{a.map.lastName}}</td>
                     <td ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</td>
-                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}">Go to Test info</a></td>
-                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{a.map.playerId}}">Training Group Info</a></td>
+                    <td ng-repeat="a in players.map.player.myArrayList">{{a.map.phoneNumber}}</td>
+                    <td ng-repeat="a in players.map.player.myArrayList">{{a.map.email}}</td>
+                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Fitness Test</button></a></td>
+                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Training Group</button></a></td>
+
                 </tr>
                 </tbody>
             </table>
         </div>
         </div>
-
-        <p>Burnout Notice: </p>
 
         <br>
         <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
@@ -63,7 +92,28 @@
         </div>
 
 
+        <div class="panel-heading"><span class="lead"></span></div>
+        <div class="tablecontainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Week Record: </th>
+                    <th width="20%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="b in weeks.map.week.myArrayList">
+                    <td ng-repeat="a in players.map.player.myArrayList">
+                         <a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}"><button class="btn btn-default">Week {{b.map.weekNum}} Record</button></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
 
+
+<!--
         <b>Week: </b>
         <br>
         <div ng-repeat="b in weeks.map.week.myArrayList">
@@ -76,6 +126,8 @@
         <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
             Week {{a.map.weekNum}}: Number of training sessions  = {{a.map.numOfSessions}}
         </div>
+-->
+
 
     </script>
 

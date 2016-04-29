@@ -10,22 +10,49 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Player</title>
+    <title>Player Week Record</title>
     <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" data-semver="1.0.8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="/javascript/controller/week_player_controller.js"></script>
     <script src="/javascript/externalJavascriptResources/Chart.js"></script>
     <script src="http://bebraw.github.io/Chart.js.legend/src/legend.js"></script>
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico" />
+    <link rel="icon" href="/icons/notes.png">
 
 
 
     <script type="text/ng-template" id="weekPlayerView.html">
 
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                        <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
 
         <br>
         <br>
+        <br>
+        <div ng-repeat="a in weeks.map.week.myArrayList">
+            <h2>Week Record: Week {{a.map.weekNum}}</h2>
+        </div>
+        <div ng-repeat="a in players.map.player.myArrayList">
+            <h4>Player: {{a.map.firstName}} {{a.map.lastName}}</h4>
+        </div>
+
+
 
         <div class="panel-heading"></div>
         <div class="tablecontainer">
@@ -49,7 +76,6 @@
         </div>
         </div>
 
-        <p>Burnout Notice: </p>
 
         <br>
         <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
@@ -99,6 +125,7 @@
                 <tr>
                     <th>Session Type</th>
                     <th>Session Date</th>
+                    <th></th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
@@ -107,6 +134,7 @@
                 <tr ng-repeat="a in sessions.map.session.myArrayList">
                     <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionType}}</a></td>
                     <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionDate}}</a></td>
+                    <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}"><button class="btn btn-default">Attendance Record</button></a></td>
                 </tr>
                 </tbody>
 
@@ -158,6 +186,7 @@
             <br><label for="insertSessionType1">Sesson Type 1</label>
             <select id="insertSessionType1" ng-model="session1Type" class="form-control" placeholder="SessionType1" >
 
+                <option value="EMPTY">EMPTY</option>
                 <option value="Fitness Workout">Fitness Workout</option>
                 <option value="College Training">College Training</option>
                 <option value="School Training">School Training</option>
@@ -174,6 +203,7 @@
                 <br><label for="insertSessionType2">Sesson Type 2</label>
                 <select id="insertSessionType2" ng-model="session2Type" class="form-control" placeholder="SessionType2" >
 
+                    <option value="EMPTY">EMPTY</option>
                     <option value="Fitness Workout">Fitness Workout</option>
                     <option value="College Training">College Training</option>
                     <option value="School Training">School Training</option>
@@ -190,6 +220,7 @@
                 <br><label for="insertSessionType3">Sesson Type 3</label>
                 <select id="insertSessionType3" ng-model="session3Type" class="form-control" placeholder="SessionType3" >
 
+                    <option value="EMPTY">EMPTY</option>
                     <option value="Fitness Workout">Fitness Workout</option>
                     <option value="College Training">College Training</option>
                     <option value="School Training">School Training</option>
@@ -206,6 +237,7 @@
                 <br><label for="insertSessionType4">Sesson Type 4</label>
                 <select id="insertSessionType4" ng-model="session4Type" class="form-control" placeholder="SessionType4" >
 
+                    <option value="EMPTY">EMPTY</option>
                     <option value="Fitness Workout">Fitness Workout</option>
                     <option value="College Training">College Training</option>
                     <option value="School Training">School Training</option>
@@ -222,6 +254,7 @@
                 <br><label for="insertSessionType5">Sesson Type 5</label>
                 <select id="insertSessionType5" ng-model="session5Type" class="form-control" placeholder="SessionType5" >
 
+                    <option value="EMPTY">EMPTY</option>
                     <option value="Fitness Workout">Fitness Workout</option>
                     <option value="College Training">College Training</option>
                     <option value="School Training">School Training</option>
@@ -239,6 +272,7 @@
                 <label for="insertSessionType6">Sesson Type 6</label>
                 <select id="insertSessionType6" ng-model="session6Type" class="form-control" placeholder="SessionType6" >
 
+                    <option value="EMPTY">EMPTY</option>
                     <option value="Fitness Workout">Fitness Workout</option>
                     <option value="College Training">College Training</option>
                     <option value="School Training">School Training</option>
@@ -255,6 +289,7 @@
                 <br><label for="insertSessionType7">Sesson Type 7</label>
                 <select id="insertSessionType7" ng-model="session7Type" class="form-control" placeholder="SessionType7" >
 
+                    <option value="EMPTY">EMPTY</option>
                     <option value="Fitness Workout">Fitness Workout</option>
                     <option value="College Training">College Training</option>
                     <option value="School Training">School Training</option>

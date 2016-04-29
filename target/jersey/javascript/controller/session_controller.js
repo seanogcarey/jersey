@@ -117,9 +117,12 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
     $scope.updateAttendance= function() {
         var presentData = $scope.presentStatus;
         var reasonOfAbsenceData =  $scope.reasonOfAbsence;
+
+        if($scope.reasonOfAbsence==null){
+            reasonOfAbsenceData="NULL";
+        }
+
         var attendanceAverageTrainingCount=0;
-        console.log(presentData);
-        console.log(reasonOfAbsenceData);
 
 
         $http.put("http://localhost:8081/jersey/attendanceTable/updateAttendanceTable/playerId/" + $routeParams.playerId + "/sessionId/" + $routeParams.sessionId

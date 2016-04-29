@@ -25,7 +25,7 @@
     <br>
     <br>
     <div ng-repeat="a in clubs.map.club.myArrayList">
-    <h2>{{a.map.clubName}} Club View</h2>
+    <h2>Club View: {{a.map.clubName}}</h2>
     </div>
     <br>
 

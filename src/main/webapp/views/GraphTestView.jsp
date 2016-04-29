@@ -14,13 +14,38 @@
     <script src="/javascript/externalJavascriptResources/Chart.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="/javascript/controller/graph_controller.js"></script>
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico" />
+    <link rel="icon" href="/icons/notes.png">
 
     <script type="text/ng-template" id="graphView.html">
 
 
 
-        <p>Burnout Notice: </p>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                        <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <br>
+        <br>
+        <h2  ng-repeat="a in players.map.player.myArrayList">Training Group: {{a.map.firstName}} {{a.map.lastName}}</h2>
+
 
         <br>
         <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
@@ -36,8 +61,8 @@
         </div>
 
 
-        <h3>Info:</h3>
-        <p><b>Low:   </b>Means more work needs to be done</p>
+        <div class="panel-heading"><span class="lead">Info:  </span></div>
+        <p><b>Low:   </b>More work needs to be done</p>
         <p><b>Medium:</b>Good but room for improvement</p>
         <p><b>High:  </b>Very Good, keep it up</p>
 

@@ -41,11 +41,8 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
         <div ng-repeat="a in teams.map.team.myArrayList">
-            <h2>{{a.map.teamName}} : Team View</h2>
+            <h2>Team View: {{a.map.teamName}}</h2>
         </div>
         <br>
 

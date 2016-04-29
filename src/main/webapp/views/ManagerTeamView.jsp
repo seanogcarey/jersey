@@ -7,6 +7,7 @@
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/icons/notes.png">
        <!--
         <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.2.js"></script>
       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
@@ -27,6 +28,24 @@
 
     <script type="text/ng-template" id="teamView.html">
 
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+            <ul class="nav navbar-nav">
+                <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                <li><a href="/index.jsp">Home</a></li>
+                <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+            </ul>
+        </div>
+        </div>
+        </nav>
+
+        <br>
+        <br>
+        <br>
 
 
         <div ng-repeat="a in teams.map.team.myArrayList">
