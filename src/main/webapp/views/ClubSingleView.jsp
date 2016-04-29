@@ -21,6 +21,23 @@
 
     <script type="text/ng-template" id="clubSingleView.html">
 
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li  ng-repeat="a in clubs.map.club.myArrayList"><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
     <br>
     <br>
     <br>
@@ -115,23 +132,9 @@
 <body ng-controller="Page1Ctrl">
 <p ng-view>Hello from {{page}}!</p>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
 
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
-                <li><a href="/index.jsp">Home</a></li>
-                <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
-
-</div>
 </body>
 
 </html>

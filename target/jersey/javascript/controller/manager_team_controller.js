@@ -137,6 +137,11 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
         console.log(data);
     });
 
+    $scope.addWeek = function() {
+
+        $scope.showAddWeekForm = true;
+    }
+
     $scope.createWeek = function() {
         var weekData = $scope.weekNum;
         var startDay=$scope.dt.getDate();

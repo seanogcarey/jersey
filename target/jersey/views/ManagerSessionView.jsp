@@ -14,6 +14,7 @@
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/icons/notes.png">
     <!--
      <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.2.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
@@ -29,31 +30,67 @@ pls-0.13.2.js"></script>
     <script src="/javascript/controller/manager_session_controller.js"></script>
 
 
-
-
-
     <script type="text/ng-template" id="sessionView.html">
 
 
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                        <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                        <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
+                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></li>
+                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Session Overview</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
 
         <div ng-repeat="a in weeks.map.week.myArrayList">
-            <p><b>Week {{a.map.weekNum}}</b></p>
+            <h2>Week {{a.map.weekNum}} Session Overview</h2>
+        </div>
+        <div ng-repeat="a in teams.map.team.myArrayList">
+            <h4>Team: {{a.map.teamName}} Session Overview</h4>
         </div>
 
+
         <br>
+        <br>
+
+        <button class="btn btn-default" ng-click="addSession()">Add Session <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+
+        <div ng-show="showAddSessionForm">
+
+            <br>
+            <div class="form-inline" ng-submit="createWeek()">
+
+
+
+
         <form class="form-inline" ng-submit="createSession()">
 
 
             <div class="form-group">
+                <div class="col-md-6">
 
                 <br><label for="insertSessionType">Select Session Type</label>
                 <select id="insertSessionType" ng-model="sessionTypeStatus" class="form-control">
                     <option value="Training">Training</option>
                     <option value="Match">Match</option>
-                </select><br>
+                </select>
+                </div>
                 <br>
                 <br>
-
+                <br>
+                <br>
                 <br>
 
                 <div class="col-md-6">
@@ -82,7 +119,11 @@ pls-0.13.2.js"></script>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Session created
         </div>
+            </div>
 
+
+
+        </div>
 
         <div class="panel-heading"><span class="lead">Sessions: </span></div>
         <div class="tablecontainer">

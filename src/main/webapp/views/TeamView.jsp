@@ -33,6 +33,8 @@
                         <li><a href="/index.jsp">Home</a></li>
                         <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
                         <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                        <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                        <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
                     </ul>
                 </div>
             </div>

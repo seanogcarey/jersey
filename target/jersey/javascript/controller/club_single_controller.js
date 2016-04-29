@@ -42,7 +42,7 @@ App.controller('Page1Ctrl', function($scope) {
 
 });
 
-App.controller('ClubSingleCtrl', function($scope, $routeParams,$http) {
+App.controller('ClubSingleCtrl', function($scope, $routeParams,$http,$route) {
 
     $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').

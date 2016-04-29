@@ -130,7 +130,32 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
     $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
     success(function(data) {
         $scope.weeks = data;
+
+
+        var teamId;
+
+        var dataParsed = data.map.week.myArrayList;
+        console.log(dataParsed);
+        for (var i=0;i<dataParsed.length;i++) {
+            teamId = dataParsed[i].map.teamId;
+        }
+
+        $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
+
+        success(function(data) {
+            $scope.teams = data;
+
+        });
+
+
     });
+
+
+    $scope.addSession = function() {
+
+        $scope.showAddSessionForm = true;
+    }
+
 
     $scope.createSession = function() {
 

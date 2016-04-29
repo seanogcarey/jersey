@@ -38,19 +38,23 @@
                 <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
                 <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
                 <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
             </ul>
         </div>
         </div>
         </nav>
-
         <br>
         <br>
         <br>
 
 
         <div ng-repeat="a in teams.map.team.myArrayList">
-            <p><b>{{a.map.teamName}}</b></p>
+            <h2>Schedule Overview: {{a.map.teamName}}</h2>
         </div>
+
+        <button class="btn btn-default" ng-click="addWeek()">Add Week <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
+        <div ng-show="showAddWeekForm">
 
         <br>
         <form class="form-inline" ng-submit="createWeek()">
@@ -59,9 +63,10 @@
             <div class="form-group">
 
                 <label for="inputWeekNumber">Week Number</label>
-                <input type="text" class="form-control" ng-model="weekNum" id="inputWeekNumber" placeholder="Week Number">
+                <input type="number" class="form-control" ng-model="weekNum" id="inputWeekNumber" placeholder="Week Number">
 
 
+                <br>
                 <br>
 
                 <div class="col-md-6">
@@ -98,12 +103,16 @@
             <strong>Success! </strong> Week created
         </div>
 
+        </div>
+
+
 
         <div class="panel-heading"><span class="lead">Weeks: </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
                 <tr>
+                    <th></th>
                     <th>
                         Week Number:
                     </th>
@@ -114,10 +123,10 @@
                         End Date:
                     </th>
                     <th>
-                        Attendance Record:
+
                     </th>
                     <th>
-                        Sessions
+
                     </th>
 
                     <th width="20%"></th>
@@ -125,11 +134,12 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="a in weeks.map.week.myArrayList">
+                    <td></td>
                     <td>{{a.map.weekNum}}</td>
                     <td>{{a.map.startDateString}}</td>
                     <td>{{a.map.endDateString}}</td>
-                    <td><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></td>
-                    <td><a href="http://localhost:8081/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Week {{a.map.weekNum}} Sessions </a></td>
+                    <td><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}"><button class="btn btn-default">Attendance Sheet</button></a></td>
+                    <td><a href="http://localhost:8081/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}"><button class="btn btn-default">Week {{a.map.weekNum}} Session Overview</button></a></td>
 
                 </tr>
                 </tbody>
@@ -138,6 +148,7 @@
         </div>
 
 
+        <!--
 
         <div class="panel-heading"><span class="lead">Players </span></div>
         <div class="tablecontainer">
@@ -155,6 +166,8 @@
                 </tbody>
             </table>
         </div>
+
+      -->
 
     </script>
 
