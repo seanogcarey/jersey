@@ -40,6 +40,7 @@
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.firstName}} {{a.map.lastName}}</td>
                     <td ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</td>
                     <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}">Go to Test info</a></td>
+                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{a.map.playerId}}">Training Group Info</a></td>
                 </tr>
                 </tbody>
             </table>

@@ -138,7 +138,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
             //post: Create extra session data with initialised data
             var initialisedData = "EMPTY"
-            $http.post("http://localhost:8081/jersey/extraSession/createExtraSession2/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + initialisedData+ "/sessionType2/" + initialisedData+ "/sessionType3/" + initialisedData+ "/sessionType4/" + initialisedData+ "/sessionType5/" + initialisedData+ "/sessionType6/" + initialisedData+ "/sessionType7/" + initialisedData).
+            $http.post("http://localhost:8081/jersey/extraSession/createExtraSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + initialisedData+ "/sessionType2/" + initialisedData+ "/sessionType3/" + initialisedData+ "/sessionType4/" + initialisedData+ "/sessionType5/" + initialisedData+ "/sessionType6/" + initialisedData+ "/sessionType7/" + initialisedData).
             success(function() {
 
                 $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
@@ -173,6 +173,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
 
     $scope.createExtraSession = function() {
+
         var session1Data = $scope.session1Type;
         var session2Data = $scope.session2Type;
         var session3Data = $scope.session3Type;
@@ -184,7 +185,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         var attendanceAverageTrainingCount=0;
 
         //updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}
-        $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession2/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + session1Data+"/sessionType2/"+session2Data+"/sessionType3/"+session3Data+"/sessionType4/"+session4Data+"/sessionType5/"+session5Data+"/sessionType6/"+session6Data+"/sessionType7/"+session7Data).success(function() {
+        $http.put("http://localhost:8081/jersey/extraSession/updateExtraSession/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId + "/sessionType1/" + session1Data+"/sessionType2/"+session2Data+"/sessionType3/"+session3Data+"/sessionType4/"+session4Data+"/sessionType5/"+session5Data+"/sessionType6/"+session6Data+"/sessionType7/"+session7Data).success(function() {
             $scope.submissionSuccess=true;
 
             $http.put("http://localhost:8081/jersey/attendanceWeekView/updateAttendanceWeekView/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId).

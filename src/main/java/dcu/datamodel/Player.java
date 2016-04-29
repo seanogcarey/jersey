@@ -20,8 +20,7 @@ public class Player {
     @Column(name = "lastName")
     private String lastName;
     @Column(name = "phoneNumber")
-    private Long phoneNumber;
-    //todo set to a string!
+    private String phoneNumber;
     @Column(name = "email")
     private String email;
     @Column(name = "teamId")
@@ -53,11 +52,11 @@ public class Player {
         this.lastName = lastName;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

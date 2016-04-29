@@ -15,13 +15,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="/javascript/controller/team_controller.js"></script>
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="/icons/notes.png">
 
 
 
     <script type="text/ng-template" id="teamView.html">
 
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div ng-repeat="a in teams.map.team.myArrayList">
+            <h2>{{a.map.teamName}} : Team View</h2>
+        </div>
         <br>
 
         <div class="panel-heading"></div>
@@ -46,32 +71,113 @@
         </div>
         </div>
 
+        <br>
         <div ng-repeat="a in teams.map.team.myArrayList">
 
-            <p><a href="/views/TeamFitnessTestView.jsp#/team/{{a.map.teamId}}">Fitness Test</a></p>
-        </div>
+            <a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}"><button class="btn btn-default">Schedule Overview</button></a>
+            <br>
+            <br>
+            <a href="/views/TeamFitnessTestView.jsp#/team/{{a.map.teamId}}"><button class="btn btn-default">Fitness Tests</button></a>
 
-        <div class="panel-heading"><span class="lead"></span></div>
+        </div>
+        <br>
+
+
+        <div class="panel-heading"><span class="lead">Managers</span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>
-                        Managers
-                    </th>
-
+                    <th>Manager Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="a in managers.map.manager.myArrayList">
-                    <td><a href="/views/ManagerView.jsp#/manager/{{a.map.managerId}}">{{a.map.firstName}} {{a.map.lastName}}</a></td>
+                    <!--<td><a href="/views/ManagerView.jsp#/manager/{{a.map.managerId}}">{{a.map.firstName}} {{a.map.lastName}}</a></td>-->
+                    <td>{{a.map.firstName}} {{a.map.lastName}}</td>
+                    <td>{{a.map.phoneNumber}}</td>
+                    <td>{{a.map.email}}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
         </div>
 
+        <button class="btn btn-default" ng-click="addManager()">Add Manager <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+
+        <div ng-show="showAddManagerForm">
+
+        <h3>Add Manager</h3>
+
+
+        <form class="form-inline" ng-submit="createManager()">
+            <div class="form-group">
+                <label for="inputFirstNameManager">First Name</label>
+                <input type="text" class="form-control" ng-model="firstNameManager" id="inputFirstNameManager" placeholder="First Name">
+
+                <br>
+                <br>
+
+                <label for="inputSecondNameManager">Second Name</label>
+                <input type="text" class="form-control" ng-model="secondNameManager" id="inputSecondNameManager" placeholder="Second Name">
+
+                <br>
+                <br>
+
+                <label for="inputPhoneNumberManager">Phone Number</label>
+                <input type="number" class="form-control" ng-model="phoneNumberManager" id="inputPhoneNumberManager" placeholder="Phone Number">
+
+                <br>
+                <br>
+
+                <label for="inputEmailManager">Email</label>
+                <input type="text" class="form-control" ng-model="emailManager" id="inputEmailManager" placeholder="Email">
+
+            </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
+        </form>
+
+       </div>
+
+        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccessManager">
+            <strong>Success! </strong> Manager Added
+        </div>
+
+
+        <div class="panel-heading"><span class="lead">Players</span></div>
+        <div class="tablecontainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        Player Name
+                    </th>
+
+                    <th width="20%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="a in teams.map.player.myArrayList" onclick="location.href='/views/PlayerView.jsp#/player/{{a.map.playerId}}'">
+                    <td><a href="/views/PlayerView.jsp#/player/{{a.map.playerId}}">{{a.map.firstName}} {{a.map.lastName}}</a></td>
+                    <td><a href="/views/PlayerView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Player Overview</button></a></td>
+                    <td><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Fitness Test</button></a></td>
+                    <td><a href="/views/GraphTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Training Group</button></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+
+
+        <button class="btn btn-default" ng-click="addPlayer()">Add Player <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+
+        <div ng-show="showAddPlayerForm">
 
         <h3>Add Player</h3>
 
@@ -80,46 +186,48 @@
             <div class="form-group">
                 <label for="inputFirstName">First Name</label>
                 <input type="text" class="form-control" ng-model="firstName" id="inputFirstName" placeholder="First Name">
+
+                <br>
+                <br>
+
                 <label for="inputSecondName">Second Name</label>
                 <input type="text" class="form-control" ng-model="secondName" id="inputSecondName" placeholder="Second Name">
+
+                <br>
+                <br>
+
+                <label for="inputPhoneNumber">Phone Number</label>
+                <input type="number" class="form-control" ng-model="phoneNumber" id="inputPhoneNumber" placeholder="Phone Number">
+
+
+                <br>
+                <br>
+
+                <label for="inputEmail">Email</label>
+                <input type="text" class="form-control" ng-model="email" id="inputEmail" placeholder="Email">
+
             </div>
-            <!--
-            <div class="form-group">
-                <label for="exampleInputEmail2">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-            </div>
-            -->
+            <br>
+            <br>
             <button type="submit" class="btn btn-primary">Enter</button>
         </form>
+
+
+        </div>
+        <br>
+
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Player Added
         </div>
 
-        <div class="panel-heading"><span class="lead"></span></div>
-        <div class="tablecontainer">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>
-                        Players
-                    </th>
 
-                    <th width="20%"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="a in teams.map.player.myArrayList">
-                    <td><a href="/views/PlayerView.jsp#/player/{{a.map.playerId}}">{{a.map.firstName}} {{a.map.lastName}}</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
 
+        <!--
         <p>Weeks View:</p>
         <div ng-repeat="a in weeks.map.week.myArrayList">
             <p>Week <span ng-bind="a.map.weekNum"></span></p><p><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></p>
         </div>
+        -->
 
     </script>
 
@@ -129,19 +237,6 @@
 <body ng-controller="Page1Ctrl">
 <p ng-view>Hello from {{page}}!</p>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-
-
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="/index.jsp">Home</a></li>
-                <li><a href="/views/ClubView.jsp#/club/">Clubs</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 
 
 </div>

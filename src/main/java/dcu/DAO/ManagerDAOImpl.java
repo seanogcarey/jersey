@@ -73,7 +73,7 @@ public class ManagerDAOImpl implements ManagerDAO{
         return managerTeamList;
     }
 
-    public void createManager(final String firstName,final String lastName,final int teamId){
+    public void createManager(final String firstName,final String lastName,final String phoneNumber,final String email,final int teamId){
 
         System.out.println("Attempting to create manager");
 
@@ -83,11 +83,12 @@ public class ManagerDAOImpl implements ManagerDAO{
         session.beginTransaction();
 
 
-        //sf = HibernateUtil.getSessionFactory();
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Manager OFF insert into dbo.Manager (firstName,lastName,phoneNumber,email,teamId) values (:firstName,:lastName,:phoneNumber,:email,:teamId)" );
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Manager OFF insert into dbo.Manager (firstName,lastName,teamId) values(:firstName,:lastName,:teamId)" );
         query.setParameter("firstName", firstName);
         query.setParameter("lastName", lastName);
+        query.setParameter("phoneNumber",phoneNumber);
+        query.setParameter("email",email);
         query.setParameter("teamId",teamId);
         query.executeUpdate();
 

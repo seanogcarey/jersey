@@ -98,10 +98,10 @@ public class PlayerController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createPlayer/teamId/{teamId}/FirstName/{firstName}/SecondName/{secondName}")
-    public String createPlayer(@PathParam("teamId") final int teamId,@PathParam("firstName") final String firstName,@PathParam("secondName") final String secondName) throws IOException, NotFoundException,JSONException{
+    @Path("/createPlayer/teamId/{teamId}/FirstName/{firstName}/SecondName/{secondName}/phoneNumber/{phoneNumber}/email/{email}")
+    public String createPlayer(@PathParam("teamId") final int teamId,@PathParam("firstName") final String firstName,@PathParam("secondName") final String secondName,@PathParam("phoneNumber") final String phoneNumber,@PathParam("email") final String email) throws IOException, NotFoundException,JSONException{
 
-        playerDAOImpl.createPlayer(firstName,secondName,teamId);
+        playerDAOImpl.createPlayer(firstName,secondName,teamId,phoneNumber,email);
         return "createPlayer";
 
     }

@@ -106,6 +106,7 @@ public class ExtraSessionController {
 
     }
 
+    /*
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/createExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}")
@@ -115,16 +116,18 @@ public class ExtraSessionController {
         return "createExtraSession";
 
     }
+    */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createExtraSession2/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}/sessionType2/{sessionType2}/sessionType3/{sessionType3}/sessionType4/{sessionType4}/sessionType5/{sessionType5}/sessionType6/{sessionType6}/sessionType7/{sessionType7}")
-    public String createExtraSession2(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionType1") final String sessionType1,@PathParam("sessionType2") final String sessionType2,@PathParam("sessionType3") final String sessionType3,@PathParam("sessionType4") final String sessionType4,@PathParam("sessionType5") final String sessionType5,@PathParam("sessionType6") final String sessionType6,@PathParam("sessionType7") final String sessionType7) throws IOException, NotFoundException,JSONException{
+    @Path("/createExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}/sessionType2/{sessionType2}/sessionType3/{sessionType3}/sessionType4/{sessionType4}/sessionType5/{sessionType5}/sessionType6/{sessionType6}/sessionType7/{sessionType7}")
+    public String createExtraSession(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionType1") final String sessionType1,@PathParam("sessionType2") final String sessionType2,@PathParam("sessionType3") final String sessionType3,@PathParam("sessionType4") final String sessionType4,@PathParam("sessionType5") final String sessionType5,@PathParam("sessionType6") final String sessionType6,@PathParam("sessionType7") final String sessionType7) throws IOException, NotFoundException,JSONException{
 
-        extraSessionDAOImpl.createExtraSession2(weekId,playerId,sessionType1,sessionType2,sessionType3,sessionType4,sessionType5,sessionType6,sessionType7);
+        extraSessionDAOImpl.createExtraSession(weekId,playerId,sessionType1,sessionType2,sessionType3,sessionType4,sessionType5,sessionType6,sessionType7);
         return "createExtraSession";
 
     }
 
+    /*
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}")
@@ -138,13 +141,15 @@ public class ExtraSessionController {
     }
     //@Path("/createExtraSession2/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}/sessionType2/{sessionType2}/sessionType3/{sessionType3}/sessionType4/{sessionType4}/sessionType5/{sessionType5}/sessionType6/{sessionType6}/sessionType7/{sessionType7}")
 
+    */
+
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/updateExtraSession2/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}/sessionType2/{sessionType2}/sessionType3/{sessionType3}/sessionType4/{sessionType4}/sessionType5/{sessionType5}/sessionType6/{sessionType6}/sessionType7/{sessionType7}")
+    @Path("/updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}/sessionType2/{sessionType2}/sessionType3/{sessionType3}/sessionType4/{sessionType4}/sessionType5/{sessionType5}/sessionType6/{sessionType6}/sessionType7/{sessionType7}")
     public String updateExtraSession2(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionType1") final String sessionType1,@PathParam("sessionType2") final String sessionType2,@PathParam("sessionType3") final String sessionType3,@PathParam("sessionType4") final String sessionType4,@PathParam("sessionType5") final String sessionType5,@PathParam("sessionType6") final String sessionType6,@PathParam("sessionType7") final String sessionType7)throws IOException, NotFoundException,JSONException{
 
 
-        extraSessionDAOImpl.updateExtraSession2(weekId,playerId,sessionType1,sessionType2,sessionType3,sessionType4,sessionType5,sessionType6,sessionType7);
+        extraSessionDAOImpl.updateExtraSession(weekId,playerId,sessionType1,sessionType2,sessionType3,sessionType4,sessionType5,sessionType6,sessionType7);
         return "updatedExtraSession";
     }
 

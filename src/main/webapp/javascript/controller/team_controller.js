@@ -44,7 +44,6 @@ App.controller('Page1Ctrl', function($scope) {
 
 App.controller('TeamCtrl', function($scope, $routeParams,$http,$route) {
 
-
     $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
@@ -66,16 +65,49 @@ App.controller('TeamCtrl', function($scope, $routeParams,$http,$route) {
         $scope.managers = data;
     });
 
-    $scope.createPlayer = function() {
-        var firstNameData = $scope.firstName;
-        var secondNameData = $scope.secondName;
+    $scope.addManager = function() {
+
+        $scope.showAddManagerForm = true;
+    }
+
+    $scope.addPlayer = function() {
+
+        $scope.showAddPlayerForm = true;
+    }
+
+    $scope.createManager = function() {
+
+        var firstNameManagerData = $scope.firstNameManager;
+        var secondNameManagerData = $scope.secondNameManager;
+        var phoneNumberManagerData = $scope.phoneNumberManager;
+        var emailManagerData = $scope.emailManager;
+
         var playerId;
         var fitnessId;
 
-        $http.post("http://localhost:8081/jersey/players/createPlayer/teamId/" + $routeParams.teamId + "/FirstName/"+ firstNameData+"/SecondName/"+secondNameData).success(function() {
-            //$route.reload();
+        $http.post("http://localhost:8081/jersey/managers/createManager/teamId/" + $routeParams.teamId + "/FirstName/" + firstNameManagerData + "/SecondName/" + secondNameManagerData + "/phoneNumber/" + phoneNumberManagerData + "/email/" + emailManagerData).success(function () {
+
+            $scope.submissionSuccessManager = true;
+            $route.reload();
+
+        });
+
+    }
+
+    $scope.createPlayer = function() {
+
+        var firstNameData = $scope.firstName;
+        var secondNameData = $scope.secondName;
+        var phoneNumberData = $scope.phoneNumber;
+        var emailData = $scope.email;
+
+        var playerId;
+        var fitnessId;
+
+        $http.post("http://localhost:8081/jersey/players/createPlayer/teamId/" + $routeParams.teamId + "/FirstName/"+ firstNameData+"/SecondName/"+secondNameData+"/phoneNumber/"+phoneNumberData+"/email/"+emailData).success(function() {
+
             $scope.submissionSuccess=true;
-            //$route.reload();
+
 
             $http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
             //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').

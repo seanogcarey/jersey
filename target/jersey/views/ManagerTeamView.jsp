@@ -95,6 +95,9 @@
                         End Date:
                     </th>
                     <th>
+                        Attendance Record:
+                    </th>
+                    <th>
                         Sessions
                     </th>
 
@@ -106,6 +109,7 @@
                     <td>{{a.map.weekNum}}</td>
                     <td>{{a.map.startDateString}}</td>
                     <td>{{a.map.endDateString}}</td>
+                    <td><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></td>
                     <td><a href="http://localhost:8081/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Week {{a.map.weekNum}} Sessions </a></td>
 
                 </tr>

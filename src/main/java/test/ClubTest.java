@@ -21,15 +21,6 @@ public class ClubTest {
     }
 
     @Test
-    public void setClubIdTest(){
-
-        Club club = new Club();
-        club.setClubId(1);
-
-        assertTrue(club.getClubId()==1);
-    }
-
-    @Test
     public void getClubNameTest(){
 
         Club club = new Club();
@@ -39,35 +30,46 @@ public class ClubTest {
         assertEquals(club.getClubName(),"ClubName");
     }
 
-    @Test
-    public void setClubNameTest(){
-
-        Club club = new Club();
-        club.setClubName("ClubName");
-
-        assertTrue(club.getClubName().equals("ClubName"));
-    }
 
     @Test
-    public void setClubEmailTest(){
+    public void getEmailTest(){
 
         Club club = new Club();
-        club.setEmail("email@email.com");
+        club.setEmail("sean.carey22@mail.dcu.ie");
 
         assertNotNull(club.getEmail());
-        assertEquals(club.getEmail(),"email@email.com");
+        assertEquals(club.getEmail(),"sean.carey22@mail.dcu.ie");
     }
 
+    @Test
+    public void getSportTest(){
+
+        Club club = new Club();
+        club.setSport("Gaelic Football");
+
+        assertNotNull(club.getSport());
+        assertEquals(club.getSport(),"Gaelic Football");
+    }
 
     @Test
-    public void setClubContactNumberTest(){
+    public void getAddressTest(){
+
+        Club club = new Club();
+        club.setAddress("2 Westpark, Moore Drive, Athlone, Co.Westmeath");
+
+        assertNotNull(club.getAddress());
+        assertEquals(club.getAddress(),"2 Westpark, Moore Drive, Athlone, Co.Westmeath");
+    }
+
+    @Test
+    public void getClubContactNumberTest(){
 
         Club club = new Club();
         club.setClubContactNumber("0872449601");
 
+        assertNotNull(club.getClubContactNumber());
         assertEquals(club.getClubContactNumber(),"0872449601");
-
-
     }
+
 
 }

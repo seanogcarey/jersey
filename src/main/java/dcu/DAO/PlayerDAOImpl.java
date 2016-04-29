@@ -76,10 +76,10 @@ public class PlayerDAOImpl implements PlayerDAO {
 
 
 
-    public void createPlayer(final String firstName,final String lastName, final int teamId){
+    public void createPlayer(final String firstName,final String lastName, final int teamId, final String phoneNumber,final String email){
 
 
-        System.out.println("Attempting to create manager");
+        System.out.println("Attempting to create player");
 
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()
@@ -89,10 +89,13 @@ public class PlayerDAOImpl implements PlayerDAO {
 
         sf = HibernateUtil.getSessionFactory();
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Player OFF insert into dbo.Player (firstName,lastName,teamId) values(:firstName,:lastName,:teamId)" );
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Player OFF insert into dbo.Player (firstName,lastName,teamId,phoneNumber,email) values(:firstName,:lastName,:teamId,:phoneNumber,:email)" );
         query.setParameter("firstName", firstName);
         query.setParameter("lastName", lastName);
         query.setParameter("teamId",teamId);
+        query.setParameter("phoneNumber",phoneNumber);
+        query.setParameter("email",email);
+
         query.executeUpdate();
 
         session.getTransaction().commit();

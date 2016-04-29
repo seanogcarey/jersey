@@ -80,11 +80,11 @@ public class ClubController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createClub/{clubName}/email/{email}")
-    public String createClub(@PathParam("clubName") final String clubName,@PathParam("email") final String email) throws IOException, NotFoundException,JSONException{
+    @Path("/createClub/{clubName}/email/{email}/address/{address}/sport/{sport}/clubContactNumber/{clubContactNumber}")
+    public String createClub(@PathParam("clubName") final String clubName,@PathParam("email") final String email,@PathParam("address") final String address,
+                             @PathParam("sport") final String sport,@PathParam("clubContactNumber") final String clubContactNumber) throws IOException, NotFoundException,JSONException{
 
-        clubDAOImpl.createClub(clubName,email);
-        //todo St John's GAA club-> ' gives weird result
+        clubDAOImpl.createClub(clubName,email,address,sport,clubContactNumber);
         return "createClub";
 
     }

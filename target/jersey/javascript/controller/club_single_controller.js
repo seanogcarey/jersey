@@ -44,7 +44,6 @@ App.controller('Page1Ctrl', function($scope) {
 
 App.controller('ClubSingleCtrl', function($scope, $routeParams,$http) {
 
-    console.log($routeParams.teamId);
     $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
@@ -56,6 +55,26 @@ App.controller('ClubSingleCtrl', function($scope, $routeParams,$http) {
     success(function(data) {
         $scope.teams = data;
     });
+
+    $scope.addTeam = function() {
+
+        $scope.showAddTeamForm = true;
+
+    }
+
+
+    $scope.createTeam = function() {
+        var nameData = $scope.teamName;
+
+
+        $http.post("http://localhost:8081/jersey/teams/createTeam/clubId/"+$routeParams.clubId+"/teamName/"+nameData).success(function() {
+
+            $scope.submissionSuccess=true;
+            $route.reload();
+
+        })
+    }
+
 
 });
 

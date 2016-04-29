@@ -89,10 +89,11 @@ public class ManagerController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createManager/teamId/{teamId}/FirstName/{firstName}/SecondName/{secondName}")
-    public String createManager(@PathParam("teamId") final int teamId,@PathParam("firstName") final String firstName,@PathParam("secondName") final String secondName) throws IOException, NotFoundException,JSONException{
+    @Path("/createManager/teamId/{teamId}/FirstName/{firstName}/SecondName/{secondName}/phoneNumber/{phoneNumber}/email/{email}")
+    public String createManager(@PathParam("teamId") final int teamId,@PathParam("firstName") final String firstName,@PathParam("secondName") final String secondName,
+                                @PathParam("phoneNumber") final String phoneNumber,@PathParam("email") final String email) throws IOException, NotFoundException,JSONException{
 
-        managerDAOImpl.createManager(firstName,secondName,teamId);
+        managerDAOImpl.createManager(firstName,secondName,phoneNumber,email,teamId);
         return "createManager";
 
     }

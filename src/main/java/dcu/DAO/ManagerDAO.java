@@ -14,5 +14,5 @@ public interface ManagerDAO {
     public List<Manager> getAllManagers() throws IOException, NotFoundException;
     public List<Manager> getManagerById(final int managerId);
     public List<Manager> getManagerByTeamId(final int teamId);
-    public void createManager(final String firstName,final String lastName, final int teamId);
+    public void createManager(final String firstName,final String lastName,final String phoneNumber,final String email, final int teamId);
 }

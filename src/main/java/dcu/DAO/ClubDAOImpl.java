@@ -72,7 +72,7 @@ public class ClubDAOImpl implements ClubDAO {
         return clubList;
     }
 
-    public void createClub(final String clubName,final String email){
+    public void createClub(final String clubName,final String email,final String address,final String sport,final String clubContactNumber){
         System.out.println("Attempting to create club");
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()
@@ -93,7 +93,7 @@ public class ClubDAOImpl implements ClubDAO {
         //newClub.setClubId(4);
         newClub.setClubName(clubName);
         newClub.setAddress("Main Street");
-        newClub.setClubContactNumber(08); //// TODO: 29/03/2016  int number too large fix
+        newClub.setClubContactNumber(08);
         newClub.setEmail("athone@GAA.ie");
         newClub.setSport("Gaelic Football");
 
@@ -102,9 +102,12 @@ public class ClubDAOImpl implements ClubDAO {
         */
 
 
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Club OFF insert into dbo.Club (clubName,email) values(:clubName,:email)" );
+        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Club OFF insert into dbo.Club (clubName,email,address,sport,clubContactNumber) values(:clubName,:email,:address,:sport,:clubContactNumber)" );
         query.setParameter("clubName", clubName);
         query.setParameter("email", email);
+        query.setParameter("address", address);
+        query.setParameter("sport", sport);
+        query.setParameter("clubContactNumber", clubContactNumber);
 
         query.executeUpdate();
 

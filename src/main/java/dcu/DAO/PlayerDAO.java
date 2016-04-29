@@ -15,7 +15,7 @@ public interface PlayerDAO {
     public List<Player> getAllPlayers() throws IOException, NotFoundException;
     public List<Player> getPlayerById(final int managerId);
     public List<Player> getPlayerByTeamId(final int teamId);
-    public void createPlayer(final String firstName,final String lastName, final int teamId);
+    public void createPlayer(final String firstName,final String lastName, final int teamId, final String phoneNumber,final String email);
 }
 
 

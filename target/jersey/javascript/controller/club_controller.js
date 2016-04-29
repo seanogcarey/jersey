@@ -56,11 +56,24 @@ App.controller('ClubCtrl', function($scope, $routeParams,$http,$route) {
         $scope.clubs = data;
         console.log(data);
     });
+
+
+    $scope.addClub = function() {
+
+        $scope.showAddClubForm = true;
+
+    }
+
     $scope.createClub = function() {
         var nameData = $scope.clubName;
         var emailData = $scope.email;
-        $http.post("http://localhost:8081/jersey/clubs/createClub/" + nameData + "/email/" + emailData ).success(function() {
-            //$route.reload();
+        var addressData =  $scope.address;
+        var sportData = $scope.sport;
+        var clubContactNumberData = $scope.clubContactNumber;
+
+
+        $http.post("http://localhost:8081/jersey/clubs/createClub/" + nameData + "/email/" + emailData + "/address/"+ addressData+ "/sport/" + sportData + "/clubContactNumber/" + clubContactNumberData ).success(function() {
+
             $scope.submissionSuccess=true;
             $route.reload();
 

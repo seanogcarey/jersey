@@ -15,7 +15,7 @@
             <column name="lastName" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="phoneNumber">
-            <column name="phoneNumber" sql-type="java.lang.Long" not-null="true"/>
+            <column name="phoneNumber" sql-type="java.lang.String" not-null="true"/>
         </property>
         <property name="teamId">
             <column name="teamId" sql-type="int" not-null="true"/>

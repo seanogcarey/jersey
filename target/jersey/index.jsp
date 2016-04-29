@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Smart Bainisteoir</title>
+    <title>Smart Bainisteoir Home</title>
     <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
@@ -11,14 +11,39 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="icon" href="/icons/notes.png">
+    <script src="index.js"></script>
+
 </head>
 <body>
-    <h2>Manager RESTful Web Application!</h2>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li><span><img src="icons/notes.png"></span></li>
+                <li><a href="/index.jsp">Home</a></li>
+                <li><a href="views/ClubView.jsp#/club/">All Clubs</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+</div>
+
+
+    <br>
+    <br>
+    <br>
+    <h2>Welcome to Smart Bainisteoir! </h2>
+
+    <br>
+    <p>The smart manager web application that comes to your club and team needs.</p>
+    <!--
     <p><a href="jersey/managers/getAllManagers">Managers</a> </p>
     <p><a href="jersey/players/getAllPlayers">Players</a> </p>
     <p><a href="jersey/players/getPlayer/1">Single Player View</a></p>
-    <p><a href="views/ClubView.jsp#/club/">Club View</a></p>
     <p><a href="views/TeamView.jsp">Team View</a></p>
     <p><a href="views/PlayerView.jsp">Player View</a></p>
     <p><a href="views/PlayerSingleView.jsp">Player Single View</a></p>
@@ -26,6 +51,17 @@
     <p><a href="views/sample.jsp">Sample View</a> </p>
     <p><a href="views/View.jsp">View</a></p>
     <p><a href="views/GraphTestView.jsp">Graph Test</a></p>
+    -->
+
+<!--
+    <p><a href="views/ClubView.jsp#/club/">Enter site</a></p>
+-->
+
+    <br>
+    <button type="button" class="btn btn-default btn-lg" onclick="location.href='http://localhost:8081/views/ClubView.jsp#/club/'">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> Enter Site to begin
+    </button>
+
 
 <!--
     <h2>Angular Example:</h2>
@@ -50,4 +86,3 @@
 
 </body>
 </html>
-<script src="hello.js"></script>
