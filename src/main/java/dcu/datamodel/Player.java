@@ -25,6 +25,7 @@ public class Player {
     private String email;
     @Column(name = "teamId")
     private int teamId;
+
     //@Column(name = "logInId")
     //private int logInId;
 

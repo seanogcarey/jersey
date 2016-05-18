@@ -16,7 +16,7 @@ public class TrainingGroup {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int trainingGroupId;
 
-    @Column(name = "playerid")
+    @Column(name = "playerId")
     private Integer playerId;
 
     @Column(name = "fitnessId")

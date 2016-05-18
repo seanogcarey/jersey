@@ -1,9 +1,7 @@
 package dcu.DAO;
 
-import dcu.datamodel.Claim;
 import dcu.datamodel.FitnessTest;
 import javassist.NotFoundException;
-
 import java.io.IOException;
 import java.util.List;
 

@@ -15,16 +15,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="/javascript/controller/team_fitness_test_controller.js"></script>
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-
+    <link rel="icon" href="/icons/notes.png">
 
     <script type="text/ng-template" id="teamFitnessTest.html">
 
-        <h2>Fitness Test</h2>
+
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+
+
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-repeat="a in teams.map.team.myArrayList">
+                    <ul class="nav navbar-nav">
+                        <li><span><img src="http://localhost:8081/icons/notes.png"></span></li>
+                        <li><a href="/index.jsp">Home</a></li>
+                        <li><a href="/views/ClubView.jsp#/club/">All Clubs</a></li>
+                        <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
+                        <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
+                        <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+        <br>
+        <br>
 
         <div ng-repeat="a in teams.map.team.myArrayList">
-            <p>{{a.map.teamName}}</p>
+            <h2>Fitness Tests: {{a.map.teamName}}</h2>
         </div>
+        <br>
 
         <div class="panel-heading"><span class="lead">Players </span></div>
         <div class="tablecontainer">
@@ -32,12 +54,14 @@
                 <thead>
                 <tr>
                     <th>Player Name</th>
+                    <th>Fitness Test</th>
                     <th width="20%"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="a in teams.map.player.myArrayList">
                     <td>{{a.map.firstName}} {{a.map.lastName}}</td>
+                    <td><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default"> Go to Fitness Test</button></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -52,20 +76,6 @@
 
 <body ng-controller="Page1Ctrl">
 <p ng-view>Hello from {{page}}!</p>
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-
-                <li><a href="/index.jsp">Home</a></li>
-                <li><a href="#/club/">Club</a></li>
-
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
 
 
 </div>

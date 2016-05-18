@@ -83,7 +83,7 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
             playerBurnout = dataParsed[i].map.weeklyAverageTrainingCount;
         }
 
-        if (playerBurnout > 5) {
+        if (playerBurnout >= 5) {
 
             $scope.playerBurnoutDanger = true;
         }
@@ -118,6 +118,9 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
             speedGroup = dataParsed[i].map.speedGroup;
             strengthGroup = dataParsed[i].map.strengthGroup;
             fitnessGroup = dataParsed[i].map.fitnessGroup;
+            if(dataParsed[i].map.speedGroup=="NULL"){
+                $scope.enterFitnessTestMessage = true;
+            }
         }
 
 
@@ -158,6 +161,7 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
         $scope.hello = "Hello, World";
 
 
+/*
         var buyerData = {
             labels : ["","Fitness","Speed","Strength"],
             datasets : [
@@ -175,6 +179,49 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
         // draw line chart
 
         new Chart(buyers).Line(buyerData);
+
+   */
+
+        //------------
+
+
+        var barData = {
+            labels : ["Speed Group","Strength Group","Fitness Group"],
+            datasets : [
+                {
+
+                    fillColor : "#316f66",
+                    strokeColor : "#316f66",
+                    data : [speedValue , , ]
+
+                },
+                {
+                    fillColor : "#48A497",
+                    strokeColor : "#48A497",
+                    data : [ ,strengthValue, ]
+                },
+                {
+                    fillColor : "rgba(73,188,170,0.4)",
+                    strokeColor : "rgba(72,174,209,0.4)",
+                    data : [ , , fitnessValue]
+                }
+            ]
+        }
+
+        Chart.defaults.global.scaleOverride = true;
+        Chart.defaults.global.scaleSteps = 3;
+        Chart.defaults.global.scaleStartValue = 0;
+        Chart.defaults.global.scaleStepWidth = 1;
+
+
+
+        // get line chart canvas
+        //var buyers = document.getElementById('buyers').getContext('2d');
+
+        var income = document.getElementById("income").getContext("2d");
+
+        new Chart(income).Bar(barData);
+
 
 
     });

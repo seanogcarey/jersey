@@ -34,7 +34,7 @@
                         <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
                         <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
                         <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
-                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/AttendanceWeekViewView.jsp/week/{{a.map.weekId}}">Attendance Sheet</a></li>
+                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></li>
                         <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Session Overview</a></li>
                     </ul>
                 </div>
@@ -45,8 +45,10 @@
         <br>
 
         <div ng-repeat="a in weeks.map.week.myArrayList">
-        <h3>Week {{a.map.weekNum}}</h3>
+        <h3>Attendance Sheet : Week {{a.map.weekNum}}</h3>
         </div>
+
+        <div class="col-md-6">
 
         <h4><b>Total Training Count</b></h4>
 
@@ -66,7 +68,7 @@
 
         <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
             <br>
-            <p>Name and Total Training With Team Count:</p>
+            <p>Name and Total Training Count With Team :</p>
             <div ng-repeat="b in a.myArrayList">
                 {{b.map.firstName}} {{b.map.lastName}} {{b.map.numOfSessionsWithTeam}}
                 <br>
@@ -74,7 +76,8 @@
 
         </div>
 
-        <!-- NOTE: Have another Div to show the attendance from just the team -->
+        </div>
+
     </script>
 
 

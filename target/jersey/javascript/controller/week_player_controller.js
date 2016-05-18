@@ -123,6 +123,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         $scope.sessions = data;
     });
 
+
     $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
     success(function(data) {
         //$scope.extraSessions = data;

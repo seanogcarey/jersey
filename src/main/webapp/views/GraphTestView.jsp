@@ -50,17 +50,20 @@
 
         <br>
         <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
-            <strong>Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
+            <strong><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
         </div>
 
         <div class="alert alert-warning"  aria-label="close" ng-show="playerBurnoutWarning">
-            <strong>Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
+            <strong><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
         </div>
 
         <div class="alert alert-success"  aria-label="close" ng-show="playerBurnoutSafe">
-            <strong>Player is not experiencing burnout </strong> ( Player is fine to train )
+            <strong><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Player is not experiencing burnout </strong> ( Player is fine to train )
         </div>
 
+        <div class="alert alert-warning"  aria-label="close" ng-show="enterFitnessTestMessage">
+            <strong><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Please enter fitness test </strong> See: <p ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></p>
+        </div>
 
         <div class="panel-heading"><span class="lead">Info:  </span></div>
         <p><b>Low:   </b>More work needs to be done</p>
@@ -100,7 +103,10 @@
 
         <h3>Chart representation:</h3>
         <br>
-        <canvas id="buyers" width="600" height="400"></canvas>
+        <canvas id="income" width="600" height="400"></canvas>
+        <br>
+        <p class="col-md-6">1 = low, 2 = medium , 3 = high</p>
+       <!-- <canvas id="buyers" width="600" height="400"></canvas>-->
         <br>
 
     </script>

@@ -77,18 +77,17 @@
         </div>
         </div>
 
-
         <br>
         <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
-            <strong>Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
+            <strong><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Player Burnout Danger! </strong> ( Player is experiencing burnout, please cut down on sessions per week )
         </div>
 
         <div class="alert alert-warning"  aria-label="close" ng-show="playerBurnoutWarning">
-            <strong>Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
+            <strong><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Possible Player Burnout Warning! </strong> ( Player may be experiencing burnout, may require sessions to be cut down)
         </div>
 
         <div class="alert alert-success"  aria-label="close" ng-show="playerBurnoutSafe">
-            <strong>Player is not experiencing burnout </strong> ( Player is fine to train )
+            <strong><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Player is not experiencing burnout </strong> ( Player is fine to train )
         </div>
 
 

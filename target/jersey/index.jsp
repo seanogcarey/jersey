@@ -39,7 +39,7 @@
     <h2>Welcome to Smart Bainisteoir! </h2>
 
     <br>
-    <p>The smart manager web application that comes to your club and team needs.</p>
+    <p>The smart manager web application to meet your club and team needs.</p>
     <!--
     <p><a href="jersey/managers/getAllManagers">Managers</a> </p>
     <p><a href="jersey/players/getAllPlayers">Players</a> </p>

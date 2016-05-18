@@ -107,7 +107,7 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
             playerBurnout = dataParsed[i].map.weeklyAverageTrainingCount;
         }
 
-        if (playerBurnout > 5) {
+        if (playerBurnout >= 5) {
 
             $scope.playerBurnoutDanger = true;
         }

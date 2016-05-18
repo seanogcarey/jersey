@@ -51,6 +51,9 @@
         </div>
         <br>
 
+        <div ng-repeat="c in weeks.map.week.myArrayList"><button class="btn btn-default" ng-repeat="b in players.map.player.myArrayList"><a href="WeekPlayerView.jsp#/week/{{c.map.weekId}}/player/{{b.map.playerId}}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to Week {{c.map.weekNum}} Overview</a></button></div>
+
+
         <br>
         <div class="panel-heading"></div>
         <div class="tablecontainer">
@@ -106,7 +109,7 @@
                 <option value="True">True</option>
                 <option value="False">False</option>
                 </select><br>
-            `   <br>
+                <br>
                 <label for="insertReasonOfAbsence">Reason of Absence (If Present is false)</label>
                 <select id="insertReasonOfAbsence" ng-model="reasonOfAbsence" class="form-control">
                     <option value="EMPTY">NULL</option>
@@ -117,6 +120,7 @@
                     <option value="County Match">County Match</option>
                     <option value="Other Club Training">Other Club Training</option>
                     <option value="Other Club Match">Other Club Match</option>
+                    <option value="None of the above">None of the above</option>
                 </select><br>
 
             <button type="submit" class="btn btn-primary">Enter</button>
