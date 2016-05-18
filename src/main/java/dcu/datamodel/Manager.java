@@ -25,8 +25,7 @@ public class Manager {
     private Integer teamId;
     @Column(name ="email")
     private String email;
-    //@Column(name ="logInId")
-    //private int logInId;
+
 
     public int getManagerId() {
         return managerId;
@@ -76,16 +75,6 @@ public class Manager {
         this.email = email;
     }
 
-    /*
-    public int getLogInId() {
-        return logInId;
-    }
-
-    public void setLogInId(int logInId) {
-        this.logInId = logInId;
-    }
-
-*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

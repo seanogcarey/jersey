@@ -313,30 +313,6 @@
             <strong>Success! </strong> Club created
         </div>
 
-<!--
-
-        <h2>Update Extra Sessions</h2>
-
-
-        <form class="form-inline" ng-submit="createExtraSession()">
-            <div class="form-group">
-                <label for="exampleInputName2">Sesson Type 1</label>
-                <input type="text" class="form-control" ng-model="text" id="exampleInputName2" placeholder="SessionType1">
-            </div>
-            <!--
-            <div class="form-group">
-                <label for="exampleInputEmail2">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
-            </div>
-            -->
-        <!--
-            <button type="submit" class="btn btn-primary">Enter</button>
-        </form>
-        <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
-            <strong>Success! </strong> Club created
-        </div>
-        -->
-
     </script>
 
 

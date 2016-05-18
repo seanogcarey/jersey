@@ -1,7 +1,6 @@
 package dcu.DAO;
 
 import dcu.datamodel.AttendanceTable;
-import dcu.datamodel.AttendanceWeekView;
 import dcu.service.HibernateUtil;
 import javassist.NotFoundException;
 import org.hibernate.Query;
@@ -172,7 +171,8 @@ public class AttendanceTableDAOImpl implements AttendanceTableDAO {
         query.setParameter("sessionId",sessionId);
         query.setParameter("present",present);
         query.setParameter("reasonOfAbsence",reasonOfAbsence);
-        //todo maybe change to this to attendanceStatus
+
+
         query.executeUpdate();
 
         session.getTransaction().commit();

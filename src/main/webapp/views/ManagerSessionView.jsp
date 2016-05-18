@@ -15,13 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="/icons/notes.png">
-    <!--
-     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.2.js"></script>
-   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-   <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
-   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-pls-0.13.2.js"></script>
+
 
 
    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -175,33 +169,6 @@ pls-0.13.2.js"></script>
 
 <p ng-view>Hello from {{page}}!</p>
 
-
-<!--
-<div class="col-md-6">
-    <p class="input-group">
-        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-  <span class="input-group-btn">
-    <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-  </span>
-    </p>
-</div>
-
-<div class="col-md-6">
-    <p class="input-group">
-        <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-  <span class="input-group-btn">
-    <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
-  </span>
-    </p>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-    <label>Format: <span class="muted-text">(manual alternate <em>{{altInputFormats[0]}}</em>)</span></label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
-</div>
-</div>
-
--->
 
 
 </body>

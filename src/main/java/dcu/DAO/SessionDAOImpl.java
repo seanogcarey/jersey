@@ -1,7 +1,6 @@
 package dcu.DAO;
 
 import dcu.datamodel.Session;
-import dcu.datamodel.Team;
 import dcu.service.HibernateUtil;
 import javassist.NotFoundException;
 import org.hibernate.Query;
@@ -9,7 +8,6 @@ import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -89,28 +87,6 @@ public class SessionDAOImpl implements SessionDAO {
 
 
     }
-/*
-    public void createSession(final int weekId, final Date sessionDate, final String sessionType){
-
-        //begin transaction
-        org.hibernate.Session session = HibernateUtil.getSessionFactory()
-                .getCurrentSession();
-        session.beginTransaction();
-
-
-        sf = HibernateUtil.getSessionFactory();
-
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Session OFF insert into dbo.Session (weekId,sessionDate,sessionType) values(:weekId,:sessionDate,:sessionType)" );
-        query.setParameter("weekId", weekId);
-        query.setParameter("sessionDate", sessionDate);
-        query.setParameter("sessionType", sessionType);
-        query.executeUpdate();
-
-        session.getTransaction().commit();
-
-
-    }
-    */
 
 
 }

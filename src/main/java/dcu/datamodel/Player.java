@@ -26,9 +26,6 @@ public class Player {
     @Column(name = "teamId")
     private int teamId;
 
-    //@Column(name = "logInId")
-    //private int logInId;
-
     public int getPlayerId() {
         return playerId;
     }
@@ -77,16 +74,6 @@ public class Player {
         this.teamId = teamId;
     }
 
-    /*
-
-    public int getLogInId() {
-        return logInId;
-    }
-
-    public void setLogInId(int logInId) {
-        this.logInId = logInId;
-    }
-    */
 
     @Override
     public boolean equals(Object o) {

@@ -20,6 +20,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
     private static final String GET_ALL_FINTESS_TESTS = "select e from FitnessTest e";
 
     public List<FitnessTest> getAllFitnessTests() throws IOException, NotFoundException{
+
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
@@ -32,7 +33,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
         return fitnessTestList;
     }
-    public List<FitnessTest> getFintessTestById(final int fitnessId){
+    public List<FitnessTest> getFitnessTestById(final int fitnessId){
 
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()
@@ -49,7 +50,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
 
         return fitnessTestList ;
     }
-    public List<FitnessTest> getFintessTestByPlayerId(final int playerId){
+    public List<FitnessTest> getFitnessTestByPlayerId(final int playerId){
 
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()

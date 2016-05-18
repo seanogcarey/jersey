@@ -113,23 +113,6 @@
         </div>
         </div>
 
-
-<!--
-        <b>Week: </b>
-        <br>
-        <div ng-repeat="b in weeks.map.week.myArrayList">
-            <div ng-repeat="a in players.map.player.myArrayList">
-                     <p> Week {{b.map.weekNum}} </p> <p><a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}">Week {{b.map.weekNum}} Record</a></p>
-            </div>
-        </div>
-
-
-        <div ng-repeat="a in attendanceWeekViews.map.attendanceWeekView.myArrayList">
-            Week {{a.map.weekNum}}: Number of training sessions  = {{a.map.numOfSessions}}
-        </div>
--->
-
-
     </script>
 
 

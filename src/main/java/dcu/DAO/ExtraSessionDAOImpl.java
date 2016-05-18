@@ -29,7 +29,6 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
                 .getCurrentSession();
         session.beginTransaction();
 
-        //sf = HibernateUtil.getSessionFactory();
         List<ExtraSession> extraSessionList = (List<ExtraSession>) session.createQuery(GET_ALL_EXTRA_SESSIONS).list();
 
         session.getTransaction().commit();
@@ -102,28 +101,7 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
         return extraSessionList ;
     }
 
-    /*
-    public void createExtraSession(final int weekId, final int playerId, final String sessionType1){
 
-
-        Session session = HibernateUtil.getSessionFactory()
-                .getCurrentSession();
-        session.beginTransaction();
-
-
-        sf = HibernateUtil.getSessionFactory();
-
-        SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.ExtraSession OFF insert into dbo.ExtraSession (weekId,playerId,sessionType1) values(:weekId,:playerId,:sessionType1)" );
-        query.setParameter("weekId", weekId);
-        query.setParameter("playerId",playerId);
-        query.setParameter("sessionType1",sessionType1);
-        query.executeUpdate();
-
-        session.getTransaction().commit();
-
-
-    }
-    */
     public void createExtraSession(final int weekId, final int playerId, final String sessionType1,final String sessionType2,final String sessionType3,
                                     final String sessionType4,final String sessionType5,final String sessionType6,final String sessionType7){
 
@@ -151,31 +129,6 @@ public class ExtraSessionDAOImpl implements  ExtraSessionDAO {
 
 
     }
-
-/*
-    public void updateExtraSession(final int weekId, final int playerId, final String sessionType1){
-
-
-        System.out.println("Attempting to update Extra Session");
-        Session session = HibernateUtil.getSessionFactory()
-                .getCurrentSession();
-        session.beginTransaction();
-
-
-        sf = HibernateUtil.getSessionFactory();
-
-
-        SQLQuery query= session.createSQLQuery("Update ExtraSession set sessionType1=:sessionType1 where playerId = :playerId and weekId=:weekId" );
-        query.setParameter("weekId", weekId);
-        query.setParameter("playerId",playerId);
-        query.setParameter("sessionType1",sessionType1);
-
-        query.executeUpdate();
-
-        session.getTransaction().commit();
-
-    }
-*/
 
 
     public void updateExtraSession(final int weekId, final int playerId, final String sessionType1, final String sessionType2, final String sessionType3, final String sessionType4, final String sessionType5, final String sessionType6, final String sessionType7){

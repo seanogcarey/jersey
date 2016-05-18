@@ -23,10 +23,6 @@
         <property name="teamId">
             <column name="teamId" sql-type="java.lang.String"/>
         </property>
-        <!--
-        <property name="logInId">
-            <column name="logInID" sql-type="java.lang.String" not-null="true"/>
-        </property>
-        -->
+
     </class>
 </hibernate-mapping>

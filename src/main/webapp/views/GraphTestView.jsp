@@ -13,7 +13,7 @@
     <script data-require="angular.js@1.2.23" data-semver="1.2.23" src="https://code.angularjs.org/1.2.23/angular.js"></script>
     <script src="/javascript/externalJavascriptResources/Chart.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/javascript/controller/graph_controller.js"></script>
+    <script src="/javascript/controller/training_group_controller.js"></script>
     <link rel="icon" href="/icons/notes.png">
 
     <script type="text/ng-template" id="graphView.html">
@@ -106,7 +106,6 @@
         <canvas id="income" width="600" height="400"></canvas>
         <br>
         <p class="col-md-6">1 = low, 2 = medium , 3 = high</p>
-       <!-- <canvas id="buyers" width="600" height="400"></canvas>-->
         <br>
 
     </script>

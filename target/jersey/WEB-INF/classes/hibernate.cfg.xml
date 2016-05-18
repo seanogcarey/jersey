@@ -4,8 +4,8 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+
         <property name="dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
-        <!--<property name="myeclipse.connection.profile">M SQL 2014</property>-->
 
         <property name="hibernate.connection.username">
             seanogcarey
@@ -14,9 +14,10 @@
             christyring1916
         </property>
 
-        <!-- When running locally
-        <property name="connection.url">
 
+        <!-- When running LOCALLY
+        <property name="connection.url">
+         jdbc:sqlserver://localhost;databaseName=SSSMSDemo;servername=DESKTOP-2REM4RC\MSSQLSERVER2
         </property>
         -->
 
@@ -25,16 +26,13 @@
         </property>
 
 
-
-
         <!-- WHEN RUNNING REMOTELY
+         jdbc:sqlserver://;databaseName=SSSMSDemo;servername=DESKTOP-2REM4RC\MSSQLSERVER2;port=49170
 
-            jdbc:sqlserver://;databaseName=SSSMSDemo;servername=DESKTOP-2REM4RC\MSSQLSERVER2;port=49170
          Ip addresses:
-                192.168.0.15  136.206.198.38 , 192.168.1.2 136.206.243.108 192.168.0.15
-
-
+         192.168.0.15  136.206.198.38 , 192.168.1.2 136.206.243.108 192.168.0.15
           -->
+
         <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
 
 
@@ -49,9 +47,6 @@
         <property name="hibernate.cache.use_query_cache">false</property>
 
 
-
-
-        <mapping resource="Claim.hbm.xml"/>
         <mapping resource="Club.hbm.xml"/>
         <mapping resource="Team.hbm.xml"/>
         <mapping resource="Manager.hbm.xml"/>
@@ -66,8 +61,6 @@
 
         <!-- DB schema will be updated if needed
         <class-cache class="dcu.datamodel.Claim" usage="read-only"></class-cache>
-
         -->
-        <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>

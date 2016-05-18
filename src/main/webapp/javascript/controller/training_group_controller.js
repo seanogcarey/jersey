@@ -25,13 +25,9 @@ app.config(['$routeProvider' , function($routeProvider ) {
 
 app.controller('Page1Ctrl', function($scope) {
     $scope.page = 'Page1';
-    //console.log($routeParams.teamId);
-    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    //success(function(data) {
-    //$scope.page = data;
+
     console.log($scope.page);
-    //});
+
 
 });
 
@@ -41,19 +37,21 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
 
     $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
     success(function(data) {
+
         $scope.players = data;
 
         var teamId;
         var dataParsed = data.map.player.myArrayList;
-        console.log(dataParsed);
+
         for (var i=0;i<dataParsed.length;i++) {
-            console.log("The TeamId is " + dataParsed[i].map.teamId);
+
             teamId = dataParsed[i].map.teamId;
+
         }
 
         $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
-        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
         success(function(data) {
+
             $scope.teams = data;
 
         });
@@ -105,7 +103,8 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
     $http.get('http://localhost:8081/jersey/trainingGroups/getTrainingGroupByPlayerId/'+ $routeParams.playerId).
     success(function(data) {
 
-        console.log($routeParams.playerId);
+
+
         $scope.trainingGroups = data;
 
         var dataParsed = data.map.trainingGroup.myArrayList;
@@ -113,18 +112,19 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
         var strengthGroup;
         var fitnessGroup;
 
-        console.log(dataParsed);
+
         for (var i=0;i<dataParsed.length;i++) {
+
             speedGroup = dataParsed[i].map.speedGroup;
             strengthGroup = dataParsed[i].map.strengthGroup;
             fitnessGroup = dataParsed[i].map.fitnessGroup;
+
             if(dataParsed[i].map.speedGroup=="NULL"){
                 $scope.enterFitnessTestMessage = true;
             }
         }
 
 
-        console.log("finess Group:" + fitnessGroup);
         //speed Group:
         if (speedGroup=="High"){
             speedValue=3;
@@ -161,30 +161,6 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
         $scope.hello = "Hello, World";
 
 
-/*
-        var buyerData = {
-            labels : ["","Fitness","Speed","Strength"],
-            datasets : [
-                {
-                    fillColor : "rgba(172,194,132,0.4)",
-                    strokeColor : "#ACC26D",
-                    pointColor : "#fff",
-                    pointStrokeColor : "#9DB86D",
-                    data : [0,fitnessValue,speedValue,strengthValue,3]
-                }
-            ]
-        }
-        // get line chart canvas
-        var buyers = document.getElementById('buyers').getContext('2d');
-        // draw line chart
-
-        new Chart(buyers).Line(buyerData);
-
-   */
-
-        //------------
-
-
         var barData = {
             labels : ["Speed Group","Strength Group","Fitness Group"],
             datasets : [
@@ -214,46 +190,12 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
         Chart.defaults.global.scaleStepWidth = 1;
 
 
-
-        // get line chart canvas
-        //var buyers = document.getElementById('buyers').getContext('2d');
-
         var income = document.getElementById("income").getContext("2d");
 
         new Chart(income).Bar(barData);
 
 
-
     });
-
-
-    /*
-
-    $scope.canvas = document.getElementById("myPieChart");
-    $scope.ctx = $scope.canvas.getContext("2d");
-    $scope.data = [{
-        value: 300,
-        color: "#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    }, {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    }, {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
-    }];
-    $scope.myPieChart = new Chart($scope.ctx).Pie($scope.data,{});
-    $scope.chartClick = function (event) {
-        console.log('chartClick');
-        console.log($scope.myPieChart.getSegmentsAtEvent(event));
-    }
-    $scope.canvas.onclick = $scope.chartClick;
-    */
 
 
 

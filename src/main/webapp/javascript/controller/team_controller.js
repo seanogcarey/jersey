@@ -1,10 +1,4 @@
 /**
- * Created by Sean on 11/04/2016.
- */
-/**
- * Created by Sean on 11/04/2016.
- */
-/**
  * Created by Sean on 06/04/2016.
  */
 
@@ -32,37 +26,38 @@ App.config(['$routeProvider' , function($routeProvider ) {
 
 App.controller('Page1Ctrl', function($scope) {
     $scope.page = 'Page1';
-    //console.log($routeParams.teamId);
-    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    //success(function(data) {
-    //$scope.page = data;
+
     console.log($scope.page);
-    //});
+
 
 });
 
 App.controller('TeamCtrl', function($scope, $routeParams,$http,$route) {
 
     $http.get('http://localhost:8081/jersey/clubs/getClub/' + $routeParams.clubId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
+
         $scope.clubs = data;
+
     });
     $http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
+
         $scope.teams = data;
+
     });
     $http.get('http://localhost:8081/jersey/week/getWeekByTeamId/' + $routeParams.teamId).
     //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
+
         $scope.weeks = data;
+
     });
     $http.get('http://localhost:8081/jersey/managers/getManagerByTeamId/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
+
         $scope.managers = data;
+
     });
 
     $scope.addManager = function() {
@@ -127,7 +122,6 @@ App.controller('TeamCtrl', function($scope, $routeParams,$http,$route) {
                 $http.post("http://localhost:8081/jersey/fitnessTest/createFitnessTest/playerId/"+ playerId +"/chinUps/0/pushUps/0/sprint/0/kmRun/0/agility/0/workLifestyle/0/weeklyAverageTrainingCount/0").success(function() {
 
                     $http.get('http://localhost:8081/jersey/fitnessTest/getFitnessTestByPlayerId/' + playerId).
-                    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
                     success(function(dataFitness) {
 
                         var dataParsed2 = dataFitness.map.fitnessTest.myArrayList;

@@ -26,13 +26,9 @@ App.config(['$routeProvider' , function($routeProvider ) {
 
 App.controller('Page1Ctrl', function($scope) {
     $scope.page = 'Page1';
-    //console.log($routeParams.teamId);
-    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    //success(function(data) {
-    //$scope.page = data;
+
     console.log($scope.page);
-    //});
+
 
 });
 
@@ -52,13 +48,14 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         var dataParsed = data.map.player.myArrayList;
         console.log(dataParsed);
         for (var i=0;i<dataParsed.length;i++) {
-            console.log("The TeamId is " + dataParsed[i].map.teamId);
+
             teamId = dataParsed[i].map.teamId;
+
         }
 
         $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
-        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
         success(function(data) {
+
             $scope.teams = data;
 
         });
@@ -106,17 +103,6 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         $scope.weeks = data;
 
     });
-    /*
-    $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
-    success(function(data) {
-        $scope.players = data;
-    });
-
-    $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
-    success(function(data) {
-        $scope.attendanceWeekViews = data;
-    });
-*/
 
     $http.get('http://localhost:8081/jersey/session/getSessionByWeekId/' + $routeParams.weekId).
     success(function(data) {
@@ -126,7 +112,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
     $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
     success(function(data) {
-        //$scope.extraSessions = data;
+
         var dataParsed = data.map.extraSession.myArrayList;
         var extraSessionId;
         console.log(dataParsed);
@@ -154,23 +140,12 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
 
         }
-        /*
-        $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
-        success(function(newData) {
-            $scope.extraSessions = newData;
-        });
-        */
+
 
         console.log("Extra Session ID: " + extraSessionId);
 
     });
 
-    /*
-    $http.get('http://localhost:8081/jersey/extraSession/getExtraSessionByWeekIdPlayerId/weekId/' + $routeParams.weekId + '/playerId/' + $routeParams.playerId).
-    success(function(newData) {
-        $scope.extraSessions = newData;
-    });
-    */
 
 
     $scope.createExtraSession = function() {
@@ -236,8 +211,6 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
                     $http.get('http://localhost:8081/jersey/fitnessTest/getFitnessTestByPlayerId/' + $routeParams.playerId).
                     success(function(newData) {
-                        //$scope.fitnessTests = data;
-
 
                         var kmRunScore;
                         var agilityScore;
@@ -339,14 +312,11 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
             }); //end of get attendance
 
 
-                //$route.reload();
 
         }); //end of update attendance
 
 
 
-
-            //$route.reload();
 
         })
     }
@@ -403,9 +373,6 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         Chart.defaults.global.scaleStepWidth = 1;
 
 
-
-        // get line chart canvas
-        //var buyers = document.getElementById('buyers').getContext('2d');
 
         var income = document.getElementById("income").getContext("2d");
 

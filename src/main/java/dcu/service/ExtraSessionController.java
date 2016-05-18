@@ -106,17 +106,6 @@ public class ExtraSessionController {
 
     }
 
-    /*
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}")
-    public String createExtraSession(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionType1") final String sessionType1) throws IOException, NotFoundException,JSONException{
-
-        extraSessionDAOImpl.createExtraSession(weekId,playerId,sessionType1);
-        return "createExtraSession";
-
-    }
-    */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/createExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}/sessionType2/{sessionType2}/sessionType3/{sessionType3}/sessionType4/{sessionType4}/sessionType5/{sessionType5}/sessionType6/{sessionType6}/sessionType7/{sessionType7}")
@@ -126,22 +115,6 @@ public class ExtraSessionController {
         return "createExtraSession";
 
     }
-
-    /*
-    @PUT
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/updateExtraSession/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}")
-    public String updateExraSession(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId,@PathParam("sessionType1") final String sessionType1)throws IOException, NotFoundException,JSONException{
-
-
-        extraSessionDAOImpl.updateExtraSession(weekId,playerId,sessionType1);
-
-        //todo other puts here
-        return "updatedExtraSession";
-    }
-    //@Path("/createExtraSession2/weekId/{weekId}/playerId/{playerId}/sessionType1/{sessionType1}/sessionType2/{sessionType2}/sessionType3/{sessionType3}/sessionType4/{sessionType4}/sessionType5/{sessionType5}/sessionType6/{sessionType6}/sessionType7/{sessionType7}")
-
-    */
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)

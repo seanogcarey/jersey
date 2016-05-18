@@ -1,8 +1,6 @@
 package dcu.DAO;
 
-import dcu.datamodel.AttendanceTable;
 import dcu.datamodel.AttendanceWeekView;
-import dcu.datamodel.ExtraSession;
 import dcu.service.HibernateUtil;
 import javassist.NotFoundException;
 import org.hibernate.Query;
@@ -11,13 +9,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Sean on 06/04/2016.
  */
-public class AttendanceWeekViewDAOImpl {
+public class AttendanceWeekViewDAOImpl implements  AttendanceWeekViewDAO {
 
     private SessionFactory sf =null ;
     private static final String GET_ALL_ATTENDANCE_WEEK_VIEWS = "select e from AttendanceWeekView e";

@@ -1,7 +1,6 @@
 package dcu.service;
 
 import com.google.gson.Gson;
-import dcu.DAO.TrainingGroupDAO;
 import dcu.DAO.TrainingGroupDAOImpl;
 import dcu.datamodel.TrainingGroup;
 import javassist.NotFoundException;
@@ -127,14 +126,6 @@ public class TrainingGroupController {
             throws IOException, NotFoundException,JSONException{
 
 
-        //todo find out if player id and fitness id are needed
-        /*
-        List<Updat> clubList = clubDAOImpl.getClubById(clubId);
-
-        if (clubList == null) {
-            throw new NotFoundException("club does not exist");
-        }
-        */
         trainingGroupDAOImpl.updateTrainingGroupByPlayerId(playerId, fintessGroup,strengthGroup,speedGroup);
 
         return "updatedClub";

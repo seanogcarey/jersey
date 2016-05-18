@@ -26,13 +26,8 @@ App.config(['$routeProvider' , function($routeProvider ) {
 
 App.controller('Page1Ctrl', function($scope) {
     $scope.page = 'Page1';
-    //console.log($routeParams.teamId);
-    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    //success(function(data) {
-    //$scope.page = data;
     console.log($scope.page);
-    //});
+
 
 });
 
@@ -41,7 +36,6 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
     var teamId;
 
     $http.get('http://localhost:8081/jersey/players/getPlayer/' + $routeParams.playerId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
         $scope.players = data;
 
@@ -61,7 +55,6 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
     });
 
     $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
         $scope.weeks = data;
 
@@ -69,14 +62,14 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
 
     $http.get('http://localhost:8081/jersey/session/getSessionById/' + $routeParams.sessionId).
     success(function(data) {
+
         $scope.sessions = data;
-        console.log(data);
+
     });
 
 
     $http.get('http://localhost:8081/jersey/attendanceTable/getAttendanceTableBySessionIdPlayerId/sessionId/'+ $routeParams.sessionId + '/playerId/' + $routeParams.playerId).
     success(function(data) {
-        //$scope.extraSessions = data;
         var dataParsed = data.map.attendanceTable.myArrayList;
         var attendanceId;
         console.log(dataParsed);
@@ -90,8 +83,8 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
             //post: Create with initialised data
             var presentStatus = "False"
             var reasonOfAbsenceStatus = "NULL"
+
             console.log("Creating new data!");
-            //http://localhost:8081/jersey/attendanceTable/createAttendanceTable/weekId/1/playerId/3/sessionId/1/present/False/reasonOfAbsence/College Training
             $http.post("http://localhost:8081/jersey/attendanceTable/createAttendanceTable/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId +
                         "/sessionId/" + $routeParams.sessionId +"/present/" + presentStatus + "/reasonOfAbsence/" + reasonOfAbsenceStatus).
             success(function() {
@@ -132,7 +125,6 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
 
             $http.put("http://localhost:8081/jersey/attendanceWeekView/updateAttendanceWeekView/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId).
             success(function() {
-                //$route.reload();
 
                 $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
                 success(function(data) {

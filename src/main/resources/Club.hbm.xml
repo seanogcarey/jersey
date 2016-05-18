@@ -24,7 +24,8 @@
         <property name="clubContactNumber">
             <column name="clubContactNumber" sql-type="java.lang.String" not-null="true"/>
         </property>
-        <!--
+
+        <!-- Setting up one to many
                <set name="teams" table="team"  lazy="true" inverse="true">
                    <key>
                        <column name="clubId" />
@@ -37,7 +38,9 @@
                        <column name="clubId"/>
                    </key>
                    <one-to-many class="dcu.datamodel.Team" />
-               </set>-->
+               </set>
+
+          -->
         
     </class>
 </hibernate-mapping>

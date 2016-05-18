@@ -31,8 +31,8 @@ public class SessionController {
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllSessions()throws IOException, NotFoundException, JSONException {
 
-        //nameing of "Session" giving this problem
-        //// TODO: 07/04/2016 rename Session if have time
+        // TODO: 07/04/2016 rename Session if have time - not a crucial problem
+
         List<dcu.datamodel.Session> sessionList = sessionDAOImpl.getAllSessions();
 
         if (sessionList == null) {
@@ -103,16 +103,6 @@ public class SessionController {
         return "createSession";
 
     }
-    /*
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/createSession/weekId/{weekId}/sessionDate/{sessionDate}/sessionType/{sessionType}")
-    public String createWeek(@PathParam("weekId") final int weekId,@PathParam("sessionDate") final Date sessionDate,@PathParam("sessionType") final String sessionType) throws IOException, NotFoundException,JSONException{
 
-        sessionDAOImpl.createSession(weekId,sessionDate,sessionType);
-        return "createSession";
-
-    }
-    */
 
 }

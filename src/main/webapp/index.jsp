@@ -63,26 +63,6 @@
     </button>
 
 
-<!--
-    <h2>Angular Example:</h2>
-    <div ng-app="myApp" ng-controller="personCtrl">
-
-        First Name: <input type="text" ng-model="firstName"><br>
-        Last Name: <input type="text" ng-model="lastName"><br>
-        <br>
-        Full Name: {{firstName + " " + lastName}}
-
- -->
-<!--
-        <p>{{claims.map.claim.myArrayList}}</p>
-        <div ng-repeat="a in claims.map.claim.myArrayList">
-            <p><a href="jersey/claims/getClaim/{{a.map.claimId}}">Claim Link</a> </p>
-            <p>The ID is {{a.map.claimId}}
-            </p>
-            <p>The reference is {{a.map.claimReference}}</p>
-        </div>
-    </div>
-    -->
 
 </body>
 </html>

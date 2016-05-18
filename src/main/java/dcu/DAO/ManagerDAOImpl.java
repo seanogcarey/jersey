@@ -26,7 +26,7 @@ public class ManagerDAOImpl implements ManagerDAO{
                 .getCurrentSession();
         session.beginTransaction();
 
-        //sf = HibernateUtil.getSessionFactory();
+
         List<Manager> managerList  = (List<Manager>) session.createQuery(GET_ALL_MANAGERS).list();
 
         session.getTransaction().commit();
@@ -60,7 +60,6 @@ public class ManagerDAOImpl implements ManagerDAO{
                 .getCurrentSession();
         session.beginTransaction();
 
-        //sf = HibernateUtil.getSessionFactory();
 
         Query query = session.createQuery("select  e from Manager e where teamId = :teamId ");
         query.setParameter("teamId", teamId);

@@ -4,7 +4,6 @@ import dcu.datamodel.AttendanceWeekView;
 import javassist.NotFoundException;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,6 +17,6 @@ public interface AttendanceWeekViewDAO {
     public List<AttendanceWeekView> getAttendanceWeekViewByPlayerId(final int playerId);
     public List<AttendanceWeekView> getAttendanceWeekViewByWeekIdPlayerId(final int weekId,final int playerId);
 
-    public void createAttendanceWeekView(final int weekId, final int playerId,final int numOfSessions,final int numOfSessionsWithTeam);
+    public List<AttendanceWeekView> createAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions, final int numOfSessionsWithTeam);
     public void updateAttendanceWeekView(final int weekId, final int playerId, final int numOfSessions,final int numOfSessionsWithTeam );
 }

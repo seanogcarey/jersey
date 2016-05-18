@@ -87,48 +87,6 @@ public class AttendanceWeekViewController {
     }
 
 
-/*
-    @GET
-    @Path("/getAttendanceWeekViewByWeekIdPlayerId/weekId/{weekId}/playerId/{playerId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getAttendanceWeekViewByWeekIdPlayerId(@PathParam("weekId") final int weekId,@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
-
-        List<AttendanceWeekView> attendanceWeekViewList = attendanceWeekViewDAOImpl.getAttendanceWeekViewByWeekIdPlayerId(weekId,playerId);
-
-        if (attendanceWeekViewList == null) {
-            throw new NotFoundException("attendance week view does not exist");
-        }
-
-
-        JSONObject jsonObj = new JSONObject();
-        jsonObj.put("attendanceWeekView",attendanceWeekViewList);
-
-        Gson gson = new Gson();
-        String attendanceWeekView = gson.toJson(jsonObj);
-
-        int doesItExist = goThroughStrings(attendanceWeekView,"attendanceWeekViewId");
-
-        if (doesItExist == 0){
-
-            System.out.println("DOESNT EXIST!!!!!!");
-            //String attendanceWeekViewNew =
-
-            //get from created
-
-            JSONObject jsonObj2 = new JSONObject();
-            jsonObj.put("attendanceWeekView",attendanceWeekViewList);
-
-            Gson gson2 = new Gson();
-            String attendanceWeekViewNew = gson2.toJson(jsonObj2);
-
-            attendanceWeekView = attendanceWeekViewNew;
-        }
-
-
-        return attendanceWeekView;
-
-    }
-*/
     @GET
     @Path("/getAttendanceWeekViewByPlayerId/{playerId}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -301,7 +259,6 @@ public class AttendanceWeekViewController {
         System.out.println("NUMBER OF TRAININGS IN UPDATE : " + numOfSessions);
 
         attendanceWeekViewDAOImpl.updateAttendanceWeekView(weekId,playerId,numOfSessions,numOfSessionsWithTeam);
-       // List<AttendanceWeekView> newList = attendanceWeekViewDAOImpl.createAttendanceWeekView(weekId, playerId, numOfSessions);
 
 
         return "UpdatedAttendanceWeekView ";
@@ -339,7 +296,7 @@ public class AttendanceWeekViewController {
         int extraSessionCheckOtherClubMatch= goThroughStrings(extraSession,otherClubMatch);
         int extraSessionCheckOtherTeamWithinClub= goThroughStrings(extraSession,otherTeamWithinCLub);
         int extraSessionCheckFitnessWorkout= goThroughStrings(extraSession,fitnessWorkout);
-        //int extraSessionCheckOther = goThroughStrings(extraSession,other);
+
 
 
         int attendanceTableCheckTrue = goThroughStrings(attendanceTable,attendedTraining);
@@ -355,7 +312,6 @@ public class AttendanceWeekViewController {
 
         int numOfSessions =  attendanceTableCounts +  extraSessionsCount;
 
-        //int numOfSessions = attendanceTableCheckCollegeTraining  + extraSessionCheckCollegeTraining + attendanceTableCheckTrue;
 
         return numOfSessions;
     }
@@ -368,9 +324,8 @@ public class AttendanceWeekViewController {
 
         int countOfWord= 0;
 
-
         int lastIndex = 0;
-        //int count = 0;
+
 
         while(lastIndex != -1){
 

@@ -18,7 +18,6 @@ public class Team {
     @Column(name = "clubId")
     private Integer clubId;
 
-    //private Club club;
 
     public Team(){
 
@@ -27,12 +26,7 @@ public class Team {
 
         this.teamId = teamId;
         this.clubId = clubId;
-        //this.club = club;
     }
-
-    //public Club getClub(){return club;};
-
-    //public void setClub(Club club) {this.club = club;}
 
     public int getTeamId() {
         return teamId;

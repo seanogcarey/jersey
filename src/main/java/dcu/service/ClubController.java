@@ -42,13 +42,10 @@ public class ClubController {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("club",clubList);
 
-        System.out.println("JSON: " + jsonObj);
-
 
         Gson gson = new Gson();
         String clubs = gson.toJson(jsonObj);
 
-        System.out.println("STRING CLUBS: " +clubs);
 
         return clubs;
 

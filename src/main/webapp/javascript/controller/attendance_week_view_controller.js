@@ -28,36 +28,23 @@ App.config(['$routeProvider' , function($routeProvider ) {
 
 App.controller('Page1Ctrl', function($scope) {
     $scope.page = 'Page1';
-    //console.log($routeParams.teamId);
-    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    //success(function(data) {
-    //$scope.page = data;
+
     console.log($scope.page);
-    //});
 
 });
 
 App.controller('AttendanceWeekViewCtrl', function($scope, $routeParams,$http) {
 
     $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByWeekId/' + $routeParams.weekId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
     success(function(data) {
-        $scope.attendanceWeekViews = data;
-        console.log(data);
 
-        /*
-        var dataParsed = data.map.attendanceWeekView.myArrayList;
-        console.log(dataParsed);
-        for (var i=0;i<dataParsed.length;i++) {
-            console.log("The player id is " + dataParsed[i].map.playerId);
-        }
-        */
+        $scope.attendanceWeekViews = data;
+
 
     });
 
     $http.get('http://localhost:8081/jersey/week/getWeek/' + $routeParams.weekId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
+
     success(function(data) {
         $scope.weeks = data;
 

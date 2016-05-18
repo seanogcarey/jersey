@@ -19,7 +19,7 @@ public class HibernateUtil {
         try {
 
             Configuration configuration = new Configuration();
-            System.out.println("going to hibernate config file");
+            System.out.println("Going to hibernate config file");
             sessionFactory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();
 
 
@@ -35,40 +35,3 @@ public class HibernateUtil {
         return sessionFactory;
     }
 }
-/*
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-
-public class HibernateUtil {
-    private static SessionFactory sessionFactory;
-
-    public static SessionFactory getSessionFactory() {
-        if (sessionFactory == null) {
-            // loads configuration and mappings
-            Configuration configuration = new Configuration().configure();
-            ServiceRegistry serviceRegistry
-                    = new StandardServiceRegistryBuilder()
-                    .applySettings(configuration.getProperties()).build();
-
-            // builds a session factory from the service registry
-            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        }
-
-        return sessionFactory;
-    }
-}
- */
-//
-// Build a SessionFactory object from session-factory configuration
-// defined in the hibernate.cfg.xml file. In this file we register
-// the JDBC connection information, connection pool, the hibernate
-// dialect that we used and the mapping to our hbm.xml file for each
-// Pojo (Plain Old Java Object).
-/*
-            Configuration configuration = new Configuration().configure();
-            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
-                    applySettings(configuration.getProperties());
-            sessionFactory = configuration.buildSessionFactory(builder.build());
-*/

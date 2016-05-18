@@ -27,13 +27,9 @@ App.config(['$routeProvider' , function($routeProvider ) {
 
 App.controller('Page1Ctrl', function($scope) {
     $scope.page = 'Page1';
-    //console.log($routeParams.teamId);
-    //$http.get('http://localhost:8081/jersey/teams/getTeam/' + $routeParams.teamId).
-    //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
-    //success(function(data) {
-    //$scope.page = data;
+
     console.log($scope.page);
-    //});
+
 
 });
 
@@ -48,12 +44,12 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
         var dataParsed = data.map.player.myArrayList;
         console.log(dataParsed);
         for (var i=0;i<dataParsed.length;i++) {
-            console.log("The TeamId is " + dataParsed[i].map.teamId);
+
             teamId = dataParsed[i].map.teamId;
+
         }
 
         $http.get('http://localhost:8081/jersey/teams/getTeam/' + teamId).
-        //$http.get('http://139.59.160.201:8080/jersey/claims/getAllClaims').
         success(function(data) {
             $scope.teams = data;
 
@@ -106,6 +102,7 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
                 }
             ]
         }
+
         // get line chart canvas
         var buyers = document.getElementById('buyers').getContext('2d');
 
@@ -150,7 +147,6 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
 
                 $http.get('http://localhost:8081/jersey/fitnessTest/getFitnessTestByPlayerId/' + $routeParams.playerId).
                 success(function(newData) {
-                    //$scope.fitnessTests = data;
 
 
                     var kmRunScore;
@@ -166,7 +162,6 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
 
                     for (var i=0;i<dataParsed2.length;i++) {
 
-                        //console.log("Sprint Score = " + dataParsed2[i].map.sprint);
                         kmRunScore = dataParsed2[i].map.kmRun;
                         agilityScore = dataParsed2[i].map.agility;
                         pushUpsScore = dataParsed2[i].map.pushUps;

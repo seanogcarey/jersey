@@ -51,7 +51,7 @@ public class FitnessTestController {
     @Path("/getFitnessTest/{fitnessTestId}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getManagerById(@PathParam("fitnessTestId") final int fitnessTestId) throws IOException, NotFoundException,JSONException{
-        List<FitnessTest> fitnessTestList = fitnessTestDAOImpl.getFintessTestById(fitnessTestId);
+        List<FitnessTest> fitnessTestList = fitnessTestDAOImpl.getFitnessTestById(fitnessTestId);
 
         if (fitnessTestList == null) {
             throw new NotFoundException("fintessTest does not exist");
@@ -72,7 +72,7 @@ public class FitnessTestController {
     @Path("/getFitnessTestByPlayerId/{playerId}")
     @Produces(MediaType.APPLICATION_JSON)
     public String getFitnessTestByPlayerId(@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
-        List<FitnessTest> fitnessTestList = fitnessTestDAOImpl.getFintessTestByPlayerId(playerId);
+        List<FitnessTest> fitnessTestList = fitnessTestDAOImpl.getFitnessTestByPlayerId(playerId);
 
         if (fitnessTestList == null) {
             throw new NotFoundException("player does not exist");

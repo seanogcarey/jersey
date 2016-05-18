@@ -21,7 +21,7 @@ public class ClubDAOImpl implements ClubDAO {
 
     public List<Club> getAllClubs() throws IOException, NotFoundException{
 
-        System.out.println("Attempting to get all clubs");
+        //System.out.println("Attempting to get all clubs");
 
 
         //begin transaction
@@ -29,18 +29,19 @@ public class ClubDAOImpl implements ClubDAO {
                 .getCurrentSession();
         session.beginTransaction();
 
-        System.out.println("transaction begun");
+        //System.out.println("transaction begun");
 
         sf = HibernateUtil.getSessionFactory();
-        System.out.println("Got Session Factory, getting clubs");
-        System.out.println();
+
+        //System.out.println("Got Session Factory, getting clubs");
+        //System.out.println();
 
         //List<Claim> claimsList= sf.getCurrentSession().getNamedQuery("getAllClaimsInfo").list();
         List<Club> clubsList  = (List<Club>) session.createQuery(GET_ALL_CLUBS).list();
 
         session.getTransaction().commit();
 
-        System.out.println("Clubs got from query");
+        //System.out.println("Clubs got from query");
 
         return clubsList;
     }
@@ -52,13 +53,10 @@ public class ClubDAOImpl implements ClubDAO {
                 .getCurrentSession();
         session.beginTransaction();
 
-        System.out.println("transaction begun");
+
 
         sf = HibernateUtil.getSessionFactory();
-        System.out.println("Got Session Factory, getting club");
-        System.out.println();
 
-        //List<Claim> claimList  = (List<Claim>) session.createQuery(GET_CLAIM).list();
 
         Query query = session.createQuery("select  e from Club e where clubId = :clubId ");
         query.setParameter("clubId", clubId);
@@ -67,13 +65,13 @@ public class ClubDAOImpl implements ClubDAO {
 
         session.getTransaction().commit();
 
-        System.out.println("Club got from query");
-
         return clubList;
     }
 
     public void createClub(final String clubName,final String email,final String address,final String sport,final String clubContactNumber){
+
         System.out.println("Attempting to create club");
+
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();
@@ -86,9 +84,10 @@ public class ClubDAOImpl implements ClubDAO {
 
 
 
-        //SQLQuery query= session.createSQLQuery("SET IDENTITY_INSERT dbo.Club OFF");
-        //query.executeUpdate();
+
         /*
+        //The way I wanted to do it:
+
         Club newClub = new Club();
         //newClub.setClubId(4);
         newClub.setClubName(clubName);
@@ -99,6 +98,7 @@ public class ClubDAOImpl implements ClubDAO {
 
         session.save(newClub);
         newClub.getClubId();
+        //--------------------------
         */
 
 
@@ -119,6 +119,7 @@ public class ClubDAOImpl implements ClubDAO {
 
     public void updateClub(final int clubId, final String clubName){
         System.out.println("Attempting to updateclub");
+
         //begin transaction
         Session session = HibernateUtil.getSessionFactory()
                 .getCurrentSession();

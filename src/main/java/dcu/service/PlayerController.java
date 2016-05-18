@@ -69,8 +69,6 @@ public class PlayerController {
         Gson gson = new Gson();
         String player = gson.toJson(jsonObj);
 
-        System.out.println("Player is : " + player);
-
         return player;
     }
 
