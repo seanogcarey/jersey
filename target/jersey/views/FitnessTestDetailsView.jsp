@@ -99,7 +99,7 @@
 
     <br>
     <h3>Work/Lifestyle Activity</h3>
-    <p> (Rate from 1-5) Your personal rating of the exercise you get through your day to day lifestyle. For example a low score would be driving to work every day and sitting in an office from 9 to 5. A high score could possibly be cycling to work, working with manual hard labour.</p>
+    <p> <b>(Rate from 1-5)</b> Your personal rating of the exercise you get through from your day to day lifestyle. For example a low score would be driving to work every day and sitting in an office from 9 to 5. A high score could possibly be cycling to work, working with manual hard labour.</p>
 
 </div>
 
