@@ -16,7 +16,7 @@
     <script src="/javascript/controller/training_group_controller.js"></script>
     <link rel="icon" href="/icons/notes.png">
 
-    <script type="text/ng-template" id="graphView.html">
+    <script type="text/ng-template" id="trainingGroupView.html">
 
 
 
@@ -34,7 +34,7 @@
                         <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
-                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/TrainingGroupView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
 
                     </ul>
                 </div>
@@ -45,7 +45,7 @@
 
         <br>
         <br>
-        <h2  ng-repeat="a in players.map.player.myArrayList">Training Group: {{a.map.firstName}} {{a.map.lastName}}</h2>
+        <h2  ng-repeat="a in players.map.player.myArrayList"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Training Group: {{a.map.firstName}} {{a.map.lastName}}</h2>
 
 
         <br>
@@ -103,7 +103,7 @@
 
         <h3>Chart representation:</h3>
         <br>
-        <canvas id="income" width="600" height="400"></canvas>
+        <canvas id="groupChart" width="600" height="400"></canvas>
         <br>
         <p class="col-md-6">1 = low, 2 = medium , 3 = high</p>
         <br>

@@ -125,7 +125,7 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
         var presentData = $scope.presentStatus;
         var reasonOfAbsenceData =  $scope.reasonOfAbsence;
         console.log("KM RUN:" + kmRunData);
-        console.log(reasonOfAbsenceData);
+
 
         $http.get('http://localhost:8081/jersey/attendanceWeekView/getAttendanceWeekViewByPlayerId/' + $routeParams.playerId).
         success(function(data) {
@@ -137,8 +137,15 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
                 console.log("The number of sessions is " + dataParsed[i].map.numOfSessions);
                 sum = sum + dataParsed[i].map.numOfSessions;
             }
+
             attendanceAverageTrainingCount= sum/dataParsed.length;
             console.log("AVERAGE : " + attendanceAverageTrainingCount);
+
+            if (sum == 0){
+
+                attendanceAverageTrainingCount=0;
+                console.log("SUM : " + sum);
+            }
 
 
 

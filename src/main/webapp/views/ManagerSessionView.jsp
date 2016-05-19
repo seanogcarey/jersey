@@ -49,7 +49,7 @@
         <br>
 
         <div ng-repeat="a in weeks.map.week.myArrayList">
-            <h2>Week {{a.map.weekNum}} Session Overview</h2>
+            <h2><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Week {{a.map.weekNum}} Session Overview</h2>
         </div>
         <div ng-repeat="a in teams.map.team.myArrayList">
             <h4>Team: {{a.map.teamName}} Session Overview</h4>
@@ -59,7 +59,7 @@
         <br>
         <br>
 
-        <button class="btn btn-default" ng-click="addSession()">Add Session <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+        <button class="btn btn-default" ng-click="addSession()">Add Session <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div ng-show="showAddSessionForm">
 
@@ -108,7 +108,7 @@
 
             <br>
             <br>
-            <button type="submit" class="btn btn-primary">Enter</button>
+            <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Session created

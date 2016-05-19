@@ -36,7 +36,7 @@
                         <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
-                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/TrainingGroupView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +47,7 @@
         <br>
         <br>
         <div ng-repeat="a in weeks.map.week.myArrayList">
-            <h2>Week Record: Week {{a.map.weekNum}}</h2>
+            <h2><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Week Record: Week {{a.map.weekNum}}</h2>
         </div>
         <div ng-repeat="a in players.map.player.myArrayList">
             <h4>Player: {{a.map.firstName}} {{a.map.lastName}}</h4>
@@ -115,7 +115,7 @@
 
         <h3>Chart representation:</h3>
         <br>
-        <canvas id="income" width="600" height="400"></canvas>
+        <canvas id="attendanceChart" width="600" height="400"></canvas>
         <br>
 
         <div class="panel-heading"><span class="lead">Sessions</span></div>
@@ -134,7 +134,7 @@
                 <tr ng-repeat="a in sessions.map.session.myArrayList">
                     <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionType}}</a></td>
                     <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}">{{a.map.sessionDate}}</a></td>
-                    <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}"><button class="btn btn-default">Attendance Record</button></a></td>
+                    <td ng-repeat="b in players.map.player.myArrayList"><a href="/views/SessionView.jsp#/session/{{a.map.sessionId}}/week/{{a.map.weekId}}/player/{{b.map.playerId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Attendance Record</button></a></td>
                 </tr>
                 </tbody>
 
@@ -307,7 +307,7 @@
 
             <br>
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Club created

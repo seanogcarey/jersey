@@ -35,7 +35,7 @@
         <h2>All Clubs</h2>
 
 
-        <button class="btn btn-default" ng-click="addClub()">Add Club <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+        <button class="btn btn-default" ng-click="addClub()">Add Club <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div ng-show="showAddClubForm">
         <h3>Create Club</h3>
@@ -95,7 +95,7 @@
                 <tbody>
                 <tr ng-repeat="a in clubs.map.club.myArrayList" onclick="location.href='http://localhost:8081/views/ClubSingleView.jsp#/club/{{a.map.clubId}}'">
                     <td><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">{{a.map.clubName}}</a></td>
-                    <td><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}"><button  class="btn btn-default">Go to Club </button></a></td>
+                    <td><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}"><button  class="btn btn-default"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Go to Club </button></a></td>
                 </tr>
                 </tbody>
             </table>

@@ -1,6 +1,8 @@
 /**
  * Created by Sean on 25/04/2016.
  */
+
+// datepicker : angular js ui bootsrap
 var App = angular.module('MyApp', ['ui.bootstrap','ngAnimate','ngRoute']);
 
 
@@ -93,20 +95,6 @@ App.controller('DatepickerPopupDemoCtrl', function ($scope,$http, $animate,$rout
         opened: false
     };
 
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    var afterTomorrow = new Date();
-    afterTomorrow.setDate(tomorrow.getDate() + 1);
-    $scope.events = [
-        {
-            date: tomorrow,
-            status: 'full'
-        },
-        {
-            date: afterTomorrow,
-            status: 'partially'
-        }
-    ];
 
     function getDayClass(data) {
         var date = data.date,

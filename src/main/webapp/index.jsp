@@ -36,10 +36,11 @@
     <br>
     <br>
     <br>
-    <h2>Welcome to Smart Bainisteoir! </h2>
+    <h2><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Welcome to Smart Bainisteoir! </h2>
 
     <br>
     <p>The smart manager web application to meet your club and team needs.</p>
+
     <!--
     <p><a href="jersey/managers/getAllManagers">Managers</a> </p>
     <p><a href="jersey/players/getAllPlayers">Players</a> </p>
@@ -50,7 +51,7 @@
     <p><a href="views/ManagerView.jsp">Manager View</a></p>
     <p><a href="views/sample.jsp">Sample View</a> </p>
     <p><a href="views/View.jsp">View</a></p>
-    <p><a href="views/GraphTestView.jsp">Graph Test</a></p>
+    <p><a href="views/TrainingGroupView.jsp">Graph Test</a></p>
     -->
 
 <!--
@@ -61,6 +62,7 @@
     <button type="button" class="btn btn-default btn-lg" onclick="location.href='http://localhost:8081/views/ClubView.jsp#/club/'">
         <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span> Enter Site to begin
     </button>
+
 
 
 

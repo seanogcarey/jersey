@@ -45,7 +45,7 @@
         <br>
 
         <div ng-repeat="a in weeks.map.week.myArrayList">
-        <h3>Attendance Sheet : Week {{a.map.weekNum}}</h3>
+        <h3><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Attendance Sheet : Week {{a.map.weekNum}}</h3>
         </div>
 
         <div class="col-md-6">

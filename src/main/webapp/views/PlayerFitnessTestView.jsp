@@ -36,7 +36,7 @@
                         <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
-                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/TrainingGroupView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
                     </ul>
                 </div>
             </div>
@@ -47,7 +47,7 @@
         <br>
         <br>
         <br>
-        <h2  ng-repeat="a in players.map.player.myArrayList">Fitness Test: {{a.map.firstName}} {{a.map.lastName}}</h2>
+        <h2  ng-repeat="a in players.map.player.myArrayList"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Fitness Test: {{a.map.firstName}} {{a.map.lastName}}</h2>
 
         <br>
         <div class="alert alert-danger"  aria-label="close" ng-show="playerBurnoutDanger">
@@ -62,6 +62,11 @@
             <strong><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Player is not experiencing burnout </strong> ( Player is fine to train )
         </div>
 
+
+        <br>
+
+        <a href="/views/FitnessTestDetailsView.jsp#"><button title="Info on the fitness test" class="btn btn-default">Fitness Test Details <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></button></a>
+        <br>
 
         <div class="panel-heading"><span class="lead">Test Scores: </span></div>
         <div class="tablecontainer">
@@ -114,7 +119,6 @@
 
 
         <form class="form-inline" ng-submit="updateFitnessTest()">
-            <!--<div class="form-group" ng-repeat="a in attendanceTables.map.attendanceTable.myArrayList"></div>-->
 
             <div class="form-group">
 
@@ -151,18 +155,18 @@
 
                 <br><label for="insertPushUps">Push Ups Score</label>
                 <select id="insertPushUps" ng-model="pushUpsStatus" class="form-control">
-                    <option value="1">1 (less than 30 pushups)</option>
-                    <option value="2">2 (between 29 and 44 pushups)</option>
-                    <option value="3">3 (greater than 44 pushups)</option>
+                    <option value="1">1 (less than 30 push ups)</option>
+                    <option value="2">2 (between 29 and 44 push ups)</option>
+                    <option value="3">3 (greater than 44 push ups)</option>
                 </select><br>
                 <br>
                 <br>
 
                 <br><label for="insertChinUps">Chin Ups Score</label>
                 <select id="insertChinUps" ng-model="chinUpsStatus" class="form-control">
-                    <option value="1">1 (less than 6 chinups)</option>
-                    <option value="2">2 (6 or 7 chinups)</option>
-                    <option value="3">3 (greater than 7 chinups)</option>
+                    <option value="1">1 (less than 6 chin ups)</option>
+                    <option value="2">2 (6 or 7 chin ups)</option>
+                    <option value="3">3 (greater than 7 chin ups)</option>
                 </select><br>
                 <br>
                 <br>
@@ -178,7 +182,7 @@
                 <br>
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary">Update Fitness Test</button>
+                <button type="submit" class="btn btn-primary">Update Fitness Test <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
 
             </div>
 

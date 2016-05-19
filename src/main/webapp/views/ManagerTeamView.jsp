@@ -37,8 +37,9 @@
 
 
         <div ng-repeat="a in teams.map.team.myArrayList">
-            <h2>Schedule Overview: {{a.map.teamName}}</h2>
+            <h2><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Schedule Overview: {{a.map.teamName}}</h2>
         </div>
+        <br>
 
         <button class="btn btn-default" ng-click="addWeek()">Add Week <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
@@ -57,6 +58,7 @@
                 <br>
                 <br>
 
+                <!-- Credit : UIbootstrap angularjs datepicker -->
                 <div class="col-md-6">
 
                     <p class="input-group">
@@ -85,7 +87,7 @@
 
             <br>
             <br>
-            <button type="submit" class="btn btn-primary">Enter</button>
+            <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Week created
@@ -95,6 +97,7 @@
 
 
 
+        <br>
         <div class="panel-heading"><span class="lead">Weeks: </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
@@ -126,8 +129,8 @@
                     <td>{{a.map.weekNum}}</td>
                     <td>{{a.map.startDateString}}</td>
                     <td>{{a.map.endDateString}}</td>
-                    <td><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}"><button class="btn btn-default">Attendance Sheet</button></a></td>
-                    <td><a href="http://localhost:8081/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}"><button class="btn btn-default">Week {{a.map.weekNum}} Session Overview</button></a></td>
+                    <td><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Attendance Sheet</button></a></td>
+                    <td><a href="http://localhost:8081/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Week {{a.map.weekNum}} Session Overview</button></a></td>
 
                 </tr>
                 </tbody>
@@ -135,27 +138,6 @@
         </div>
         </div>
 
-
-        <!--
-
-        <div class="panel-heading"><span class="lead">Players </span></div>
-        <div class="tablecontainer">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Player Name</th>
-                    <th width="20%"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="a in teams.map.player.myArrayList">
-                    <td>{{a.map.firstName}} {{a.map.lastName}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-      -->
 
     </script>
 

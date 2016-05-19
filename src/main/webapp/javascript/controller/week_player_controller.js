@@ -374,9 +374,9 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
 
 
-        var income = document.getElementById("income").getContext("2d");
+        var attendanceChart = document.getElementById("attendanceChart").getContext("2d");
 
-        new Chart(income).Bar(barData);
+        new Chart(attendanceChart).Bar(barData);
 
 
 

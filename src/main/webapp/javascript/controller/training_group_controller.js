@@ -9,11 +9,11 @@ var app = angular.module('app',[]);
 app.config(['$routeProvider' , function($routeProvider ) {
     $routeProvider.when('/player/:playerId', {
 
-        templateUrl : "graphView.html",
+        templateUrl : "trainingGroupView.html",
         controller: "ChartCtrl"
     }).when('/', {
 
-        templateUrl : "graphView.html",
+        templateUrl : "trainingGroupView.html",
         controller: "Page1Ctrl"
 
     }).otherwise({
@@ -190,9 +190,9 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
         Chart.defaults.global.scaleStepWidth = 1;
 
 
-        var income = document.getElementById("income").getContext("2d");
+        var groupChart = document.getElementById("groupChart").getContext("2d");
 
-        new Chart(income).Bar(barData);
+        new Chart(groupChart).Bar(barData);
 
 
     });

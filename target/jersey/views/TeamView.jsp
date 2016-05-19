@@ -44,7 +44,7 @@
         <br>
         <br>
         <div ng-repeat="a in teams.map.team.myArrayList">
-            <h2>Team View: {{a.map.teamName}}</h2>
+            <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Team View: {{a.map.teamName}}</h2>
         </div>
         <br>
 
@@ -73,10 +73,10 @@
         <br>
         <div ng-repeat="a in teams.map.team.myArrayList">
 
-            <a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}"><button class="btn btn-default">Schedule Overview</button></a>
+            <a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Schedule Overview</button></a>
             <br>
             <br>
-            <a href="/views/TeamFitnessTestView.jsp#/team/{{a.map.teamId}}"><button class="btn btn-default">Fitness Tests</button></a>
+            <a href="/views/TeamFitnessTestView.jsp#/team/{{a.map.teamId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Fitness Tests</button></a>
 
         </div>
         <br>
@@ -105,7 +105,7 @@
         </div>
         </div>
 
-        <button class="btn btn-default" ng-click="addManager()">Add Manager <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+        <button class="btn btn-default" ng-click="addManager()">Add Manager <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div ng-show="showAddManagerForm">
 
@@ -163,9 +163,9 @@
                 <tbody>
                 <tr ng-repeat="a in teams.map.player.myArrayList" onclick="location.href='/views/PlayerView.jsp#/player/{{a.map.playerId}}'">
                     <td><a href="/views/PlayerView.jsp#/player/{{a.map.playerId}}">{{a.map.firstName}} {{a.map.lastName}}</a></td>
-                    <td><a href="/views/PlayerView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Player Overview</button></a></td>
-                    <td><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Fitness Test</button></a></td>
-                    <td><a href="/views/GraphTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Training Group</button></a></td>
+                    <td><a href="/views/PlayerView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Player Overview</button></a></td>
+                    <td><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Fitness Test</button></a></td>
+                    <td><a href="/views/TrainingGroupView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Training Group</button></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -174,7 +174,7 @@
 
 
 
-        <button class="btn btn-default" ng-click="addPlayer()">Add Player <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+        <button class="btn btn-default" ng-click="addPlayer()">Add Player <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div ng-show="showAddPlayerForm">
 
@@ -208,7 +208,7 @@
             </div>
             <br>
             <br>
-            <button type="submit" class="btn btn-primary">Enter</button>
+            <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
         </form>
 
 

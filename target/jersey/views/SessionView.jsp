@@ -33,7 +33,7 @@
                         <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
-                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/TrainingGroupView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +44,7 @@
         <br>
         <br>
         <div ng-repeat="a in sessions.map.session.myArrayList">
-            <h2>Attendance Record: {{a.map.sessionType}}  {{a.map.sessionDateString}}</h2>
+            <h2><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Attendance Record: {{a.map.sessionType}}  {{a.map.sessionDateString}}</h2>
         </div>
         <div ng-repeat="a in players.map.player.myArrayList">
             <h4>Player: {{a.map.firstName}} {{a.map.lastName}}</h4>
@@ -123,7 +123,7 @@
                     <option value="None of the above">None of the above</option>
                 </select><br>
 
-            <button type="submit" class="btn btn-primary">Enter</button>
+            <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Club created

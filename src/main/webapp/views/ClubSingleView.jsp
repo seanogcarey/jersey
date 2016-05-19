@@ -42,7 +42,7 @@
     <br>
     <br>
     <div ng-repeat="a in clubs.map.club.myArrayList">
-    <h2>Club View: {{a.map.clubName}}</h2>
+    <h2><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Club View: {{a.map.clubName}}</h2>
     </div>
     <br>
 
@@ -91,14 +91,14 @@
                 <tbody>
                 <tr ng-repeat="a in teams.map.team.myArrayList"  onclick="location.href='/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}'">
                     <td><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">{{a.map.teamName}}</a></td>
-                    <td><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}"><button class="btn btn-default">Go to Team </button></a></td>
+                    <td><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Go to Team </button></a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <br>
 
-    <button class="btn btn-default" ng-click="addTeam()">Add Team <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+    <button class="btn btn-default" ng-click="addTeam()">Add Team <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
     <div ng-show="showAddTeamForm">
 

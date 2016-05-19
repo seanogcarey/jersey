@@ -35,7 +35,7 @@
                         <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerView.jsp#/player/{{b.map.playerId}}">Player</a></li>
                         <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></li>
-                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
+                        <li ng-repeat="b in players.map.player.myArrayList"><a href="/views/TrainingGroupView.jsp#/player/{{b.map.playerId}}">Training Groups</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,7 +44,7 @@
         <br>
         <br>
         <br>
-        <h2 ng-repeat="a in players.map.player.myArrayList">Player Overview: {{a.map.firstName}} {{a.map.lastName}}</h2>
+        <h2 ng-repeat="a in players.map.player.myArrayList"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Player Overview: {{a.map.firstName}} {{a.map.lastName}}</h2>
 
 
         <br>
@@ -70,8 +70,8 @@
                     <td ng-repeat="a in teams.map.team.myArrayList">  {{a.map.teamName }}</td>
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.phoneNumber}}</td>
                     <td ng-repeat="a in players.map.player.myArrayList">{{a.map.email}}</td>
-                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Fitness Test</button></a></td>
-                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/GraphTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default">Training Group</button></a></td>
+                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Fitness Test</button></a></td>
+                    <td ng-repeat="a in players.map.player.myArrayList"><a href="/views/TrainingGroupView.jsp#/player/{{a.map.playerId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Training Group</button></a></td>
 
                 </tr>
                 </tbody>
@@ -105,7 +105,7 @@
                 <tbody>
                 <tr ng-repeat="b in weeks.map.week.myArrayList">
                     <td ng-repeat="a in players.map.player.myArrayList">
-                         <a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}"><button class="btn btn-default">Week {{b.map.weekNum}} Record</button></a>
+                         <a href="/views/WeekPlayerView.jsp#/week/{{b.map.weekId}}/player/{{a.map.playerId}}"><button class="btn btn-default"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Week {{b.map.weekNum}} Record</button></a>
                     </td>
                 </tr>
                 </tbody>
