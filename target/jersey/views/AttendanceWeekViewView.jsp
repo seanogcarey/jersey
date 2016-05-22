@@ -48,6 +48,7 @@
         <h3><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Attendance Sheet : Week {{a.map.weekNum}}</h3>
         </div>
 
+        <br>
         <div class="col-md-6">
 
         <h4><b>Total Training Count</b></h4>

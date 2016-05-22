@@ -51,6 +51,7 @@
         <div ng-repeat="a in weeks.map.week.myArrayList">
             <h2><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Week {{a.map.weekNum}} Session Overview</h2>
         </div>
+        <br>
         <div ng-repeat="a in teams.map.team.myArrayList">
             <h4>Team: {{a.map.teamName}} Session Overview</h4>
         </div>
@@ -59,15 +60,12 @@
         <br>
         <br>
 
+
         <button class="btn btn-default" ng-click="addSession()">Add Session <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div ng-show="showAddSessionForm">
 
             <br>
-            <div class="form-inline" ng-submit="createWeek()">
-
-
-
 
         <form class="form-inline" ng-submit="createSession()">
 
@@ -117,8 +115,9 @@
 
 
 
-        </div>
 
+        <br>
+        <br>
         <div class="panel-heading"><span class="lead">Sessions: </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">

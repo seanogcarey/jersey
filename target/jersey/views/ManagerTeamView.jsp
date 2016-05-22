@@ -41,11 +41,15 @@
         </div>
         <br>
 
+
         <button class="btn btn-default" ng-click="addWeek()">Add Week <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div ng-show="showAddWeekForm">
 
         <br>
+
+
+
         <form class="form-inline" ng-submit="createWeek()">
 
 

@@ -98,6 +98,8 @@
         </div>
         <br>
 
+        <div class="col-md-6">
+
     <button class="btn btn-default" ng-click="addTeam()">Add Team <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
     <div ng-show="showAddTeamForm">
@@ -122,7 +124,7 @@
 
 
     </div>
-
+        </div>
 
     </script>
 

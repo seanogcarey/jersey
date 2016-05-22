@@ -82,7 +82,7 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
 
             //post: Create with initialised data
             var presentStatus = "False"
-            var reasonOfAbsenceStatus = "NULL"
+            var reasonOfAbsenceStatus = "EMPTY"
 
             console.log("Creating new data!");
             $http.post("http://localhost:8081/jersey/attendanceTable/createAttendanceTable/weekId/" + $routeParams.weekId + "/playerId/" + $routeParams.playerId +
@@ -112,7 +112,7 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
         var reasonOfAbsenceData =  $scope.reasonOfAbsence;
 
         if($scope.reasonOfAbsence==null){
-            reasonOfAbsenceData="NULL";
+            reasonOfAbsenceData="EMPTY";
         }
 
         var attendanceAverageTrainingCount=0;

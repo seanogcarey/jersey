@@ -142,8 +142,6 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
         }
 
 
-        console.log("Extra Session ID: " + extraSessionId);
-
     });
 
 

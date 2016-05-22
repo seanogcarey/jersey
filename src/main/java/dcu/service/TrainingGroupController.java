@@ -106,13 +106,7 @@ public class TrainingGroupController {
 
 
         //todo find out if player id and fitness id are needed
-        /*
-        List<Updat> clubList = clubDAOImpl.getClubById(clubId);
 
-        if (clubList == null) {
-            throw new NotFoundException("club does not exist");
-        }
-        */
         trainingGroupDAOImpl.updateTrainingGroup(trainingGroupId, fintessGroup,strengthGroup,speedGroup);
 
         return "updatedClub";

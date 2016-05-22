@@ -65,11 +65,21 @@
             <strong><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Please enter fitness test </strong> See: <p ng-repeat="b in players.map.player.myArrayList"><a href="/views/PlayerFitnessTestView.jsp#/player/{{b.map.playerId}}">Fitness Test</a></p>
         </div>
 
-        <div class="panel-heading"><span class="lead">Info:  </span></div>
+
+
+
+
+        <br>
+        <h3>Info</h3>
         <p><b>Low:   </b>More work needs to be done</p>
         <p><b>Medium:</b>Good but room for improvement</p>
         <p><b>High:  </b>Very Good, keep it up</p>
 
+
+
+        <br>
+        <br>
+        <br>
         <div class="panel-heading"><span class="lead">Training Groups:  </span></div>
         <div class="tablecontainer">
             <table class="table table-hover">
@@ -105,8 +115,11 @@
         <br>
         <canvas id="groupChart" width="600" height="400"></canvas>
         <br>
-        <p class="col-md-6">1 = low, 2 = medium , 3 = high</p>
+        <p class="col-md-6">(1 = Low, 2 = Medium , 3 = High)</p>
         <br>
+
+
+
 
     </script>
 </head>

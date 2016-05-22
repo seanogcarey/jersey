@@ -68,7 +68,10 @@
         <a href="/views/FitnessTestDetailsView.jsp#"><button title="Info on the fitness test" class="btn btn-default">Fitness Test Details <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></button></a>
         <br>
 
+        <br>
+
         <div class="panel-heading"><span class="lead">Test Scores: </span></div>
+        <br>
         <div class="tablecontainer">
             <table class="table table-hover">
                 <thead>
@@ -113,9 +116,12 @@
             </table>
         </div>
 
+        <div class="col-md-6">
+
+
 
         <h2>Update Fitness Test</h2>
-        <h5> ( 1 = low, 2 = medium, 3 = high)</h5>
+        <!--<h5> ( 1 = low, 2 = medium, 3 = high)</h5>-->
 
 
         <form class="form-inline" ng-submit="updateFitnessTest()">
@@ -188,6 +194,7 @@
 
         </form>
 
+        </div>
 
     </script>
 

@@ -133,35 +133,6 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
             console.log("The weekID is " + dataParsed[i].map.weekId);
         }
 
-        /*
-            ///////////////////////////// average
-         var sum = 0;
-         for (var i=0;i<dataParsed.length;i++) {
-         console.log("The weekID is " + dataParsed[i].map.weekId);
-         sum = sum + dataParsed[i].map.weekId;
-         }
-
-         var average = sum/dataParsed.length;
-         console.log("AVERAGE : " + average);
-
-        /////////////////////////////////////////////////////////
-        console.log("before for loop");
-        console.log("data length :" + json.length);
-
-        var dataArray = {"d":[{"id":28,"class":"Sweden"}, {"id":56,"class":"USA"}, {"id":89,"class":"England"}]};
-
-        var parsedJSON = dataArray.d;
-        for (var i=0;i<parsedJSON.length;i++) {
-            console.log((parsedJSON[i].id));
-        }
-
-        for(var i = 0; i < json.length; i++) {
-            var obj = json[i];
-
-            console.log("in for loop now");
-            console.log(json);
-        }
-        */
 
 
 

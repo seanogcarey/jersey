@@ -319,7 +319,6 @@ public class AttendanceWeekViewController {
 
 
 
-
     public int goThroughStrings(String jsonResponce,String findString){
 
         int countOfWord= 0;

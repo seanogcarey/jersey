@@ -50,7 +50,7 @@ public class FitnessTestController {
     @GET
     @Path("/getFitnessTest/{fitnessTestId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getManagerById(@PathParam("fitnessTestId") final int fitnessTestId) throws IOException, NotFoundException,JSONException{
+    public String getFitnessTestById(@PathParam("fitnessTestId") final int fitnessTestId) throws IOException, NotFoundException,JSONException{
         List<FitnessTest> fitnessTestList = fitnessTestDAOImpl.getFitnessTestById(fitnessTestId);
 
         if (fitnessTestList == null) {

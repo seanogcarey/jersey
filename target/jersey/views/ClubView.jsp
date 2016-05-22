@@ -34,8 +34,13 @@
         <br>
         <h2>All Clubs</h2>
 
+        <br>
+
+        <div class="col-md-6">
+
 
         <button class="btn btn-default" ng-click="addClub()">Add Club <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+
 
         <div ng-show="showAddClubForm">
         <h3>Create Club</h3>
@@ -47,6 +52,9 @@
             <div class="form-group">
                 <label for="inputClubName">Club Name</label>
                 <input type="text" class="form-control" ng-model="clubName" id="inputClubName" placeholder="Club Name">
+
+                <br>
+                <br>
 
                 <label for="inputClubEmail">Email</label>
                 <input type="text" class="form-control" ng-model="email" id="inputClubEmail" placeholder="Email">
@@ -81,7 +89,9 @@
             <strong>Success! </strong> Club created
         </div>
 
+        </div>
 
+        <br>
         <div class="panel-heading"><span class="lead"></span></div>
         <div class="tablecontainer">
             <table class="table table-hover">

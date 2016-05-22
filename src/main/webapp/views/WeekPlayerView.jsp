@@ -175,6 +175,7 @@
 
         <h2>Update Extra Sessions</h2>
 
+        <div class="col-md-6">
 
         <form class="form-inline" ng-submit="createExtraSession()">
             <div class="form-group">
@@ -307,12 +308,14 @@
 
             <br>
             <br>
+            <br>
             <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
-            <strong>Success! </strong> Club created
+            <strong>Success! </strong> Extra Session Added
         </div>
 
+        </div>
     </script>
 
 

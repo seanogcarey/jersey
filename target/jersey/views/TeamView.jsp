@@ -105,6 +105,7 @@
         </div>
         </div>
 
+        <div class="col-md-6">
         <button class="btn btn-default" ng-click="addManager()">Add Manager <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
         <div ng-show="showAddManagerForm">
@@ -146,7 +147,10 @@
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccessManager">
             <strong>Success! </strong> Manager Added
         </div>
-
+        </div>
+        <br>
+        <br>
+        <br>
 
         <div class="panel-heading"><span class="lead">Players</span></div>
         <div class="tablecontainer">
@@ -173,6 +177,7 @@
         </div>
 
 
+        <div class="col-md-6">
 
         <button class="btn btn-default" ng-click="addPlayer()">Add Player <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 
@@ -219,7 +224,7 @@
             <strong>Success! </strong> Player Added
         </div>
 
-
+        </div>
 
     </script>
 

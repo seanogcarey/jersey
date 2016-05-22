@@ -53,7 +53,7 @@ public class PlayerController {
     @GET
     @Path("/getPlayer/{playerId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getManagerById(@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
+    public String getPlayerById(@PathParam("playerId") final int playerId) throws IOException, NotFoundException,JSONException{
         List<Player> playerList = playerDAOImpl.getPlayerById(playerId);
 
         if (playerList == null) {

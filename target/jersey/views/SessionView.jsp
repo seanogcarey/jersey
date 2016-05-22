@@ -101,6 +101,8 @@
 
         <h3>Update Attendance</h3>
 
+        <div class="col-md-6">
+
 
         <form class="form-inline" ng-submit="updateAttendance()">
 
@@ -112,7 +114,7 @@
                 <br>
                 <label for="insertReasonOfAbsence">Reason of Absence (If Present is false)</label>
                 <select id="insertReasonOfAbsence" ng-model="reasonOfAbsence" class="form-control">
-                    <option value="EMPTY">NULL</option>
+                    <option value="EMPTY">EMPTY</option>
                     <option value="College Training">College Training</option>
                     <option value="School Training">School Training</option>
                     <option value="College,School Match">College,School Match</option>
@@ -122,11 +124,14 @@
                     <option value="Other Club Match">Other Club Match</option>
                     <option value="None of the above">None of the above</option>
                 </select><br>
+            <br>
 
             <button type="submit" class="btn btn-primary">Submit <span class="glyphicon glyphicon-save" aria-hidden="true"></span></button>
         </form>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccess">
             <strong>Success! </strong> Club created
+        </div>
+
         </div>
 
     </script>
