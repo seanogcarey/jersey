@@ -1,7 +1,8 @@
 <!doctype html>
 <html ng-app="MyApp">
 <head>
-
+    <meta charset="utf-8" />
+    <title>Schedule Overview</title>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>

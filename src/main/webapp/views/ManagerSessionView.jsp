@@ -9,6 +9,8 @@
 <html ng-app="MyApp">
 <head>
 
+    <meta charset="utf-8" />
+    <title>Week Session Overview</title>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
@@ -38,8 +40,8 @@
                         <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
                         <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
                         <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
-                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></li>
-                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Session Overview</a></li>
+                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Week {{a.map.weekNum}} Attendance Sheet</a></li>
+                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Week {{a.map.weekNum}} Session Overview</a></li>
                     </ul>
                 </div>
             </div>

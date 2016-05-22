@@ -32,11 +32,12 @@
         <br>
         <br>
         <br>
+        <div class="col-md-6">
         <h2>All Clubs</h2>
 
         <br>
 
-        <div class="col-md-6">
+
 
 
         <button class="btn btn-default" ng-click="addClub()">Add Club <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>

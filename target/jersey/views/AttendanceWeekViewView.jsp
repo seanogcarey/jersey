@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Player</title>
+    <title>Attendance Week View</title>
     <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" data-semver="1.0.8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -34,8 +34,8 @@
                         <li><a href="/views/ClubSingleView.jsp#/club/{{a.map.clubId}}">Club</a></li>
                         <li><a href="/views/TeamView.jsp#/club/{{a.map.clubId}}/team/{{a.map.teamId}}">Team</a></li>
                         <li><a href="/views/ManagerTeamView.jsp#/team/{{a.map.teamId}}">Team Schedule</a></li>
-                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Attendance Sheet</a></li>
-                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Session Overview</a></li>
+                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/AttendanceWeekViewView.jsp#/week/{{a.map.weekId}}">Week {{a.map.weekNum}} Attendance Sheet</a></li>
+                        <li ng-repeat="a in weeks.map.week.myArrayList"><a href="/views/ManagerSessionView.jsp#/week/{{a.map.weekId}}">Week {{a.map.weekNum}} Session Overview</a></li>
                     </ul>
                 </div>
             </div>

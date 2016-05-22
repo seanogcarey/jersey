@@ -112,7 +112,7 @@ App.controller('SessionCtrl', function($scope, $routeParams,$http,$route) {
         var reasonOfAbsenceData =  $scope.reasonOfAbsence;
 
         if($scope.reasonOfAbsence==null){
-            reasonOfAbsenceData="NULL";
+            reasonOfAbsenceData="EMPTY";
         }
 
         var attendanceAverageTrainingCount=0;

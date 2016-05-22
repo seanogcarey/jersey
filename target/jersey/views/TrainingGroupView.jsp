@@ -9,6 +9,8 @@
 <html ng-app="app">
 
 <head>
+    <meta charset="utf-8" />
+    <title>Training Groups</title>
     <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js" data-semver="1.0.8"></script>
     <script data-require="angular.js@1.2.23" data-semver="1.2.23" src="https://code.angularjs.org/1.2.23/angular.js"></script>
     <script src="/javascript/externalJavascriptResources/Chart.js"></script>
