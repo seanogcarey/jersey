@@ -85,7 +85,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
             $scope.playerBurnoutDanger = true;
         }
 
-        if (playerBurnout == 4) {
+        if (playerBurnout >= 4 && playerBurnout < 5) {
 
             $scope.playerBurnoutWarning = true;
 
@@ -251,7 +251,7 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
                             fitnessGroup = "Medium";
                         }
-                        else if (kmRunScore==1 || attendanceAverageTrainingCount ==1){
+                        else if (kmRunScore==1 || attendanceAverageTrainingCount == 1){
 
                             fitnessGroup = "Low;"
                         }

@@ -106,7 +106,7 @@ App.controller('PlayerCtrl', function($scope, $routeParams,$http) {
             $scope.playerBurnoutDanger = true;
         }
 
-        if (playerBurnout == 4) {
+        if (playerBurnout >= 4 && playerBurnout < 5) {
 
             $scope.playerBurnoutWarning = true;
 

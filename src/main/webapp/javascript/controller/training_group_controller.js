@@ -86,7 +86,7 @@ app.controller('ChartCtrl', function($scope,$http,$routeParams) {
             $scope.playerBurnoutDanger = true;
         }
 
-        if (playerBurnout == 4) {
+        if (playerBurnout >= 4 && playerBurnout < 5) {
 
             $scope.playerBurnoutWarning = true;
 

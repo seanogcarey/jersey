@@ -79,7 +79,7 @@
 
 
         <div ng-repeat="b in sessions.map.session.myArrayList">
-        <div class="panel-heading"ng-repeat="a in weeks.map.week.myArrayList"><span class="lead">Attendance Table for {{b.map.sessionType}},  Week {{a.map.weekNum }} Date: </span></div>
+        <div class="panel-heading"ng-repeat="a in weeks.map.week.myArrayList"><span class="lead">Attendance Table for {{b.map.sessionType}},  Week {{a.map.weekNum }} Date: {{b.map.sessionDateString}}</span></div>
         </div>
         <div class="tablecontainer">
             <table class="table table-hover">

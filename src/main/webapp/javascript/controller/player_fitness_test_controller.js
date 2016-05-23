@@ -78,7 +78,7 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
             $scope.playerBurnoutDanger=true;
         }
 
-        if (playerBurnout == 4){
+        if (playerBurnout >= 4 && playerBurnout < 5){
 
             $scope.playerBurnoutWarning=true;
 
@@ -89,22 +89,6 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
             $scope.playerBurnoutSafe=true;
         }
 
-        // line chart data
-        var buyerData = {
-            labels : ["Fitness","Speed","Strength"],
-            datasets : [
-                {
-                    fillColor : "rgba(172,194,132,0.4)",
-                    strokeColor : "#ACC26D",
-                    pointColor : "#fff",
-                    pointStrokeColor : "#9DB86D",
-                    data : [3,3,1]
-                }
-            ]
-        }
-
-        // get line chart canvas
-        var buyers = document.getElementById('buyers').getContext('2d');
 
 
     });
@@ -144,7 +128,7 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
             if (sum == 0){
 
                 attendanceAverageTrainingCount=0;
-                console.log("SUM : " + sum);
+
             }
 
 
@@ -195,8 +179,11 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
                     else if (kmRunScore == 2 && (attendanceAverageTrainingCount < 5 && attendanceAverageTrainingCount > 2 )){
 
                         fitnessGroup = "Medium";
+                        console.log("DOES THIS COME UP???")
+
                     }
                     else if (kmRunScore==1 || attendanceAverageTrainingCount ==1){
+
 
                         fitnessGroup = "Low;"
                     }
@@ -237,7 +224,7 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
                     }
 
 
-                    $http.put("http://localhost:8081/jersey/trainingGroups/updateTrainingGroupByPlayerId/playerId/"+$routeParams.playerId+"/fitnessGroup/"+speedGroup+"/strengthGroup/"+strengthGroup+"/speedGroup/"+speedGroup).
+                    $http.put("http://localhost:8081/jersey/trainingGroups/updateTrainingGroupByPlayerId/playerId/"+$routeParams.playerId+"/fitnessGroup/"+fitnessGroup+"/strengthGroup/"+strengthGroup+"/speedGroup/"+speedGroup).
                     success(function() {
 
                         $route.reload();

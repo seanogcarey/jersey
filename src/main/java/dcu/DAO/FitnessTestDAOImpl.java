@@ -113,7 +113,7 @@ public class FitnessTestDAOImpl implements FitnessTestDAO {
         query.setParameter("pushUps", pushUps);
         query.setParameter("playerId",playerId);
         query.setParameter("sprint",sprint);
-        query.setParameter("agility",kmRun);
+        query.setParameter("agility",agility);
         query.setParameter("kmRun",kmRun);
         query.setParameter("workLifestyle",workLifestyle);
         query.setParameter("weeklyAverageTrainingCount",weeklyAverageTrainingCount);
