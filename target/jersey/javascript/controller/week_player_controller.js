@@ -247,6 +247,11 @@ App.controller('WeekPlayerCtrl', function($scope, $routeParams,$http,$route) {
 
                             fitnessGroup = "High";
                         }
+                        else if (kmRunScore == 2 ){
+
+                            fitnessGroup = "Medium";
+
+                        }
                         else if (kmRunScore == 2 && (attendanceAverageTrainingCount < 5 && attendanceAverageTrainingCount > 2 )){
 
                             fitnessGroup = "Medium";

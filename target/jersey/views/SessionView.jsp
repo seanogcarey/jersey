@@ -51,7 +51,7 @@
         </div>
         <br>
 
-        <div ng-repeat="c in weeks.map.week.myArrayList"><button class="btn btn-default" ng-repeat="b in players.map.player.myArrayList"><a href="WeekPlayerView.jsp#/week/{{c.map.weekId}}/player/{{b.map.playerId}}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to Week {{c.map.weekNum}} Overview</a></button></div>
+        <div ng-repeat="c in weeks.map.week.myArrayList"><button class="btn btn-default" ng-repeat="b in players.map.player.myArrayList"><a href="WeekPlayerView.jsp#/week/{{c.map.weekId}}/player/{{b.map.playerId}}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to Week {{c.map.weekNum}} Record</a></button></div>
 
 
         <br>
@@ -122,6 +122,9 @@
                     <option value="County Match">County Match</option>
                     <option value="Other Club Training">Other Club Training</option>
                     <option value="Other Club Match">Other Club Match</option>
+                    <option value="No mode of transport">No mode of transport</option>
+                    <option value="Work Commitments">Work Commitments</option>
+                    <option value="Study Commitments">Study Commitments</option>
                     <option value="None of the above">None of the above</option>
                 </select><br>
             <br>

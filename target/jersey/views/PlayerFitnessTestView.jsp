@@ -185,6 +185,7 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select><br>
+                <p>(Note: 5 being the highest, 1 being the lowest score)</p>
                 <br>
                 <br>
                 <br>

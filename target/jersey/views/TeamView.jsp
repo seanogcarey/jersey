@@ -143,11 +143,13 @@
         </form>
 
        </div>
-
+        </div>
         <div class="alert alert-success"  aria-label="close" ng-show="submissionSuccessManager">
             <strong>Success! </strong> Manager Added
         </div>
-        </div>
+
+        <br>
+        <br>
         <br>
         <br>
         <br>

@@ -176,12 +176,19 @@ App.controller('PlayerFitnessCtrl', function($scope, $routeParams,$http,$route) 
 
                         fitnessGroup = "High";
                     }
-                    else if (kmRunScore == 2 && (attendanceAverageTrainingCount < 5 && attendanceAverageTrainingCount > 2 )){
+                    else if (kmRunScore == 2 ){
 
                         fitnessGroup = "Medium";
-                        console.log("DOES THIS COME UP???")
 
                     }
+
+
+                    else if (kmRunScore == 2 && attendanceAverageTrainingCount < 5 && attendanceAverageTrainingCount > 2){
+
+                        fitnessGroup = "Medium";
+
+                    }
+
                     else if (kmRunScore==1 || attendanceAverageTrainingCount ==1){
 
 
