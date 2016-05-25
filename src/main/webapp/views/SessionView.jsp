@@ -125,6 +125,7 @@
                     <option value="No mode of transport">No mode of transport</option>
                     <option value="Work Commitments">Work Commitments</option>
                     <option value="Study Commitments">Study Commitments</option>
+                    <option value="Injured or sick">Injured or sick</option>
                     <option value="None of the above">None of the above</option>
                 </select><br>
             <br>
